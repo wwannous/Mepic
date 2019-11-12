@@ -1,0 +1,68 @@
+<div class="popup popup--secondary popup-send-by-email" ng-controller="Send_Gift_Address_Ctrl">
+        <div class="popup__head">
+            <h3>SEND THE GIFT BY ADDRESS</h3>
+        </div><!-- /.popup__head -->
+    
+        <div class="popup__body">
+            <div class="form form-send-by-email validate">
+                <form name="SendGiftMailForm" id="SendGiftAddressForm" method="post">
+                    <div class="form__body">
+                        <div class="form__row">
+                            <div class="form__controls">
+                                <input type="text" class="field" ng-class="{changed : model.firstName != null}" ng-model="model.firstName" name="firstName" id="field-first-name" data-rule-required="true">
+    
+                                <label for="field-first-name" class="form__label">Receiver’s first name*</label>
+                            </div><!-- /.form__controls -->
+                        </div><!-- /.form__row -->
+    
+                        <div class="form__row">
+                            <div class="form__controls">
+                                <input type="text" class="field" ng-class="{changed : model.lastName != null}" ng-model="model.lastName" name="lastName" id="field-last-name" data-rule-required="true">
+    
+                                <label for="field-last-name" class="form__label">Receiver’s last name*</label>
+                            </div><!-- /.form__controls -->
+                        </div><!-- /.form__row -->
+    
+                        <div class="form__row">
+                            <div class="form__controls">
+                                <input type="email" class="field" ng-class="{changed : model.email != null}" ng-model="model.email" name="email" id="field-email" data-rule-required="true">
+    
+                                <label for="field-email" class="form__label">Receiver’s  email address*</label>
+                            </div><!-- /.form__controls -->
+                        </div><!-- /.form__row -->
+    
+                        <div class="form__row">
+                            <div class="form__controls">
+                                <input type="tel" class="field" ng-class="{changed : model.phone != null}" ng-model="model.phone" name="phone" id="field-phone-number" data-rule-required="true">
+    
+                                <label for="field-phone-number" class="form__label">Receiver’s  phone number*</label>
+                            </div><!-- /.form__controls -->
+                        </div><!-- /.form__row -->
+
+                        <div class="form__row">
+                            <div class="form__controls">
+                                <input type="text" class="field" ng-class="{changed : model.cityState != null}" ng-model="model.cityState" name="cityState" id="field-city-state" data-rule-required="true">
+    
+                                <label for="field-last-name" class="form__label">Receiver’s City*</label>
+                            </div><!-- /.form__controls -->
+                        </div><!-- /.form__row -->
+
+                        <div class="form__row">
+                            <div class="form__controls">
+                                <input type="text" class="field" ng-class="{changed : model.address != null}" ng-model="model.address" name="address" id="field-address" data-rule-required="true">
+    
+                                <label for="field-last-name" class="form__label">Receiver’s Address*</label>
+                            </div><!-- /.form__controls -->
+                        </div><!-- /.form__row -->
+                    </div><!-- /.form__body -->
+    
+                    <div class="form__actions">
+                        <div class="error-message"></div><!-- /.error-message -->
+    
+                        <button type="submit" class="btn btn-default btn-block btn-rounded btn-pink">Submit</button>
+                    </div><!-- /.form__actions -->
+                </form>
+            </div><!-- /.form form-login -->
+        </div><!-- /.popup__body -->
+    </div><!-- /.popup -->
+    

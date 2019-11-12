@@ -1,0 +1,186 @@
+<div class="container container--secondary">
+    <section class="section section--main section--long-tertiary section--solid section--shipping">
+        <!-- <header class="section__head section__head-scroll">
+            <div class="shell">
+                <div class="section__head-inner">
+                    <a  class="nav-trigger">
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+                    </a>
+
+                    <h2>SHIPPING &amp; PAYMENT</h2>
+
+                    <a href="27_cart.html" class="basket">
+                        <svg class="ico-shopping-bag">
+                            <use xlink:href="#shopping-bag"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </header> -->
+
+        <div class="section__body">
+            <div class="section__inner">
+                <div class="shell">
+                    <div ng-if="addresses.billingAddresses.length > 0" class="form form-pink form-shipping form-shipping--secondary">
+                        <form name="shippingPaymentForm" id="shippingPaymentForm">
+                            <div class="form__head">
+                                <h3>BILLING ADDRESS</h3>
+                            </div><!-- /.form__head -->
+
+                            <div class="form__body">
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <div class="select select--solid select--secondary">
+                                            <select name="eKomBillingId" id="field-lebanon" ng-model="$parent.model.eKomBillingId" data-rule-required="true">
+                                                <option ng-value="{{address.id}}" ng-repeat="address in $parent.addresses.billingAddresses">{{address.nickname}}</option>
+                                            </select>
+                                        </div><!-- /.select -->
+                                    </div><!-- /.form__controls -->
+                                </div><!-- /.form__row -->
+
+                                <p>Or</p>
+
+                                <a ui-sref="app.newaddress({ isPayment : 1})" class="btn btn-default btn-block btn-pink btn-rounded btn-add">+ Add new address</a>
+                            </div><!-- /.form__body -->
+                        </form>
+                    </div><!-- /.form form-login -->
+
+                    <div ng-if="addresses.billingAddresses.length == 0" class="form form-pink form-shipping-address validate">
+                        <form name="shippingPaymentForm" id="shippingPaymentForm" method="post">
+                            <div class="form__head">
+                                <h3>BILLING ADDRESS</h3>
+                            </div>
+
+                            <div class="form__body">
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <input type="text" class="field" ng-model="$parent.model.billingEntry.billingNickname" name="nickname" id="field-address" data-rule-required="true">
+
+                                        <label for="field-address" class="form__label">Address name* (ex: Home)</label>
+                                    </div>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <input type="text" class="field" ng-model="$parent.model.billingEntry.billingFirstName" name="firstName" id="field-first-name" data-rule-required="true">
+
+                                        <label for="field-first-name" class="form__label">First name*</label>
+                                    </div>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <input type="text" class="field" ng-model="$parent.model.billingEntry.billingLastName" name="lastName" data-rule-required="true">
+
+                                        <label for="field-last-name" class="form__label">Last name*</label>
+                                    </div>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <input type="email" class="field" ng-model="$parent.model.billingEntry.billingEmail" name="email" id="field-email" data-rule-required="true">
+
+                                        <label for="field-email" class="form__label">Email address*</label>
+                                    </div>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <div class="select select--solid">
+                                            <select name="field-lebanon" id="field-lebanon" data-rule-required="true" ng-model="$parent.model.billingEntry.billingCountryId">
+                                                <option value="">Country</option>
+                                                <option value="{{country.country_id}}" ng-repeat="country in countries">{{country.CountryName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <input type="tel" class="field field-phone-number" ng-model="$parent.model.billingEntry.billingPhone" name="phone" id="field-phone-number" data-rule-required="true">
+
+                                        <label for="field-phone-number" class="form__label form__label-number">+961</label>
+                                    </div>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <input type="text" class="field field-city/state" ng-model="$parent.model.billingEntry.billingcityState" name="cityState" id="field-city/state" data-rule-required="true">
+
+                                        <label for="field-city/state" class="form__label">City/State</label>
+                                    </div>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <input type="text" class="field" ng-model="$parent.model.billingEntry.billingZipCode" name="zipCode" id="field-zip-code">
+
+                                        <label for="field-zip-code" class="form__label">Zip code</label>
+                                    </div>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <textarea class="textarea" ng-model="$parent.model.billingEntry.billingAddress" name="address" id="field-address" data-rule-required="true"></textarea>
+
+                                        <label for="field-address" class="form__label form__label-textarea">Address*</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div><!-- /.shell -->
+
+                <div class="payment">
+                    <div class="payment__head">
+                        Payment method:
+
+                        <div class="select select---transparent">
+                            <select name="field-payment" id="field-payment">
+                                <option value="">Online</option>
+                            </select>
+                        </div><!-- /.select -->
+                    </div><!-- /.payment__head -->
+
+                    <div class="payment__body">
+                        <ul>
+                            <li>
+                                Sub total:
+
+
+                                <span>$ {{basket.SubTotal}}</span>
+                            </li>
+                            <li>
+                                Shipping:
+
+
+                                <span>$ {{basket.ShippingFee}}</span>
+                            </li>
+                        </ul>
+                    </div><!-- /.payment__body -->
+
+                    <div class="payment__foot">
+                        <ul>
+                            <li>
+                                <a  class="btn btn-default btn-block btn-outline-grey">Total: <span>$ {{basket.TotalPrice}}</span></a>
+                            </li>
+
+                            <li>
+                                <div class="BlockSubmit"></div>
+                                <a onclick="$('#shippingPaymentForm').submit()" class="btn btn-default btn-block btn-pink">Submit order</a>
+                            </li>
+                        </ul>
+                    </div><!-- /.payment__foot -->
+                </div><!-- /.payment -->
+            </div><!-- /.section__inner -->
+
+            <div class="section__actions-secondary">
+            </div><!-- /.section__actions -->
+        </div><!-- /.section__body -->
+    </section><!-- /.section section-/-restaurants -->
+</div><!-- /.container -->

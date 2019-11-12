@@ -1,0 +1,16 @@
+{
+  "name": "litewebserver",
+  "version": "1.0.0",
+  "description": "demo project.",
+  "scripts": {
+    "lite": "lite-server --c bs-config.json",
+    "start": "npm run lite"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.2.2",
+    "node-sass": "^4.5.2",
+    "less": "^2.7.2"
+  }
+}

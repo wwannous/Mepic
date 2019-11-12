@@ -1,0 +1,74 @@
+<div class="container">
+    <section class="section section--solid section--long-secondary section--main section--form">
+        <header class="section__head">
+            <div class="shell">
+                <div class="section__head-inner">
+                    <a class="btn-back">
+                        <i class="ico-arrow-left-white"></i>
+                    </a>
+
+                    <h2>MESSAGE US</h2>
+                </div><!-- /.section__inner -->
+            </div><!-- /.shell -->
+        </header><!-- /.section__head -->
+
+        <div class="section__body">
+            <div class="shell">
+                <div class="form form-solid form-register validate">
+                    <form id="MessageUsForm" action="" method="post">
+                        <div class="form__body">
+                            <div class="form__row">
+                                <div class="form__controls">
+                                    <div class="select">
+                                        <select name="inquiryTypeId" id="field-lebanon" required="">
+                                            <option value="">Type of inquiry*</option>
+                                            <option value="{{type.id}}" ng-repeat="type in data.InquiryTypes">{{type.title}}</option>
+                                        </select>
+                                    </div><!-- /.select -->
+                                </div><!-- /.form__controls -->
+                            </div><!-- /.form__row -->
+
+                            <div class="form__row">
+                                <div class="form__controls">
+                                    <input type="text" class="field" name="firstName" id="field-first-name" ng-class="{changed : model.firstName != null}" ng-model="model.firstName" value="" required="" pattern=".+">
+
+                                    <label for="field-first-name" class="form__label">First name*</label>
+                                </div><!-- /.form__controls -->
+                            </div><!-- /.form__row -->
+
+                            <div class="form__row">
+                                <div class="form__controls">
+                                    <input type="text" class="field" name="lastName" id="field-last-name" ng-class="{changed : model.lastName != null}" ng-model="model.lastName" value="" required="" pattern=".+">
+
+                                    <label for="field-last-name" class="form__label">Last name*</label>
+                                </div><!-- /.form__controls -->
+                            </div><!-- /.form__row -->
+
+                            <div class="form__row">
+                                <div class="form__controls">
+                                    <input type="email" class="field" name="email" id="field-email" ng-class="{changed : model.email != null}" ng-model="model.email" value="" required="" pattern="^[0-9a-zA-Z]+([0-9a-zA-Z]*[-._+])*[0-9a-zA-Z]+@[0-9a-zA-Z]+([-.][0-9a-zA-Z]+)*([0-9a-zA-Z]*[.])[a-zA-Z]{2,6}$">
+
+                                    <label for="field-email" class="form__label">Email address*</label>
+                                </div><!-- /.form__controls -->
+                            </div><!-- /.form__row -->
+
+                            <div class="form__row">
+                                <div class="form__controls">
+                                    <textarea class="textarea textarea--secondary" name="message" id="field-comments" required="" pattern=".+"></textarea>
+
+                                    <label for="field-comments" class="form__label form__label-textarea">Comments*</label>
+                                </div><!-- /.form__controls -->
+                            </div><!-- /.form__row -->
+                        </div><!-- /.form__body -->
+
+                        <div class="form__actions">
+                            <div class="error-message"></div><!-- /.error-message -->
+                            <img class="loader" src="assets/images/loader.gif" />
+                            <button type="submit" class="btn btn-default btn-block btn-rounded btn-pink">Send</button>
+                        </div><!-- /.form__actions -->
+                    </form>
+                </div><!-- /.form form-login -->
+            </div><!-- /.shell -->
+        </div><!-- /.section__body -->
+    </section><!-- /.section section-/-restaurants -->
+</div><!-- /.container -->

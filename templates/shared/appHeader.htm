@@ -1,0 +1,106 @@
+<header>
+    <div class="header-logo-menu container container--custom">
+        <div class="holder-menu">
+            <!-- <button class="burger-menu"><i class="fas fa-bars"></i></button> -->
+            <button class="navbar-toggler navbar-toggler-right burger-menu" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <form name="SearchForm" id="SearchForm">
+                <div class="holder-search">
+                    <button type="submit" class="icon-search"><i class="fas fa-search"></i></button>
+                    <div class="holder-nav-search">
+                        <button class="search-btn-mobile"><i class="fas fa-search"></i></button>
+                        <input type="text" name="term" class="field-search" placeholder="ابحث...">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <a class="navbar-brand" ui-sref="app.home"><img class="img-logo" src="assets/images/logo.png" alt="أوّلاً - awalan"></a>
+    </div>
+    <nav class="navbar navbar-expand-md">
+        <div class="container container--custom">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <button class="navbar-toggler navbar-toggler-right burger-menu mobile-burger-menu" type="button"
+                        data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="true" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a ui-sref="app.home">
+                    <img src="assets/images/logo.png" class="scroll-logo" alt="أوّلاً - awalan">
+                </a>
+                <ul class="navbar-nav">
+                        <li class="nav-item" ng-repeat="category in $root.globalData.categories">
+                            <a class="nav-link" ng-href="{{category.subcategories.length > 0 ? '#' : '/Category/'+category.UrlTitle}}" ng-bind="category.title"></a>
+                            
+                            <div class="menu-dropdown" ng-if="category.subcategories.length > 0">
+                                <div class="menu-wrapper">
+                                    <div class="container container--custom">
+                                        <div class="holder-top">
+                                            <span class="arrow-back back-mainmenu"></span>
+                                            <p class="dropdown-title" ng-bind="category.title"></p>
+                                        </div>
+                                        <div class="holder-image-content">
+                                            <div class="holder-image holder-image-active" data-image="link-@subcatcount">
+                                                    <a href="" class="holder-thumb" ng-repeat="article in category.articles">
+                                                        <div class="holder-text">
+                                                            <p class="title" ng-bind="article.title"></p>
+                                                            <div class="desc" id="article{{article.id}}" ng-bind="article.smallDescription"></div>
+                                                        </div>
+                                                        <div class="img-holder-thumb">
+                                                            <img class="img-thumb" ng-src="article.imgSrc" alt="{{article.title}}">
+                                                        </div>
+                                                    </a>
+                                            </div>
+                                                    <div class="holder-image holder-image-active" data-image="link-@subcatcount" ng-repeat="subcategory in category.subcategories">
+                                                            <a href="" class="holder-thumb" ng-repeat="article in subcategory.articles">
+                                                                <div class="holder-text">
+                                                                    <p class="title" ng-bind="article.title"></p>
+                                                                    <div class="desc" id="article+{{article.id}}" ng-bind="article.smallDescription"></div>
+                                                                </div>
+                                                                <div class="img-holder-thumb">
+                                                                    <img class="img-thumb" ng-src="article.imgSrc" alt="{{article.title}}">
+                                                                </div>
+                                                            </a>
+                                                    </div>
+                                            </div>
+                                        <div class="holder-link">
+                                            <ul class="link-list">
+                                                <li class="link-item"><a href="" class="" id="link-{{category.id}}" ng-bind="category.title"></a></li>
+													<li class="link-item" ng-repeat="subcategory in category.subcategories"><a href="" class="" id="link-{{category.id}}" ng-bind="subcategory.title"></a>
+												</li>                                               
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+                <div class="mobile-footer-menu">
+                    <ul class="footer-menu">
+                        <li class="footer-item"><a href="@Url.Content("~/About")" class="footer-link">من نحن</a></li>
+                        <li class="footer-item"><a href="@Url.Content("~/ContactUs")" class="footer-link">اتصل بنا</a></li>
+                        <li class="footer-item"><a href="@Url.Content("~/Privacy")" class="footer-link">الخصوصية</a></li>
+                        <li class="footer-item">
+                            <a href="@Url.Content("~/Terms")" class="footer-link">
+                                حقوق التأليف والنشر
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="social-media">
+                        <li class="social-item"><a href="" class="social-link"><i class="fab fa-twitter"></i></a></li>
+                        <li class="social-item"><a href="" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

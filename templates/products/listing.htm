@@ -1,0 +1,59 @@
+<div class="container">
+    <section class="section section--main section--long section--main-brown section--services-secondary">
+        <!-- <header class="section__head section__head-scroll">
+            <div class="shell">
+                <div class="section__head-inner">
+                    <a  class="btn-back">
+                        <i class="ico-arrow-left-white"></i>
+                    </a>
+
+                    <h2 ng-bind="data.title"></h2>
+                </div>
+            </div>
+        </header> -->
+
+        <div class="section__body">
+            <div class="shell">
+                <div class="section__body-inner">
+                    <ul class="services--secondary">
+                        <li ng-repeat="product in data.products" class="service--secondary">
+                            <a ui-sref="app.productDetails({ id : product.id })"></a>
+
+                            <div class="service--secondary__image">
+                                <img ng-src="{{product.imgSrc}}" alt="">
+                            </div><!-- /.service-/-secondary__image -->
+
+                            <div class="service--secondary_content">
+                                <h3 ng-bind="product.title"></h3>
+
+                                <p ng-bind-html="product.smallDescription"></p>
+
+                                <ul>
+                                    <li ng-if="product.nbOfSessions != null">
+                                        <svg class="ico-calendar">
+                                            <use xlink:href="#calendar-star"></use>
+                                        </svg>
+
+                                        <text ng-bind="product.nbOfSessions"></text>&nbsp;sessions
+                                    </li>
+
+                                    <li ng-if="product.nbOfMinutes != null">
+                                        <svg class="ico-clock">
+                                            <use xlink:href="#clock"></use>
+                                        </svg>
+
+                                        <text ng-bind="product.nbOfMinutes"></text>&nbsp;minutes
+                                    </li>
+
+                                    <li>
+                                        <span>$ </span> <text ng-bind="product.price"></text>
+                                    </li>
+                                </ul>
+                            </div><!-- /.service-/-secondary_content -->
+                        </li><!-- /.service-/-secondary -->
+                    </ul><!-- /.services -->
+                </div><!-- /.section__body-inner -->
+            </div><!-- /.shell -->
+        </div><!-- /.section__body -->
+    </section><!-- /.section section-/-restaurants -->
+</div><!-- /.container -->

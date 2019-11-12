@@ -1,0 +1,47 @@
+.modal-payment { 
+    z-index: 9;
+    transition-delay: .4s; 
+    .modal-container { 
+        background: #fff; 
+        -webkit-flex: 0 0 100%; 
+        -ms-flex: 0 0 100%; 
+        flex: 0 0 100%; 
+        position: absolute; 
+        bottom: 41px; 
+        left: 0; 
+        right: 0; 
+        -webkit-transform: translateY(100%); 
+        -ms-transform: translateY(100%); 
+        transform: translateY(100%); 
+        transition: -webkit-transform .4s; 
+        transition: transform .4s; 
+        transition: transform .4s, 
+        -webkit-transform .4s; 
+        padding: 33px 48px 43px; 
+
+        min-height: ~"calc(100vh - 114px)";
+       
+    }
+    &.is-visible { 
+        transition-delay: 0s; 
+        .modal-container { 
+            -webkit-transform: translateY(0); 
+            -ms-transform: translateY(0); 
+            transform: translateY(0); 
+            transition-delay: .4s; 
+        }
+    }
+}
+
+/*#region IOs fixes*/
+html{
+    &.isIOS{
+        .modal-payment {
+            .modal-container{
+                .Fix100vh(min-height,'114px');
+            }
+        }
+    }
+}
+/*#endregion IOs fixes*/
+

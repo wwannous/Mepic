@@ -1,0 +1,150 @@
+<div class="container">
+    <section class="section section__head-scroll section--solid section--long section--main section--tabs">
+        <!-- <header class="section__head section__head-scroll">
+            <div class="shell">
+                <div class="section__head-inner">
+                    <a  class="nav-trigger">
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+                    </a>
+
+                    <h2>LOG IN</h2>
+
+                    <a href="27_cart.html" class="basket">
+                        <svg class="ico-shopping-bag">
+                            <use xlink:href="#shopping-bag"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </header> -->
+
+        <div class="section__body">
+            <div class="tabs tabs--secondary">
+                <div class="tabs__head">
+                    <nav class="tabs__nav">
+                        <ul>
+                            <li class="current">
+                                <a ui-sref="app.editProfile">EDIT ACCOUNT</a>
+                            </li>
+
+                            <li>
+                                <a ui-sref="app.addressbook">ADDRESS BOOK</a>
+                            </li>
+
+                            <li>
+                                <a ui-sref="app.orders">MY ORDERS</a>
+                            </li>
+                        </ul>
+                    </nav><!-- /.tabs__nav -->
+                </div><!-- /.tabs__head -->
+
+                <div class="tabs__body">
+                    <div class="tab current translating-in" id="tab1">
+                        <div class="form form-solid form-register validate">
+                            <form name="editProfileForm" id="editProfileForm" method="post">
+                                <div class="form__body">
+                                    <div class="form__row">
+                                        <div class="form__controls">
+                                            <input type="text" class="field" ng-class="{changed : model.firstName != null}" name="firstName" id="field-first-name" ng-model="model.firstName" data-rule-required="true">
+
+                                            <label for="field-first-name" class="form__label">First name*</label>
+                                        </div><!-- /.form__controls -->
+                                    </div><!-- /.form__row -->
+
+                                    <div class="form__row">
+                                        <div class="form__controls">
+                                            <input type="text" class="field" ng-class="{changed : model.lastName != null}" name="lastName" ng-model="model.lastName" id="field-last-name" data-rule-required="true">
+
+                                            <label for="field-last-name" class="form__label">Last name*</label>
+                                        </div><!-- /.form__controls -->
+                                    </div><!-- /.form__row -->
+
+                                    <div class="form__row">
+                                        <div class="form__controls">
+                                            <div class="select">
+                                                <select name="countryId" ng-model="model.countryId" ng-class="{changed : model.countryId != null}" id="field-1#" data-rule-required="true">
+                                                    <option value="">Country of residence*</option>
+                                                    <option ng-repeat="country in countries" ng-value="{{country.id}}" ng-selected="model.countryId == country.id">{{country.label}}</option>
+                                                </select>
+                                            </div><!-- /.select -->
+                                        </div><!-- /.form__controls -->
+                                    </div><!-- /.form__row -->
+
+                                    <div class="form__row">
+                                        <div class="form__controls">
+                                            <input type="text" class="field" ng-class="{changed : model.city != null}" name="city" ng-model="model.city" id="field-city" value="">
+
+                                            <label for="field-city" class="form__label">City</label>
+                                        </div><!-- /.form__controls -->
+                                    </div><!-- /.form__row -->
+
+                                    <div class="form__row">
+                                        <div class="form__controls">
+                                            <input type="text" class="field" ng-class="{changed : model.street != null}" name="street" ng-model="model.street" id="field-street" value="">
+
+                                            <label for="field-street" class="form__label">Street</label>
+                                        </div><!-- /.form__controls -->
+                                    </div><!-- /.form__row -->
+
+                                    <div class="form__row">
+                                        <div class="form__controls">
+                                            <input type="text" class="field" ng-class="{changed : model.address != null}" name="address" ng-model="model.address" id="field-address" data-rule-required="true">
+
+                                            <label for="field-address" class="form__label">Address*</label>
+                                        </div><!-- /.form__controls -->
+                                    </div><!-- /.form__row -->
+
+                                    <div class="form__row">
+                                        <div class="form__controls">
+                                            <input type="email" class="field" ng-class="{changed : model.UserName != null}" name="UserName" ng-model="model.UserName" id="field-email" data-rule-required="true">
+
+                                            <label for="field-email" class="form__label">Email address*</label>
+                                        </div><!-- /.form__controls -->
+                                    </div><!-- /.form__row -->
+
+                                    <div class="form__row" ng-if="model.hasOldPassword">
+                                        <div class="form__controls">
+                                            <input type="password" class="field" name="Password" id="field-password" ng-model="model.OldPassword">
+
+                                            <label for="field-password" class="form__label">Old Password</label>
+                                        </div><!-- /.form__controls -->
+                                    </div><!-- /.form__row -->
+
+                                    <div class="form__row">
+                                        <div class="form__controls">
+                                            <input type="password" class="field" name="NewPassword" id="field-new-password" ng-model="model.NewPassword">
+
+                                            <label for="field-new-password" class="form__label">New Password</label>
+                                        </div><!-- /.form__controls -->
+                                    </div><!-- /.form__row -->
+
+                                    <div class="form__row">
+                                        <div class="form__controls">
+                                            <input type="password" class="field" name="ConfirmNewPassword" id="field-confirm-password" ng-model="model.ConfirmNewPassword" data-rule-equalto="#field-new-password" data-msg-equalto="Passwords do not match">
+
+                                            <label for="field-confirm-password" class="form__label">Confirm password</label>
+                                        </div><!-- /.form__controls -->
+                                    </div><!-- /.form__row -->
+                                </div><!-- /.form__body -->
+
+                                <div class="form__actions">
+                                    <div class="error-message">&nbsp;</div><!-- /.error-message -->
+                                    <img class="loader" src="assets/images/loader.gif">
+                                    <button type="submit" class="btn btn-default btn-block btn-rounded btn-pink">Save</button>
+                                </div><!-- /.form__actions -->
+                            </form>
+                        </div><!-- /.form form-login -->
+
+                        <div class="tab__actions">
+                            <a ng-click="logout();" class="log-out">Log out</a>
+                        </div><!-- /.tab__actions -->
+                    </div><!-- /.tab -->
+                </div><!-- /.tabs__body -->
+            </div><!-- /.tabs -->
+        </div><!-- /.section__body -->
+    </section><!-- /.section section-/-restaurants -->
+</div><!-- /.container -->

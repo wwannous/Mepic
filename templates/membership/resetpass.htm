@@ -1,0 +1,58 @@
+<div class="container">
+        <section class="section section--solid section--main section--centered section--long section--main-secondary">
+            <!-- <header class="section__head section__head-scroll">
+                <div class="shell">
+                    <div class="section__head-inner">
+                        <a href="#" class="btn-back">
+                            <i class="ico-arrow-left-white"></i>
+                        </a>
+
+                        <h2>FORGOT PASSWORD</h2>
+
+                        <a href="27_cart.html" class="basket">
+                            <svg class="ico-shopping-bag">
+                                <use xlink:href="#shopping-bag"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </header> -->
+
+            <div class="section__body">
+                <div class="shell">
+                    <div class="section__inner">
+                        <div class="form form-solid form-register validate">
+                            <form id="frmResetPass" name="frmResetPass">
+                                <input hidden type="text" id="resetpassword" name="resetpassword" ng-value="passkey"/>
+                                <div class="form__body">
+                                    <h3>PLEASE ENTER A NEW PASSWORD</h3>
+
+                                    <div class="form__row">
+                                        <div class="form__controls">
+                                            <input type="password" class="field" name="NewPassword" id="field-new-password" data-rule-required="true">
+
+                                            <label for="field-new-password" class="form__label">New password*</label>
+                                        </div><!-- /.form__controls -->
+                                    </div><!-- /.form__row -->
+
+                                    <div class="form__row">
+                                        <div class="form__controls">
+                                            <input type="password" class="field" name="ConfirmNewPassword" id="field-confirm-new-password" ng-model="model.NewPassword" data-rule-equalto="#field-new-password" data-rule-required="true" data-msg-equalto="Passwords do not match">
+
+                                            <label for="field-confirm-new-password" class="form__label">Confirm new password*</label>
+                                        </div><!-- /.form__controls -->
+                                    </div><!-- /.form__row -->
+                                </div><!-- /.form__body -->
+
+                                <div class="form__actions">
+                                    <div class="error-message"></div><!-- /.error-message -->
+                                    <img class="loader" src="assets/images/loader.gif">
+                                    <button type="submit" class="btn btn-default btn-block btn-rounded btn-pink">Save</button>
+                                </div><!-- /.form__actions -->
+                            </form>
+                        </div><!-- /.form form-login -->
+                    </div><!-- /.section__inner -->
+                </div><!-- /.shell -->
+            </div><!-- /.section__body -->
+        </section><!-- /.section section-/-restaurants -->
+    </div><!-- /.container -->

@@ -1,0 +1,128 @@
+<div class="container container--secondary">
+    <section class="section section--main section--long-tertiary section--solid section--shipping">
+        <!-- <header class="section__head section__head-scroll">
+            <div class="shell">
+                <div class="section__head-inner">
+                    <a  class="nav-trigger">
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+                    </a>
+
+                    <h2>SHIPPING &amp; PAYMENT</h2>
+
+                    <a href="27_cart.html" class="basket">
+                        <svg class="ico-shopping-bag">
+                            <use xlink:href="#shopping-bag"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </header> -->
+
+        <div class="section__body">
+            <div class="section__inner">
+                <div class="shell">
+
+                    <div class="form form-pink form-shipping-address validate">
+                        <form name="NewAddressForm" id="NewAddressForm" method="post" ng-init="model.isBilling = true; model.defaultAddress = false">
+                            <div class="form__head">
+                                <h3 ng-hide="isEdit == 1">ADD ADDRESS</h3>
+                                <h3 ng-show="isEdit == 1">EDIT ADDRESS</h3>
+                            </div>
+
+                            <div class="form__body">
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <input type="text" class="field" ng-class="{changed : model.lastName != null}" ng-model="model.nickname" name="nickname" id="field-address" data-rule-required="true">
+
+                                        <label for="field-address" class="form__label">Address name* (ex: Home)</label>
+                                    </div>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <input type="text" class="field" ng-class="{changed : model.firstName != null}" ng-model="model.firstName" name="firstName" id="field-first-name" data-rule-required="true">
+
+                                        <label for="field-first-name" class="form__label">First name*</label>
+                                    </div>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <input type="text" class="field" ng-class="{changed : model.lastName != null}" ng-model="model.lastName" name="lastName" data-rule-required="true">
+
+                                        <label for="field-last-name" class="form__label">Last name*</label>
+                                    </div>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <input type="email" class="field" ng-class="{changed : model.email != null}" ng-model="model.email" name="email" id="field-email" data-rule-required="true">
+
+                                        <label for="field-email" class="form__label">Email address*</label>
+                                    </div>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <div class="select select--solid">
+                                            <select name="field-lebanon" id="field-lebanon" data-rule-required="true" ng-model="model.countryId">
+                                                <option value="">Country</option>
+                                                <option value="{{country.country_id}}" ng-repeat="country in countries">{{country.CountryName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <input type="tel" class="field field-phone-number" ng-class="{changed : model.phone != null}" ng-model="model.phone" name="phone" id="field-phone-number" data-rule-required="true">
+
+                                        <label for="field-phone-number" class="form__label form__label-number">+961*</label>
+                                    </div>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <input type="text" class="field field-city/state" ng-class="{changed : model.cityState != null}" ng-model="model.cityState" name="cityState" id="field-city/state">
+
+                                        <label for="field-city/state" class="form__label">City/State</label>
+                                    </div>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <input type="text" class="field" ng-class="{changed : model.zipCode != null}" ng-model="model.zipCode" name="zipCode" id="field-zip-code">
+
+                                        <label for="field-zip-code" class="form__label">Zip code</label>
+                                    </div>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="form__controls">
+                                        <textarea class="textarea" ng-class="{changed : model.address != null}" ng-model="model.address" name="address" id="field-address" data-rule-required="true"></textarea>
+
+                                        <label for="field-address" class="form__label form__label-textarea">Address*</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form__actions">
+                                <div class="error-message"></div><!-- /.error-message -->
+                                <img class="loader" src="assets/images/loader.gif" />
+                                <button type="submit" class="btn btn-default btn-block btn-rounded btn-pink">Submit</button>
+                            </div><!-- /.form__actions -->
+                        </form>
+                    </div>
+
+                </div><!-- /.shell -->
+            </div><!-- /.section__inner -->
+
+            <div class="section__actions-secondary">
+            </div><!-- /.section__actions -->
+        </div><!-- /.section__body -->
+    </section><!-- /.section section-/-restaurants -->
+</div><!-- /.container -->

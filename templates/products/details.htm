@@ -1,0 +1,121 @@
+<div class="container">
+        <section class="section section--main section--long section--main-transparent section--treatment">
+            <header class="section__head">
+                <div class="shell">
+                    <div class="section__head-inner">
+                        <a  class="nav-trigger">
+                            <span></span>
+            
+                            <span></span>
+            
+                            <span></span>
+                        </a>
+                        
+                        <a ng-click="goBack()" class="arrow-left"></a>
+
+                        <h2 ng-bind="navigationOpt.headerTitle"></h2>
+
+                        <a ui-sref="app.mycart" class="basket">
+                                <svg class="ico-shopping-bag">
+                                    <use xlink:href="#shopping-bag"></use>
+                                </svg>
+                                <span ng-if="basket.productsQuantity > 0" class="count" ng-bind="basket.productsQuantity"></span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <div class="section__body">
+                <div class="swiper-container swiper-container-images swiper-container-images--tertiary">
+                    <div class="swiper-wrapper">
+                        <div ng-repeat="image in data.images" class="swiper-slide" style="background-image: url({{image.imgSrc}});">
+                        </div><!-- /.swiper__slide -->
+                    </div><!-- /.swiper-wrapper -->
+
+                    <div ng-if="data.images.length > 1" class="swiper-pagination"></div>
+                 </div><!-- /.swiper-container -->
+
+                <div class="shell">
+                     <div class="section__content">
+                         <div class="service--secondary service--tertiary">
+                             <div class="service--tertiary__inner">
+                                 <h3 ng-bind="data.title"></h3>
+
+                                 <!-- <p ng-bind-html="data.smallDescription"></p> -->
+                             </div><!-- /.service-/-tertiary__inner -->
+
+                             <ul>
+                                 <li ng-if="data.nbOfMinutes != null">
+                                     <span ng-bind="data.nbOfMinutes" ng-class="data.category == 13 ? 'pink-text' : ''"></span>
+
+                                    <svg class="ico-clock ng-hide" ng-show="data.nbOfMinutes != null" ng-class="data.category == 13 ? 'pink' : ''">
+                                        <use xlink:href="#clock"></use>
+                                    </svg>
+                                 </li>
+
+                                 <li ng-if="data.nbOfSessions != null">
+                                        <span ng-bind="data.nbOfSessions" ng-class="data.category == 13 ? 'pink-text' : ''"></span>
+   
+                                       <svg class="ico-calendar ng-hide" ng-show="data.nbOfSessions != null" ng-class="data.category == 13 ? 'pink' : ''">
+                                           <use xlink:href="#calendar-star"></use>
+                                       </svg>
+                                    </li>
+
+                                 <li ng-hide="data.category == 12 && data.subcategory == 'facilities'">
+                                      <text ng-bind="data.price"></text>
+
+                                      <span ng-class="data.category == 12 ? 'blue-text' : data.category == 13 ? 'pink-text' : ''">$</span>
+                                 </li>
+                             </ul>
+                         </div><!-- /.service-/-tertiary -->
+
+                         <div class="section__inner">
+                            <h3>Description</h3>
+
+                            <p ng-bind-html="data.description"></p>
+                            <a ng-if="data.category == 11 || data.category == 12 && data.subcategory != 'facilities'" ui-sref="app.terms({ id : data.category == 12 ? 33 : 32})" class="terms-link">Read terms & conditions</a>
+                         </div><!-- /.section__inner -->
+                         <div class="section__actions" ng-hide="data.category == 12 && data.subcategory == 'facilities'">
+                            <a ng-if="data.category == 11" ng-click="addToBasket(productItem)" class="btn btn-default btn-block btn-orange btn-rounded">Add to cart</a>
+                            <a ng-if="data.category == 12 && data.subcategory != 'facilities'" ng-click="addToBasket(productItem)" class="btn btn-default btn-block btn-blue btn-rounded">Add to cart</a>
+                            <a ng-if="data.category != 12 && data.category != 11" ng-click="addToBasket(productItem)" class="btn btn-default btn-block btn-pink btn-rounded">Add to cart</a>
+
+                            <a ng-show="basket.productsQuantity > 0 && !basket.hasGiftWrap" magnific-popup main-class="mfp-fade" type="ajax" show-close-btn="true" removal-delay="500" href="templates/ajax/send_as_gift_product.htm" class="ng-hide btn btn-default btn-block btn-outline-brown btn-rounded link-popup">Send as a Gift</a>
+                            <a ng-show="basket.hasGiftWrap || basket.productsQuantity == undefined || basket.productsQuantity == 0" ng-click="addToBasket(productItem)" ui-sref="app.mycart({openGiftModal : 1})" class="ng-hide btn btn-default btn-block btn-outline-brown btn-rounded">Send as a Gift</a>
+                        </div><!-- /.section__actions -->
+
+                     </div><!-- /.section__content -->
+
+                     <div class="section__inner section__inner-secondary">
+                         <p>
+                             {{data.contactInfo.mainTitle}}<br>
+
+                             <span ng-bind-html="data.contactInfo.title"></span>
+                         </p>
+
+                         <p>
+                             <a>{{data.contactInfo.email}}</a><br>
+
+                            <a href="tel:{{data.contactInfo.phone}}">T {{data.contactInfo.phone}}</a><br>
+
+                            <a >F {{data.contactInfo.fax}}</a>
+                         </p>
+
+                         <a >www.leroyal.com</a>
+
+                         <div class="socials">
+                            <ul>
+                                <li ng-repeat="social in data.social">
+                                    <a href="{{social.link}}">
+                                        <svg class="{{'ico-'+social.title | lowercase}}">>
+                                            <use xlink:href="{{'#'+social.title | lowercase}}"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div><!-- /.socials -->
+                     </div><!-- /.section__inner -->
+                 </div><!-- /.shell -->
+            </div><!-- /.section__body -->
+        </section><!-- /.section section-/-restaurants -->
+    </div><!-- /.container -->

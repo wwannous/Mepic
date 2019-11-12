@@ -1,0 +1,57 @@
+<div class="container container--secondary">
+        <section class="section section--main section--solid section--map">
+            <!-- <header class="section__head section__head-scroll">
+                <div class="shell">
+                    <div class="section__head-inner">
+                        <a  class="nav-trigger">
+                            <span></span>
+
+                            <span></span>
+
+                            <span></span>
+                        </a>
+
+                        <h2>LOCATE US</h2>
+
+                        <a href="27_cart.html" class="basket">
+                            <svg class="ico-shopping-bag">
+                                <use xlink:href="#shopping-bag"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </header> -->
+
+            <div class="section__body">
+                <a ng-if="isAndroid" href="geo:33.9484771,35.5958979?z=12">
+                    <div class="map" style="background-image: url(assets/images/temp/maplocation.png);"></div>
+                </a>
+                <a ng-if="isIOS" href="maps://?q=33.9484771,35.5958979">
+                    <div class="map" style="background-image: url(assets/images/temp/maplocation.png);"></div>
+                        <!-- <a  class="logo">
+                            <svg class="ico-logo-white">
+                                <use xlink:href="#logo"></use>
+                            </svg>
+                        </a>
+
+                        <a  class="btn btn-default btn-outline-light btn-small btn-first">Centre Nahr El Kalb</a>
+
+                        <a  class="btn btn-default btn-outline-light btn-small btn-second">Le Mall Dbaye</a> -->
+
+                        <!-- <div class="map__actions">
+                            <div class="select select--secondary">
+                                <select name="field-1#" id="field-1#">
+                                    <option value="">Select your location</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                </select>
+                            </div>
+
+                            <a href="ajax/44_locate_us_on_click_on_royal_icon.html" class="btn btn-default btn-pink btn-directions link-popup">Get directions</a>
+                        </div> -->
+                    </div><!-- /.map -->
+                </a>
+            </div><!-- /.section__body -->
+        </section><!-- /.section section-/-restaurants -->
+    </div><!-- /.container -->

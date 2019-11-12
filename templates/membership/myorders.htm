@@ -1,0 +1,86 @@
+<div class="container">
+        <section class="section section--solid section--long section--main section--tabs">
+            <!-- <header class="section__head section__head-scroll">
+                <div class="shell">
+                    <div class="section__head-inner">
+                        <a  class="nav-trigger">
+                            <span></span>
+    
+                            <span></span>
+    
+                            <span></span>
+                        </a>
+    
+                        <h2>LOG IN</h2>
+    
+                        <a href="27_cart.html" class="basket">
+                            <svg class="ico-shopping-bag">
+                                <use xlink:href="#shopping-bag"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </header> -->
+    
+            <div class="section__body">
+                <div class="tabs tabs--secondary">
+                    <div class="tabs__head">
+                        <nav class="tabs__nav">
+                            <ul>
+                                <li>
+                                    <a ui-sref="app.editProfile">EDIT ACCOUNT</a>
+                                </li>
+    
+                                <li>
+                                    <a ui-sref="app.addressbook">ADDRESS BOOK</a>
+                                </li>
+    
+                                <li class="current">
+                                    <a ui-sref="app.orders">MY ORDERS</a>
+                                </li>
+                            </ul>
+                        </nav><!-- /.tabs__nav -->
+                    </div><!-- /.tabs__head -->
+
+                    <div class="tabs__body">
+                        <div class="tab current translating-in" id="tab3">
+                            <div class="orders">
+                                <div class="order" ng-repeat="order in data">
+                                    <div class="cols">
+                                        <div class="col col--1of2">
+                                            <h6>Order #</h6>
+
+                                            <p ng-bind="order.id + '-' + order.numberOfTries"></p>
+
+                                            <h6>Shipped to</h6>
+
+                                            <p ng-bind="order.shippingCountry != null ? order.shippingCountry : 'N/A'"></p>
+
+                                            <a ui-sref="app.receipt({id : order.id})" class="btn btn-default btn-block btn-pink btn-rounded">View receipt</a>
+                                        </div><!-- /.col-/-1of2 -->
+
+                                        <div class="col col--1of2">
+                                            <h6>Date</h6>
+
+                                            <p ng-bind="order.orderDate"></p>
+
+                                            <h6>Status</h6>
+
+                                            <p ng-bind="order.status">Pending</p>
+
+                                            <a  class="btn btn-default btn-block btn-outline-pink btn-rounded hidden">Track order</a>
+                                        </div><!-- /.col-/-1of2 -->
+                                    </div><!-- /.cols -->
+                                </div><!-- /.order -->
+                            </div><!-- /.orders -->
+
+                            <div class="tab__actions">
+                                <a ng-click="logout();" class="log-out">Log out</a>
+                            </div><!-- /.tab__actions -->
+                        </div><!-- /.tab -->
+                    </div>
+                </div><!-- /.tabs -->
+
+            </div><!-- /.section__body -->
+        </section><!-- /.section section-/-restaurants -->
+    </div><!-- /.container -->

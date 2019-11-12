@@ -1,0 +1,51 @@
+<footer>
+    <div class="container container--custom">
+        <div class="holder-link">
+            <div class="holder-main-link">
+                <ul class="main-link-list">
+                    <li class="main-link-item">
+                        <a href="" class="footer-link">من نحن</a>
+                    </li>
+                    <li class="main-link-item">
+                        <a href="" class="footer-link">اتصل بنا</a>
+                    </li>
+                    <li class="main-link-item">
+                        <a href="" class="footer-link">الخصوصية</a>
+                    </li>
+                    <li class="main-link-item">
+                        <a href="" class="footer-link">
+                            حقوق التأليف
+                            والنشر
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="holder-link-list footer-categories">
+				<div class="holder-link-list-item" ng-repeat="category in $root.globalData.footerCategories">
+					<a href="" class="link-list-item-title footer-link" ng-bind="category.title"></a>
+						<ul class="link-list" ng-if="category.subcategories.length > 0">
+								<li class="link-list-item" ng-repeat="subcategory in category.subcategories">
+									<a href="" class="footer-link" ng-bind="subcategory.title"></a>
+								</li>
+						</ul>
+				</div>
+            </div>
+
+            <div class="holder-logo">
+                <div class="holder-logo-img">
+                    <a href=""><img src="assets/images/logo-white.png" alt="أوّلاً - awalan"></a>
+                </div>
+                <div class="holder-social-media">
+                    <div class="holder-social-media-link" ng-repeat="social in $root.globalData.social">
+                        <a href="{{social.link}}" class="footer-link" target="_blank"><i class="fab {{social.icon}}"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="holder-copyright">
+            <a href="https://koein.com" class="copyright-text" target="__blank">Copyright &copy; 2019. By koein</a>
+        </div>
+    </div>
+</footer>

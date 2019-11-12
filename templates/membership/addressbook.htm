@@ -1,0 +1,115 @@
+<div class="container">
+    <section class="section section--solid section--long section--main section--tabs">
+        <!-- <header class="section__head section__head-scroll">
+            <div class="shell">
+                <div class="section__head-inner">
+                    <a  class="nav-trigger">
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+                    </a>
+
+                    <h2>LOG IN</h2>
+
+                    <a href="27_cart.html" class="basket">
+                        <svg class="ico-shopping-bag">
+                            <use xlink:href="#shopping-bag"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </header> -->
+
+        <div class="section__body">
+            <div class="tabs tabs--secondary">
+                <div class="tabs__head">
+                    <nav class="tabs__nav">
+                        <ul>
+                            <li>
+                                <a ui-sref="app.editProfile">EDIT ACCOUNT</a>
+                            </li>
+
+                            <li class="current">
+                                <a ui-sref="app.addressbook">ADDRESS BOOK</a>
+                            </li>
+
+                            <li>
+                                <a ui-sref="app.orders">MY ORDERS</a>
+                            </li>
+                        </ul>
+                    </nav><!-- /.tabs__nav -->
+                </div><!-- /.tabs__head -->
+
+                <div class="tabs__body">
+
+                    <div class="tab current translating-in" id="tab2">
+                        <div class="feature-four">
+                            <div class="feature-four__head">
+                                <h3>BILLING ADDRESSES</h3>
+
+                                <a ui-sref="app.newaddress">+New address</a>
+                            </div><!-- /.feature-four__head -->
+
+                            <div class="feature-four__body">
+                                <div class="swiper-container swiper-container-address">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide" ng-repeat="item in data.billingAddresses">
+                                            <div class="address">
+                                                <div class="address__head">
+                                                    <h3 ng-bind="item.nickname"></h3>
+
+                                                    <ul>
+                                                        <li>
+                                                            <a ui-sref="app.editaddress({id : item.id, isBilling : 1})">
+                                                                <svg class="ico-edit">
+                                                                    <use xlink:href="#edit"></use>
+                                                                </svg>
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a magnific-popup main-class="mfp-fade" type="ajax" show-close-btn="true" removal-delay="500" href="templates/ajax/remove_address.htm" class="link-popup">
+                                                                <svg class="ico-trash">
+                                                                    <use xlink:href="#trash-bin"></use>
+                                                                </svg>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div><!-- /.address__head -->
+
+                                                <div class="address__body">
+                                                    <p ng-bind="item.firstName"></p>
+
+                                                    <p ng-bind="item.countryName + ' - ' + item.address"></p>
+
+                                                    <p><a href="tel:{{item.phone}}" ng-bind="'961'+item.phone"></a></p>
+
+                                                    <p>Zip code: {{item.zipCode}}</p>
+
+                                                     <div class="checkbox">
+                                                        <input ng-click="SetAsDefaultAddress(item.id, true)" type="checkbox" id="checkbox{{item.id}}" ng-checked="item.defaultAddress">
+
+                                                        <label for="checkbox{{item.id}}" >Set as Default</label>
+                                                    </div><!-- /.checkbox -->
+                                                </div><!-- /.address__body -->
+                                            </div><!-- /.address -->
+                                        </div><!-- /.swiper__slide -->
+                                    </div><!-- /.swiper-wrapper -->
+
+                                    <div class="swiper-pagination"></div>
+                                 </div><!-- /.swiper-container -->
+                            </div><!-- /.feature-four__body -->
+                        </div><!-- /.feature-four -->
+
+                        <div class="tab__actions">
+                            <a ng-click="logout();" class="log-out">Log out</a>
+                        </div><!-- /.tab__actions -->
+                    </div><!-- /.tab -->
+                </div><!-- /.tabs__body -->
+            </div><!-- /.tabs -->
+
+        </div><!-- /.section__body -->
+    </section><!-- /.section section-/-restaurants -->
+</div><!-- /.container -->

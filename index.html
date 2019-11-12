@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ng-app="phoneDeck" -->
+
+<head>
+    <title>Awalan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="stylesheet" type="text/css" href="assets/css/main.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
+
+    <style>
+      .preview-list {
+          margin-bottom: 50px;
+          padding: 0;
+      }
+
+      .preview-link {
+          color: #000;
+          text-decoration: none;
+      }
+    </style>
+
+    <!-- #region PhoneGap -->
+    <script type="text/javascript" charset="utf-8">
+        var appVersion = "";
+        var defaultData = undefined;
+        var firstOpen = false;
+        var orderPrice = "";
+        var orderNumber = "";
+        var medium;
+        // var intercom = undefined;
+        var device = undefined;
+    </script>
+
+    <script type="text/javascript" src="phonegap.js"></script>
+
+    <script type="text/javascript" src="assets/js/cordovaneeds.js?v=1"></script>
+    <script type="text/javascript" charset="utf-8">
+        var gaPlugin;
+        document.addEventListener("deviceready", onDeviceReady, false);            
+    </script>
+    <!-- #endregion -->
+ <!-- Google Tag Manager -->
+ 
+ <!-- <script>
+    var Googletagmanagerid="GTM-KDTQHS6";
+   (function (w, d, s, l, i) {
+     w[l] = w[l] || [];
+     w[l].push({
+       'gtm.start': new Date().getTime(),
+       event: 'gtm.js'
+     });
+     var f = d.getElementsByTagName(s)[0],
+       j = d.createElement(s),
+       dl = l != 'dataLayer' ? '&l=' + l : '';
+     j.async = true;
+     j.src =
+       'https://www.googletagmanager.com/gtm.js?id=' + i + dl + '&v=' + Math.random();
+     f.parentNode.insertBefore(j, f);
+   })(window, document, 'script', 'dataLayer', Googletagmanagerid);
+ </script> -->
+ <!-- End Google Tag Manager -->
+
+ <!-- Google Ads -->
+ <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+ <script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+         google_ad_client: "ca-pub-6145231867327313",
+         enable_page_level_ads: true
+     });
+ </script>
+ <!-- End Google Ads -->
+<div ng-bind-html="$root.globalData.adsHead | htmlSafe"></div>
+</head>
+
+<body class="direction-rtl">
+
+    <ui-view class="main-wrapper"></ui-view>
+
+    <script src="assets/vendor/jquery/jquery-3.1.1.min.js"></script>
+    <script src="assets/vendor/jquery-validator-1-16-0/jquery.validate.min.js"></script>
+
+    <script src="assets/vendor/angular/plugins.js"></script>
+    <script src="assets/vendor/angular-sanitize.min.js"></script>
+    <script src="assets/js/Scripts/plugins.js"></script>
+    <script src="assets/js/Scripts/main.js"></script>
+    <script src="assets/js/Scripts/scripts.js"></script>
+    <script src="assets/js/Scripts/script.js"></script>
+
+    <script src="assets/js/_offlineData.js"></script>
+    <script src="assets/js/_formValidators.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/_controllers.js"></script>
+    <script src="assets/js/_config.js"></script>
+    <script src="assets/js/_directives.js"></script>
+    <script src="assets/js/_components.js"></script>
+    <script src="assets/js/_filters.js"></script>
+    <script src="assets/js/_services.js"></script>
+    <script src="assets/js/_factories.js"></script>
+
+
+    <script id="mapScript" type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyCfkzp_uw2-SUSIFRjhaeOkXJUzVxESXns&v=3" async></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.cordova) {
+                angular.bootstrap($("html"), ["appDeck"]);
+        //                 var imported = document.createElement('script');
+        // imported.src = 'assets/js/bundle.js';
+        // document.body.appendChild(imported);
+                setTimeout(function () {
+                    // $(".splash-bg").fadeOut();
+                }, 2000);
+            }
+        })
+    </script>
+
+</body>
+
+</html>

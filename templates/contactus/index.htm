@@ -1,0 +1,72 @@
+<div class="container">
+    <section class="section section--main section--contacts">
+
+
+        <div class="section__body">
+            <div class="swiper-container swiper-container-images">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-image: url({{kms_host + 'corporatepages/' + data.contactImage.imgSrc}});">
+                    </div><!-- /.swiper__slide -->
+                </div><!-- /.swiper-wrapper -->
+
+                <!-- <div class="swiper-pagination"></div> -->
+             </div><!-- /.swiper-container -->
+
+            <div class="shell">
+                <div class="section__inner">
+                    <h3>LET US HEAR FROM YOU</h3>
+
+                    <a ui-sref="app.messageus" class="btn btn-defult btn-pink btn-rounded">Message us</a>
+                </div><!-- /.section__inner -->
+
+                <ul class="contacts">
+                    <h3 ng-bind="data.contactInfo[0].mainTitle"></h3>
+
+                    <ul class="list-contacts" ng-repeat="contact in data.contactInfo">
+                        <li>
+                            <a>
+                                <span>
+                                    <i class="ico-circle"></i>
+                                </span>
+
+                                <div ng-bind-html="contact.title"></div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="tel:{{contact.phone}}">
+                                <span>
+                                    <i class="ico-phone"></i>
+                                </span>
+
+                                Tel: <span ng-bind="contact.phone"></span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a>
+                                <span>
+                                    <svg class="ico-fax">
+                                        <use xlink:href="#fax"></use>
+                                    </svg>
+                                </span>
+
+                                Fax: <span ng-bind="contact.fax"></span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="mailto:{{contact.email}}">
+                                <span>
+                                    <i class="ico-message"></i>
+                                </span>
+
+                                <span ng-bind="contact.email"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </ul><!-- /.contacts-group -->
+            </div><!-- /.shell -->
+        </div><!-- /.section__body -->
+    </section><!-- /.section section-/-restaurants -->
+</div><!-- /.container -->

@@ -1,0 +1,137 @@
+<div class="container">
+        <section class="section section--main section__head-scroll section--card">
+            <!-- <header class="section__head section__head-scroll">
+                <div class="shell">
+                    <div class="section__head-inner">
+                        <a  class="btn-back">
+                            <i class="ico-arrow-left-white"></i>
+                        </a>
+
+                        <h2>MY CART</h2>
+
+                        <span>(03)</span>
+                    </div>
+                </div>
+            </header> -->
+
+            <div class="section__body">
+                <div class="section__inner">
+                    <ul class="services-four">
+                        <li class="service-four" ng-repeat="item in basket.products">
+                            <div class="service__inner">
+                                <div class="service__image">
+                                    <a ui-sref="app.productDetails({id : item.id})">
+                                        <img src="{{item.image}}" alt="">
+                                    </a>
+                                </div><!-- /.service__image -->
+                                <a ui-sref="app.productDetails({id : item.id})">
+                                    <div class="service__content">
+                                        <h5 ng-bind="item.title"></h5>
+
+                                        <p ng-if="item.nbOfSessions != null" ng-bind="item.nbOfSessions + ' sessions'"></p>
+                                        <p ng-if="item.nbOfMinutes != null" ng-bind="item.nbOfMinutes + ' minutes'"></p>
+
+                                        <span ng-bind="'$ ' + item.price"></span>
+                                    </div><!-- /.service__content -->
+                                </a>
+                            </div><!-- /.service__inner -->
+
+                            <div class="service__actions">
+                                <a ng-click="confirmRemoveItem(item)" class="detete">
+                                    <svg class="ico-trash">
+                                        <use xlink:href="#trash-bin"></use>
+                                    </svg>
+                                </a>
+
+                                <ul class="count">
+                                    <li>
+                                        <a ng-click="UpdateSize('up', item)" class="plus"></a>
+                                    </li>
+
+                                    <li>
+                                        <span ng-bind="item.quantity">1</span>
+                                    </li>
+
+                                    <li>
+                                        <a ng-click="UpdateSize('down', item)" class="minus"></a>
+                                    </li>
+                                </ul><!-- /.count -->
+                            </div><!-- /.service__actions -->
+                        </li><!-- /.service-four -->
+                    </ul><!-- /.services -->
+
+                    <div class="shell" ng-if="!basket.hasGiftWrap && basket.products.length > 0">
+                        <a magnific-popup main-class="mfp-fade" type="ajax" show-close-btn="true" removal-delay="500" href="templates/ajax/send_as_gift.htm" class="panel panel-gift link-popup">
+                            
+                            <div  class=" panel__inner">
+                                <svg class="ico-gift">
+                                    <use xlink:href="#gift"></use>
+                                </svg>
+
+                                <h4>Wrap these items as a gift?</h4>
+                            </div>
+
+                            <span  class=" arrow-right"></span>
+                        </a>
+                    </div><!-- /.shell -->
+
+                    <div class="shell" ng-if="basket.hasGiftWrap && basket.products.length > 0">
+                        <div class="panel panel-gift panel-gift-wrapped">
+                            <svg class="ico-gift">
+                                <use xlink:href="#gift"></use>
+                            </svg>
+
+                            <div class="panel__inner">
+                                <ul>
+                                    <li>
+                                        <h4>Wrapped as a gift</h4>
+
+                                        <a magnific-popup main-class="mfp-fade" type="ajax" show-close-btn="true" removal-delay="500" href="templates/ajax/remove_gift.htm" class="close link-popup">
+                                            <svg class="ico-close">
+                                                <use xlink:href="#close-icon"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <p>
+                                            Will be sent by {{basket.shippingAddress.isMailGift ? 'mail' : 'address'}} to:
+
+                                            <a ng-if="basket.shippingAddress.isMailGift" ng-bind="basket.shippingAddress.firstName+' '+basket.shippingAddress.lastName"></a>
+                                            <a ng-if="basket.shippingAddress.isAddressGift" ng-bind="basket.shippingAddress.firstName+' '+basket.shippingAddress.lastName"></a>
+                                        </p>
+
+                                        <a ng-if="basket.shippingAddress.isMailGift" magnific-popup shippingaddress="basket.shippingAddress" model="{{basket.shippingAddress}}" main-class="mfp-fade" type="ajax" show-close-btn="true" removal-delay="500" href="templates/ajax/send_as_gift_mail.htm" class="edit">
+                                            <svg class="ico-edit">
+                                                <use xlink:href="#edit"></use>
+                                            </svg>
+                                        </a>
+                                        <a ng-if="basket.shippingAddress.isAddressGift" magnific-popup shippingaddress="basket.shippingAddress" model="{{basket.shippingAddress}}" main-class="mfp-fade" type="ajax" show-close-btn="true" removal-delay="500" href="templates/ajax/send_as_gift_address.htm" class="edit">
+                                            <svg class="ico-edit">
+                                                <use xlink:href="#edit"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!-- /.panel panel-gift panel-gift-wrapped -->
+                    </div><!-- /.shell -->
+                    <p class="empty__cart" ng-if="basket.products.length == 0">No items in basket.</p>
+                </div><!-- /.section__inner -->
+
+            </div><!-- /.section__body -->
+
+            <div ng-show="basket.products.length > 0" class="section__actions-secondary">
+                <ul>
+                    <li>
+                        <a class="btn btn-default btn-block btn-outline-grey">Total: <span ng-bind="'$ ' + basket.TotalPrice"></span></a>
+                    </li>
+
+                    <li>
+                        <!-- <a href="ajax/29_send_as_a_gift_by_mail.html" class="btn btn-default btn-block btn-pink link-popup">Check out</a> -->
+                        <a ui-sref="app.payment" class="btn btn-default btn-block btn-pink">Check out</a>
+                    </li>
+                </ul>
+            </div><!-- /.section__actions -->
+        </section><!-- /.section section-/-restaurants -->
+    </div><!-- /.container -->

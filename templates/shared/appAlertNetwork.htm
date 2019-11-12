@@ -1,0 +1,17 @@
+<div class="modal js-panel modal-network-connection modal-pin-code" 
+    ng-class="{'inner-alert': lowerAlertStyling}"
+    id="modal-network-connection" data-hash="modal-network-connection">
+    <div class="modal-overlay js-panel-toggle js-panel-close" data-target="#modal-network-connection" ></div>
+    <div class="modal-container">
+        <div class="form-pin">
+            <div class="form-head">
+                <h5>No Internet Connection</h5>
+            </div>
+            <div class="form-actions">
+                <input type="submit" value="Retry" class="btn btn-primary btn-black btn-block btn-medium form-btn" ng-click="ReloadState()"> 
+                <!--ClosePanel('#modal-internet-connection', $event)-->
+                <div class="spinner"></div>
+            </div>
+        </div>
+    </div>
+</div>

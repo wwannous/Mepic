@@ -1,0 +1,48 @@
+<div class="container">
+    <section class="section section--main section__head-scroll section--main-blue section--restaurants">
+        <!-- <header class="section__head section__head-scroll">
+            <div class="shell">
+                <div class="section__head-inner">
+                    <a class="nav-trigger">
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+                    </a>
+
+                    <h2>WATERGATE</h2>
+
+                    <a  class="basket">
+                        <svg class="ico-shopping-bag">
+                            <use xlink:href="#shopping-bag"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </header> -->
+
+        <div class="section__body">
+            <div class="section__actions">
+                <div class="shell">
+                    <ul>
+                        <li ng-repeat="tab in tabs">
+                            <a ng-click="switchTabs($index)" ng-class="{'btn-blue' : tab.selected, 'btn-grey' : !tab.selected}" class="btn btn-default btn-block btn-rounded" ng-bind="tab.title"></a>
+                        </li>
+                    </ul>
+                </div><!-- /.shell -->
+            </div><!-- /.section__actions -->
+
+            <ul class="features features--blue">
+                <li ng-repeat="item in listing" class="feature" style="background-image: url({{item.imgSrc}});">
+                    <a ng-if="linkTo == 'subsub'" ui-sref=""></a>
+                    <a ng-if="linkTo == 'product'" ui-sref="app.productDetails({id : item.id})"></a>
+
+                    <div class="feature__inner">
+                        <h3 ng-bind="item.title"></h3>
+                    </div><!-- /.feature__inner -->
+                </li><!-- /.feature -->
+            </ul><!-- /.features -->
+        </div><!-- /.section__body -->
+    </section><!-- /.section section-/-restaurants -->
+</div><!-- /.container -->

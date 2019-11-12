@@ -1,0 +1,98 @@
+<div class="container">
+    <section class="section section--solid section--main section--main-secondary section--form section--register">
+        <!-- <header class="section__head">
+            <div class="shell">
+                <div class="section__head-inner">
+                    <a  class="btn-back">
+                        <i class="ico-arrow-left-white"></i>
+                    </a>
+
+                    <h2>REGISTER</h2>
+
+                    <a href="27_cart.html" class="basket">
+                        <svg class="ico-shopping-bag">
+                            <use xlink:href="#shopping-bag"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </header> -->
+
+        <div class="section__body">
+            <div class="shell">
+                <div class="form form-solid form-register validate">
+                    <form id="registrationForm" name="registrationForm">
+                        <div class="form__body">
+                            <div class="form__row">
+                                <div class="form__controls">
+                                    <input type="text" class="field" ng-class="{changed : model.firstName != null}" name="firstName" id="field-first-name" data-rule-required="true" ng-model="model.firstName">
+
+                                    <label for="field-first-name" class="form__label">First name*</label>
+                                </div><!-- /.form__controls -->
+                            </div><!-- /.form__row -->
+
+                            <div class="form__row">
+                                <div class="form__controls">
+                                    <input type="text" class="field" ng-class="{changed : model.lastName != null}" name="lastName" id="field-last-name" data-rule-required="true" ng-model="model.lastName">
+
+                                    <label for="field-last-name" class="form__label">Last name*</label>
+                                </div><!-- /.form__controls -->
+                            </div><!-- /.form__row -->
+
+                            <div class="form__row">
+                                <div class="form__controls">
+                                    <div class="select">
+                                        <select name="countryId" id="field-1#" data-rule-required="true" ng-model="model.countryId">
+                                            <option value="">Country of residence*</option>
+                                            <option ng-repeat="country in data.countries" value="{{country.id}}">{{country.label}}</option>
+                                        </select>
+                                    </div><!-- /.select -->
+                                </div><!-- /.form__controls -->
+                            </div><!-- /.form__row -->
+
+                            <div class="form__row">
+                                <div class="form__controls">
+                                    <input type="email" class="field" ng-class="{changed : model.UserName != null}" name="UserName" id="field-email" value="" required="" ng-model="model.UserName" data-rule-required="true" data-rule-email="true" data-rule-isemail="true">
+
+                                    <label for="field-email" class="form__label">Email address*</label>
+                                </div><!-- /.form__controls -->
+                            </div><!-- /.form__row -->
+
+                            <div class="form__row" ng-if="userProvider != 'Facebook'">
+                                <div class="form__controls">
+                                    <input type="password" class="field" ng-class="{changed : model.Password != null}" name="Password" id="field-password" data-rule-required="true" ng-model="model.Password">
+
+                                    <label for="field-password" class="form__label">Password*</label>
+                                </div><!-- /.form__controls -->
+                            </div><!-- /.form__row -->
+
+                            <div class="form__row" ng-if="userProvider != 'Facebook'">
+                                <div class="form__controls">
+                                    <input type="password" class="field" ng-class="{changed : model.ConfirmPassword != null}" name="ConfirmPassword" id="field-confirm-password" ng-model="model.ConfirmPassword" data-rule-equalto="#field-password" data-rule-required="true" data-msg-equalto="Passwords do not match">
+
+                                    <label for="field-confirm-password" class="form__label">Confirm password*</label>
+                                </div><!-- /.form__controls -->
+                            </div><!-- /.form__row -->
+
+                            <div class="form__row">
+                                <div class="form__controls">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="checkbox" name="privacy" ng-model="model.privacy" data-rule-required="true">
+
+                                        <label for="checkbox">I agree to the <a href="https://leroyal.com/en/about-us/privacy-policy" target="_blank">Privacy policy</a></label>
+                                    </div><!-- /.checkbox -->
+                                </div><!-- /.form__controls -->
+                            </div><!-- /.form__row -->
+                        </div><!-- /.form__body -->
+
+                        <div class="form__actions">
+                            <div class="error-message"></div><!-- /.error-message -->
+                            <img class="loader" src="assets/images/loader.gif" />
+                            <button type="submit" class="btn btn-default btn-block btn-rounded btn-pink">Register</button>
+                        </div><!-- /.form__actions -->
+                    </form>
+                </div><!-- /.form form-login -->
+            </div><!-- /.shell -->
+        </div><!-- /.section__body -->
+    </section><!-- /.section section-/-restaurants -->
+</div><!-- /.container -->

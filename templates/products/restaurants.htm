@@ -1,0 +1,39 @@
+<div class="container">
+    <section class="section section--main section--main section--restaurants">
+    <header class="section__head section__head-scroll">
+            <div class="shell">
+                <div class="section__head-inner">
+                    <a  class="nav-trigger">
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+                    </a>
+
+                    <h2>RESTAURANTS</h2>
+
+                    <a href="27_cart.html" class="basket">
+                        <svg class="ico-shopping-bag">
+                            <use xlink:href="#shopping-bag"></use>
+                        </svg>
+                    </a>
+                </div><!-- /.section__inner -->
+            </div><!-- /.shell -->
+        </header><!-- /.section__head -->
+
+        <div class="section__body">
+            <ul class="features">
+                <li ng-repeat="restaurant in data.products" class="feature" style="background-image: url({{kms_host + 'ekomproducts/' + restaurant.imgSrc}});">
+                    <a ui-sref="app.productDetails({ id : restaurant.id })"></a>
+
+                    <div class="feature__inner">
+                        <h3 ng-bind="restaurant.title"></h3>
+
+                        <p ng-bind-html="restaurant.smallDescription"></p>
+                    </div><!-- /.feature__inner -->
+                </li><!-- /.feature -->
+            </ul><!-- /.features -->
+        </div><!-- /.section__body -->
+    </section><!-- /.section section-/-restaurants -->
+</div><!-- /.container -->

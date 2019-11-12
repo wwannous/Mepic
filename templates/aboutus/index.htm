@@ -1,0 +1,67 @@
+		<div class="container">
+			<section class="section section--main section--slider-secondary about-us">
+				<!-- <header class="section__head section__head-scroll">
+					<div class="shell">
+						<div class="section__head-inner">
+							<a  class="nav-trigger">
+								<span></span>
+
+								<span></span>
+
+								<span></span>
+							</a>
+
+							<h2>ABOUT US</h2>
+
+							<a href="27_cart.html" class="basket">
+								<svg class="ico-shopping-bag">
+									<use xlink:href="#shopping-bag"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</header> -->
+
+				<div class="section__body">
+					<div class="swiper-container swiper-container-images swiper-container-images--secondary swiper-container-images--four">
+				        <div class="swiper-wrapper">
+				            <div class="swiper-slide" style="background-image: url({{kms_host + 'corporatepages/' + data.about.imgSrc}});">
+				            	<div class="swiper-slide__content">
+				            		<h3 ng-bind="data.about.subtitle"></h3>
+				            	</div><!-- /.swiper-slide__content -->
+				            </div><!-- /.swiper__slide -->
+						<!-- <div class="swiper-pagination"></div> -->
+	 			    </div><!-- /.swiper-container -->
+				</div><!-- /.section__body -->
+			</section><!-- /.section section-/-restaurants -->
+
+			<section class="section section--about">
+				<div class="section__inner">
+					<ul class="features--secondary">
+						<li class="feature--secondary" ng-repeat="item in data.subSections">
+							<a class="feature__icon">
+								<svg class="ico-{{item.title | lowercase}}">
+									<use xlink:href="{{'#'+item.title | lowercase}}"></use>
+								</svg>
+							</a>
+
+							<div class="feature__content">
+								<h3 ng-bind="item.title"></h3>
+
+								<p ng-bind-html="item.description"></p>
+							</div><!-- /.feature__content -->
+						</li><!-- /.feature-/-secondary -->
+					</ul><!-- /.features -->
+				</div><!-- /.section__inner -->
+			</section><!-- /.section section-/-about -->
+
+			<div class="callout--secondary" style="background-image: url(assets/images/temp/section-image-9.jpg);">
+				<div class="shell">
+					<div class="callout--secondary__inner">
+						<h3>ANY QUESTION?</h3>
+
+						<a ui-sref="app.contactus" class="btn btn-default btn-rounded btn-white">Get in touch</a>
+					</div><!-- /.callout-/-secondary__inner -->
+				</div><!-- /.shell -->
+			</div><!-- /.callout-/-secondary -->
+		</div><!-- /.container -->

@@ -1,0 +1,27 @@
+<div class="container">
+        <section class="section section--main section__head-scroll section--main-brown">
+
+            <div class="section__body">
+                <div class="section__actions">
+                    <div class="shell">
+                        <ul>
+                            <li ng-repeat="tab in tabs">
+                                <a ng-click="switchTabs($index)" ng-class="{'btn-orange' : tab.selected, 'btn-grey' : !tab.selected}" class="btn btn-default btn-block btn-rounded" ng-bind="tab.title"></a>
+                            </li>
+                        </ul>
+                    </div><!-- /.shell -->
+                </div><!-- /.section__actions -->
+
+                <ul class="features features--orange">
+                    <li ng-repeat="item in listing" class="feature" style="background-image: url({{item.imgSrc}});">
+                        <a ng-if="linkTo == 'subsub'" ui-sref="app.listing({id : item.id})"></a>
+                        <a ng-if="linkTo == 'product'" ui-sref="app.productDetails({id : item.id})"></a>
+
+                        <div class="feature__inner">
+                            <h3 ng-bind="item.title"></h3>
+                        </div><!-- /.feature__inner -->
+                    </li><!-- /.feature -->
+                </ul><!-- /.features -->
+            </div><!-- /.section__body -->
+        </section><!-- /.section section-/-restaurants -->
+    </div><!-- /.container -->

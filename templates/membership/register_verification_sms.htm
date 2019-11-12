@@ -1,0 +1,45 @@
+<app-Alert></app-Alert>
+<main class="main-full box-gradient box-gradient--light">
+    <div class="main__inner">
+        <div class="form-main form--center form--app">
+            <div class="form-main__image-blur" style="background-image: url(assets/images/temp/main-2.jpg);"></div>
+            <form id="registrationSMSValidationForm" name="registrationSMSValidationForm" class="white-spinner">
+                <div class="form__head">
+                    <!-- <h1 class="form__title-mobile title--xsmall title--mobile">Email Verified!</h1> -->
+                    <h4 class="title--mobile">An SMS with a code has been sent to your mobile</h4>
+                </div>
+                <div class="form__section form--small">
+                    <div class="form__body">
+                        <div class="form__row">
+                            <label for="field-code" class="hidden">Enter code</label>
+                            <div class="form__controls">
+                                <input type="tel" pattern="[0-9]*" class="field-alt" placeholder="Enter code" name="verificationCode" id="verificationCode"
+                                data-rule-required="true" ng-model="model.verificationCode" placeholder="Enter code" 
+                                data-rule-minlength="6" data-rule-maxlength="6">
+                            </div>
+                        </div>
+                        <div class="form__row">
+                            <div class="form__actions">
+                                <input type="submit" value="Validate" class="btn btn--primary btn--solid-white btn--block">
+                                <div class="spinner"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form__section-alt">
+                    <div ng-click="ResendCode()" class="form__link form__link--medium link-action ng-hide" ng-show="canSendSMS">
+                        Didn’t receive the code, press here to resend
+                    </div>
+                    <div class="form-instructions ng-hide" ng-show="!canSendSMS">
+                        <div class="text-instruction">We sent you a code by SMS</div>
+                        <div class="text-separator"></div>
+                        <div class="text-countdown">
+                            <timer interval="1000" countdown="120" autostart="false">{{mminutes}}:{{sseconds}}</timer>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<app-Alert-Internet></app-Alert-Internet>

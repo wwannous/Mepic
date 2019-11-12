@@ -1,0 +1,301 @@
+<div class="top-ads-holder">
+    <div class="top-ad-holder" ng-bind-html="$root.globalData.ads.GoogleAdHomeTop | htmlSafe">
+
+    </div>
+    <div class="top-ad-holder-mobile" ng-bind-html="$root.globalData.ads.GoogleAdMobileHeader | htmlSafe">
+
+    </div>
+    <div id="HomeBottomAd" ng-bind-html="$root.globalData.ads.GoogleAdHomeBottom | htmlSafe" style="display:none">
+
+    </div>
+    <div class="holder-desc">
+        <p class="desc"></p>
+    </div>
+</div>
+<main class="home">
+    <!-- <button class="btn _btn btn-primary direction-toggler" type="button" name="button" style="cursor: pointer; position: fixed; top: 200px; left:0; z-index: 999;">toggle</button> -->
+    <h1 class="page-title"><strong>awalan homepage</strong></h1>
+    <div class="section-blog">
+        <div class="container container--custom">
+            <div class="page-content">
+                <div class="single-blog">
+                    <div class="holder-right">
+                        <div class="holder-description">
+                        <div ng-if="data.homeArticles[1]">
+                            <h2>
+                                <a href="" class="heading" ng-bind="data.homeArticles[1].artitle"></a>
+                            </h2>
+                            <a href="" class="short-decs" ng-bind-html="data.homeArticles[1].smallDescription | htmlSafe"></a>
+                            <ul class="holder-actions list-unstyled">
+                                <li class="action-item" ng-if="data.homeArticles[1].date != null"><span class="icon-clock"></span><a href="" ng-bind="data.homeArticles[1].date"></a></li>
+                                <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '@(frontUrl + "Article/" + articles[1].id + "/" + articles[1].UrlTitle)', '@articles[1].title)')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
+                                <!--<li class="action-item"><span class="icon-star"></span></li>-->
+                            </ul>
+
+                            <div class="holder-bullet-list">
+                                <ul>
+                                    <li ng-repeat="relatedArticle in data.homeArticles[1].relatedArticles">
+                                        <a href="" ng-bind="relatedArticle.artitle"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        </div>
+                        <div class="holder-big-thumbnails" ng-if="data.homeArticles[0]">
+                            <a href="" class="holder-image with-overlay {{data.homeArticles[0] != null ? 'holder-video' : ''}}">
+                                <img ng-src="{{data.homeArticles[0].imgSrc}}" class="img-blog" alt="{{date.homeArticles[0][currentLang+'title']}}">
+
+                                <div class="content-ovelay">
+                                    <p class="text-overlay" ng-bind="date.homeArticles[0][currentLang+'title']"></p>
+                                    <ul class="holder-actions list-unstyled">
+                                        <li class="action-item" ng-if="date.homeArticles[0].date != null"><span class="icon-clock"></span><a href="" ng-bind="data.homeArticles[0].date"></a></li>
+                                        <li class="action-item"><span onmouseover="return addthis_open(this, '', '@(frontUrl+"Article/"+articles[0].id+"/"+articles[0].UrlTitle)', '@articles[0].title)')" onmouseout="addthis_close()" onclick="return addthis_sendto()" class="icon-arrow-left"></span></li>
+                                        <!--<li class="action-item"><span class="icon-star"></span></li>-->
+                                    </ul>
+                                </div>
+
+                            </a>
+                            <a href="" class="img-desc" ng-bind-html="date.homeArticles[0][currentLang+'smallDescription'] | htmlSafe"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="multiple-blog">
+                        <div class="holder-list-blog">
+                                <div class="item-blog" ng-repeat="article in data.homeArticles">
+                                    <div ng-if="$index > 1">
+                                        <h2>
+                                            <a href="" class="heading" ng-bind="article[currentLang+'title']"></a>
+                                        </h2>
+                                        <p class="time" ng-bind="article.date"></p>
+                                        <a href="" class="holder-image {{article.videoUrl != null ? 'holder-video' : ''}}">
+                                            <img ng-src="{{article.imgSrc}}" class="img-blog" alt="{{article[currentLang+'title']}}" />
+                                        </a>
+                                        <a href="" class="desc" ng-bind-html="article[currentLang+'smallDescription'] | htmlSafe"></a>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <div class="holder-inline-blog">
+                            <div class="swiper-container home-blog-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide" ng-repeat="article in data.homeFourArticles">
+                                        <a href="">
+                                            <img ng-src="{{article.imgSrc}}" class="img-blog" alt="{{article[currentLang+'title']}}" />
+                                        </a>
+                                        <h3>
+                                            <a href="" class="heading" ng-bind="article[currentLang+'title']"></a>
+                                        </h3>
+                                        <ul class="holder-actions list-unstyled">
+                                            
+                                            <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a href="" ng-bind="article.date"></a></li>
+                                            <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '@(frontUrl+"Article/"+article.id+"/"+article.UrlTitle)', '@article.title)')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
+                                            <li class="action-item"><span class="icon-star"></span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next swiper-button-black d-xl-none d-lg-block"></div>
+                                <div class="swiper-button-prev swiper-button-black d-xl-none d-lg-block"></div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <aside class="widgets-area">
+                <div class="holder-ads" ng-bind-html="$root.globalData.ads.GoogleAdDetailLeft | htmlSafe">
+                </div>
+                <div class="holder-ads holder-infographics" ng-if="data.infographics != null">
+                    <h2 class="title" ng-bind="data.infographics.artitle"></h2>
+                    <a href="{{data.infographics.link}}">
+                        <img ng-src="{{data.infographics.imgSrc}}" class="img-info" alt="{{data.infographics.artitle}}">
+                    </a>
+                </div>
+                <div class="section-chart">
+                    <div class="chart-tab">
+                        <div class="tab-item active-link" data-link="firstTab">أسهم</div>
+                        <div class="tab-item" data-link="secondTab">سندات</div>
+                        <div class="tab-item" data-link="thirdTab">سلاع </div>
+                        <div class="tab-item" data-link="fourthTab">فوائد</div>
+                    </div>
+
+                    <div id="firstTab" class="tab-content">
+                        <img src="assets/images/chart.jpg" class="img-chart" alt="chart">
+                    </div>
+                    <div id="secondTab" class="tab-content">
+                        <img src="assets/images/img-thumb10.jpg" alt="chart">
+                    </div>
+                    <div id="thirdTab" class="tab-content">
+                        <img src="assets/images/chart.jpg" alt="chart">
+                    </div>
+                    <div id="fourthTab" class="tab-content">
+                        <img src="assets/images/chart.jpg" alt="chart">
+                    </div>
+                </div>
+                <div class="section-microscope">
+                    <h2 class="title" ng-bind="data.microscopeCategory.artitle"></h2>
+
+                    <ul class="list-item list-unstyled">
+                        <li class="item" ng-repeat="article in data.microscopeArticles">
+                            <a href="" ng-bind="article.artitle"></a>
+                            <ul class="holder-actions list-unstyled">
+                                <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span>{{article.date}}</li>
+                                <li class="action-item"><span onmouseover="return addthis_open(this, '', '@(frontUrl+"Article/"+article.id+"/"+article.UrlTitle)', '@article.title)')" onmouseout="addthis_close()" onclick="return addthis_sendto()" class="icon-arrow-left"></span></li>
+                                <!--<li class="action-item"><span class="icon-star"></span></li>-->
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </aside>
+        </div>
+        <div class="loader page-loader"><img class="loader" src="assets/images/loader.png" /></div>
+    </div>
+    <div ng-repeat="category in homeBottom">
+            <div class="section-market" ng-if="category.templateId == templates.simple_listing">
+                    <div class="container container--custom">
+                        <a href="" class="title" ng-bind="category[currentLang+'title']"></a>
+                        <div class="holder-content">
+                            <div class="holder-box" ng-repeat="article in category.articles">
+                                <h3>
+                                    <a href="" class="heading" ng-bind="article[currentLang+'title']"></a>
+                                </h3>
+                                <div class="holder-thumbnail">
+                                    <div class="holder-image">
+                                        <a href="">
+                                            <img ng-src="{{article.imgSrc}}" class="img-market" alt="{{article[currentLang+'title']}}" />
+                                        </a>
+                                    </div>
+                                    <div class="holder-description">
+                                        <a href="" class="desc" ng-bind-html="article[currentLang+'smallDescription']"></a>
+                                    </div>
+                                    <div class="date-share-block">
+                                        <ul class="holder-actions list-unstyled">
+                                            <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a href="" ng-bind="article.date"></a></li>
+                                            <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
+                                            <!--<li class="action-item"><span class="icon-star"></span></li>-->
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="holder-link-categ">
+                                    <a href="" class="link-categ" ng-repeat="tag in article.tags" ng-bind="tag[currentLang+'title']"></a>
+                                </div>
+                
+                            </div>
+                        </div>
+                
+                        <a href="" class="btn-turquoise">المزيد</a>
+                    </div>
+            </div>
+            <div class="section-inquiry" ng-if="category.templateId == templates.three_col_identical">
+                    <div class="container container--custom">
+                        <a href="" class="title" ng-bind="category[currentLang+'title']"></a>
+                        <div class="holder-inquiry">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide" ng-repeat="report in category.reports">
+                                        <div class="holder-box">
+                                            <h2>
+                                                <a href="" class="heading" ng-bind="report[currentLang+'title']"></a>
+                                            </h2>
+                                            <a href="">
+                                                <img ng-src="{{report.imgSrc}}" alt="{{report[currentLang+'title']}}" class="img-inquiry">
+                                            </a>
+                                            <h3>
+                                                <a href="" class="sub-heading" ng-bind="report[currentLang+'subtitle']"></a>
+                                            </h3>
+                                            <a href="" class="desc" ng-bind-html="report[currentLang+'smallDescription'] | htmlSafe"></a>
+                                            <ul class="holder-actions list-unstyled">
+                                                <li class="action-item" ng-if="report.date != null"><span class="icon-clock"></span><a ng-bind="report[currentLang+'date']"></a></li>
+                                                <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
+                                                <!--<li class="action-item"><span class="icon-star"></span></li>-->
+                                            </ul>
+                                            <ul class="holder-list">
+                                                    <li class="bullet-list" ng-repeat="article in report.articles"><a href="" ng-bind="article[currentLang+'title']"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next swiper-button-white"></div>
+                                <div class="swiper-button-prev swiper-button-white"></div>
+                            </div>
+                
+                        </div>
+                        <a href="" class="btn-turquoise">المزيد</a>
+                    </div>
+            </div>
+            <div class="section-economy" ng-if="category.templateId == templates.three_col_anwan">
+                    <div class="container container--custom">
+                        <a href="" class="title" ng-bind="category[currentLang+'title']"></a>
+                        <div class="holder-row">
+                            <div class="holder-article-lg">
+                                <div class="big-thumbnails" ng-repeat="article in category.articles" ng-if="category.articles.length > 0 && $index < 2">
+                                    <a href="">
+                                        <img ng-src="{{article.imgSrc}}" class="img-blog" alt="{{article[currentLang+'title']}}">
+                                    </a>
+                                    <a href="" class="desc" ng-bind="article[currentLang+'title']"></a>
+                                    <ul class="holder-actions list-unstyled">
+                                        <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a href="" ng-bind="article.date"></a></li>
+                                        <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
+                                        <!--<li class="action-item"><span class="icon-star"></span></li>-->
+                                    </ul>
+                
+                                </div>
+                            </div>
+                
+                            <div class="holder-article-sm">
+                                <ul class="item-list list-unstyled">
+                                    <li class="item" ng-repeat="article in category.articles" ng-if="category.articles.length > 0 && $index > 2 && $index < 7">
+                                        <a href="" class="{{article.videoUrl != null ? 'holder-video' : ''}}">
+                                            <img ng-src="{{article.imgSrc}}" class="img-blog" alt="{{article.title}}">
+                                        </a>
+                                        <h3>
+                                            <a href="" class="link-heading" ng-bind="article[currentLang+'title']"></a>
+                                            <ul class="holder-actions list-unstyled">
+                                                <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a href="" ng-bind="article.date"></a></li>
+                                                <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '@(frontUrl+"Article/"+article.id+"/"+article.UrlTitle)', '@article.title)')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
+                                                <!--<li class="action-item"><span class="icon-star"></span></li>-->
+                                            </ul>
+                                        </h3>
+                                    </li>
+                                </ul>
+                            </div>
+                
+                            @if (homeLeft != null && homeLeft.ArticleCategoryItems.Any())
+                            {
+                            <div class="holder-most-read">
+                                <h2 class="heading">@homeLeft.title</h2>
+                
+                                <ul class="list-item list-unstyled">
+                                @foreach (var article in homeLeft.ArticleCategoryItems.Select(d => d.Article).Where(d => d.isPublished && !d.isDeleted && !ids.Contains(d.id)).OrderByDescending(d => d.date))
+                                {
+                                    <li class="item">
+                                        <h3>
+                                            <a href="@Url.Content("~/Article/"+article.id+"/"+article.UrlTitle)" class="link-heading">
+                                                @article.title
+                                            </a>
+                                        </h3>
+                                        <ul class="holder-actions list-unstyled">
+                                        @if (article.date.HasValue)
+                                        {
+                                            <li class="action-item"><span class="icon-clock"></span><a href="@Url.Content("~/Article/"+article.id+"/"+article.UrlTitle)"> @(article.date.Value.ToString("yyyy-MM-dd")) | @(article.date.Value.ToString("HH:mm"))</a></li>
+                                        }
+                                            <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '@(frontUrl+"Article/"+article.id+"/"+article.UrlTitle)', '@article.title)')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
+                                            @*<li class="action-item"><span class="icon-star"></span></li>*@
+                                        </ul>
+                                    </li>
+                                    ids.Add(article.id);
+                                }
+                                </ul>
+                            </div>
+                            }
+                        </div>
+                
+                        <a href="@Url.Content("~/Category/"+Model.UrlTitle)" class="btn-turquoise">المزيد</a>
+                    </div>
+                
+                </div>
+
+    </div>
+
+</main>

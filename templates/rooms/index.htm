@@ -1,0 +1,25 @@
+<div class="container">
+    <section class="section section--main section--rooms">
+
+        <div class="section__body">
+            <div class="swiper-container swiper-container-images--secondary">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-image: url({{kms_host + 'corporatepages/' + data.rooms.imgSrc}});">
+                    </div><!-- /.swiper__slide -->
+                </div><!-- /.swiper-wrapper -->
+             </div><!-- /.swiper-container -->
+
+            <div class="shell">
+                <div class="info">
+                    <div class="info__content">
+                        <h2 ng-bind="data.rooms.subtitle"></h2>
+
+                        <p ng-bind-html="data.rooms.description"></p>
+
+                        <a href="{{data.rooms.link}}" class="btn btn-default btn-rounded btn-pink">Book now</a>
+                    </div><!-- /.info__content -->
+                </div><!-- /.info -->
+            </div><!-- /.shell -->
+        </div><!-- /.section__body -->
+    </section><!-- /.section section-/-restaurants -->
+</div><!-- /.container -->

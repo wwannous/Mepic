@@ -1,0 +1,78 @@
+<div class="container">
+    <section class="section section--solid section--main section--long section--main-secondary section--form section--login">
+        <!-- <header class="section__head section__head-scroll">
+            <div class="shell">
+                <div class="section__head-inner">
+                    <a  class="nav-trigger">
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+                    </a>
+
+                    <h2>LOG IN</h2>
+
+                    <a href="27_cart.html" class="basket">
+                        <svg class="ico-shopping-bag">
+                            <use xlink:href="#shopping-bag"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </header> -->
+
+        <div class="section__body">
+            <div class="shell">
+                <div class="form form-login form-login--secondary validate">
+                    <form id="loginForm" name="loginForm">
+                        <div class="form__body">
+                            <div class="form__row">
+                                <div class="form__controls">
+                                    <input type="email" class="field" name="field-email" id="field-email" ng-model="credentials.username" data-rule-required="true" data-rule-email="true" data-rule-isemail="true">
+
+                                    <label for="field-email" class="form__label">Email address*</label>
+                                </div><!-- /.form__controls -->
+                            </div><!-- /.form__row -->
+
+                            <div class="form__row">
+                                <div class="form__controls">
+                                    <input type="password" class="field" name="field-password" id="password" ng-model="credentials.password" data-rule-required="true">
+
+                                    <label for="field-password" class="form__label">Password*</label>
+                                </div><!-- /.form__controls -->
+                            </div><!-- /.form__row -->
+
+                            <a ui-sref="app.forgotpass">Forgot password?</a>
+                        </div><!-- /.form__body -->
+
+                        <div class="form__actions">
+                            <div class="error-message"></div><!-- /.error-message -->
+
+                            <ul>
+                                <li>
+                                    <img class="loader" src="assets/images/loader.gif">
+                                    <button type="submit" class="btn btn-default btn-block btn-rounded btn-pink">Log in</button>
+                                </li>
+
+                                <li>
+                                    <span>Or</span>
+                                </li>
+
+                                <li>
+                                    <a ng-click="LoginWithFacebook()" class="btn btn-default btn-block btn-rounded btn-dark-blue">Sign in with Facebook</a>
+                                </li>
+                            </ul>
+                        </div><!-- /.form__actions -->
+                    </form>
+                </div><!-- /.form form-login -->
+
+                <div class="panel panel-pink">
+                    <h3>NEW EXPLORER?</h3>
+
+                    <a ui-sref="app.register" class="btn btn-default btn-block btn-rounded btn-outline-pink">Register</a>
+                </div><!-- /.panel panel-pink -->
+            </div><!-- /.shell -->
+        </div><!-- /.section__body -->
+    </section><!-- /.section section-/-restaurants -->
+</div><!-- /.container -->

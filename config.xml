@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" xmlns:android = "http://schemas.android.com/apk/res/android" id = "com.koein.leroyal" version = "1.6"  ios-CFBundleVersion="1" android-versionCode="160">
+<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" xmlns:android = "http://schemas.android.com/apk/res/android" id = "com.koein.awalan" version = "1.0"  ios-CFBundleVersion="1" android-versionCode="100">
 
 
-    <name>Le Royal Hotel</name>
-    <description>Le Royal Hotel</description>
+    <name>Awalan</name>
+    <description>Awalan</description>
     <author href="http://www.koein.com" email="apps@koein.com">koein</author>
     <access origin="*" subdomains="true" />
     <allow-intent href="*" />
@@ -192,7 +192,7 @@
 
     <!-- START: Custom Url for Email -->
         <gap:plugin name="cordova-plugin-customurlscheme" source="npm">
-            <param name="URL_SCHEME" value="leroyalapp" />
+            <param name="URL_SCHEME" value="awalanapp" />
         </gap:plugin>
     <!-- END: Custom Url for Email -->
 

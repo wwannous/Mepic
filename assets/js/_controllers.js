@@ -1055,7 +1055,7 @@ app.controller('Home_Ctrl', function ($scope, $http, $rootScope, $sce, SERVER_CO
                 InitSwiperBlog();
                 InitSwiperVideo();
                 InitSwiperLeader();
-                //navigator.splashscreen.hide();
+                navigator.splashscreen.hide();
             }, 0);
     
         }, function errorCallback(response) {

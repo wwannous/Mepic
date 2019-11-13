@@ -139,7 +139,7 @@
 
 
     <!-- START: Push Notifications -->
-    <plugin spec="https://github.com/nieok/cordova-plugin-firebase1.git#leroyal" />
+    <!-- <plugin spec="https://github.com/nieok/cordova-plugin-firebase1.git#leroyal" /> -->
     <!-- END: Push Notifications -->
 
 

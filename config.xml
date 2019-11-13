@@ -66,7 +66,7 @@
 
     <preference name="deployment-target" value="9.0" />
     <preference name="android-minSdkVersion" value="19"/>
-    <preference name="android-targetSdkVersion" value="26"/>
+    <preference name="android-targetSdkVersion" value="28"/>
     <preference name="android-build-tool" value="gradle" />
     <preference name="detect-data-types" value="true" />
     <preference name="orientation" value="default" />
@@ -139,7 +139,7 @@
 
 
     <!-- START: Push Notifications -->
-    <!-- <plugin spec="https://github.com/nieok/cordova-plugin-firebase1.git#leroyal" /> -->
+    <plugin spec="https://github.com/nieok/cordova-plugin-firebase1.git#leroyal" />
     <!-- END: Push Notifications -->
 
 

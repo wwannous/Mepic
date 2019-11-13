@@ -477,6 +477,7 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
     //   $rootScope.userMenu = res;
     // });
     var language = storageService.GetStorage('NG_TRANSLATE_LANG_KEY');
+    $rootScope.resizeUrl = SERVER_CONFIG.resizeUrl;
 
     if(language != null){
         $rootScope.currentLang = language == 'en' ? '' : language;
@@ -489,11 +490,8 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
 
     $http.get(SERVER_CONFIG.baseUrl + "api/data/GetGlobalData").then(function successCallback(response) {
 
-        $timeout(function(){
             $rootScope.globalData = response.data;
             $rootScope.social = response.data.social;
-    
-        }, 20000);
 
     }, function errorCallback(response) {
         // called asynchronously if an error occurs

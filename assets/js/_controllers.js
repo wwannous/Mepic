@@ -1050,6 +1050,8 @@ app.controller('Home_Ctrl', function ($scope, $http, $rootScope, $sce, SERVER_CO
 
             $scope.homeBottom = response.data;
             setTimeout(function(){
+                InitSwiperInquiry();
+                InitSwiperOpinion();
                 //navigator.splashscreen.hide();
             }, 0);
     

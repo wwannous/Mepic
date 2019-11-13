@@ -515,7 +515,6 @@ div.at4-arrow {
     .section-economy .holder-article-sm .item > a img {
         object-fit: cover;
         object-position: center;
-        width: 100%;
     }
 
 .section-market .holder-thumbnail .holder-image {
@@ -749,7 +748,7 @@ header .menu-dropdown .img-holder-thumb {
     }
 
     .section-video .holder-actions .icon-arrow-left {
-        background-image: url(../assets/images/arrow-left-white.png);
+        background-image: url(../images/arrow-left-white.png);
     }
     .section-video .holder-actions .icon-arrow-left {
         display: inline-block;

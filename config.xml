@@ -179,10 +179,10 @@
 
     <gap:plugin name="cordova.plugins.diagnostic" source="npm" spec="3.1.0" />
 
-    <gap:plugin name="cordova-plugin-facebook4" source="npm" spec="1.7.4">
+    <!-- <gap:plugin name="cordova-plugin-facebook4" source="npm" spec="1.7.4">
         <param name="APP_ID" value="319108068493877" />
         <param name="APP_NAME" value="LeRoyal" />
-    </gap:plugin>
+    </gap:plugin> -->
 
     <!-- START: Pictures and files Uploader-->
         <gap:plugin name="cordova-plugin-camera" version="2.4.1" source="npm" />

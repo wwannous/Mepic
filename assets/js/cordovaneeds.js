@@ -49,59 +49,59 @@ var deviceToken = null;
 
 var initPushNotification = function () {
 
-    window.FirebasePlugin.grantPermission();
+    // window.FirebasePlugin.grantPermission();
 
-    var isiOS = device.platform == "IOS" || device.platform == "ios" || device.platform == "iOS";
-    document.addEventListener("pause", onPause, false);
+    // var isiOS = device.platform == "IOS" || device.platform == "ios" || device.platform == "iOS";
+    // document.addEventListener("pause", onPause, false);
 
-    window.FirebasePlugin.getToken(function (token) {
-        AddDeviceToOurDatabase(token);
-    }, function (error) {
-    });
-    window.FirebasePlugin.onTokenRefresh(function (token) {
-        AddDeviceToOurDatabase(token);
-    }, function (error) {
-    });
+    // window.FirebasePlugin.getToken(function (token) {
+    //     AddDeviceToOurDatabase(token);
+    // }, function (error) {
+    // });
+    // window.FirebasePlugin.onTokenRefresh(function (token) {
+    //     AddDeviceToOurDatabase(token);
+    // }, function (error) {
+    // });
 
-    window.FirebasePlugin.onNotificationOpen(function (data) {
-        var message = data.notification == undefined ? data.body : data.notification.body;
-        var pushUrl = data.url;
-        var buttonLabel = data.key3;
-        var type = data.key4;
-        var goToLocation = "#!/";
-        goToLocation += (pushUrl == undefined ? "" : pushUrl);
-        var buttons = [buttonLabel == undefined ? 'view' : buttonLabel, 'ok'];
-        if (goToLocation == "#!/") {
-            buttons = ["ok"];
-        }
-        if (type == 'account-approved') {
-            buttons = [buttonLabel];
-        }
-        navigator.notification.confirm(
-            message,
-            function (button) {
-                if (goToLocation != "#!/" && button == '1') {
-                    window.location.href = goToLocation;
-                }
-            },
-            data.title,
-            buttons
-        );
+    // window.FirebasePlugin.onNotificationOpen(function (data) {
+    //     var message = data.notification == undefined ? data.body : data.notification.body;
+    //     var pushUrl = data.url;
+    //     var buttonLabel = data.key3;
+    //     var type = data.key4;
+    //     var goToLocation = "#!/";
+    //     goToLocation += (pushUrl == undefined ? "" : pushUrl);
+    //     var buttons = [buttonLabel == undefined ? 'view' : buttonLabel, 'ok'];
+    //     if (goToLocation == "#!/") {
+    //         buttons = ["ok"];
+    //     }
+    //     if (type == 'account-approved') {
+    //         buttons = [buttonLabel];
+    //     }
+    //     navigator.notification.confirm(
+    //         message,
+    //         function (button) {
+    //             if (goToLocation != "#!/" && button == '1') {
+    //                 window.location.href = goToLocation;
+    //             }
+    //         },
+    //         data.title,
+    //         buttons
+    //     );
 
-        if (type == 'refill') {
-            var elem = $('html').eq(0);
-            var mainController = angular.element(elem).scope();
-            mainController.FetchUserInfos();
-        }
+    //     if (type == 'refill') {
+    //         var elem = $('html').eq(0);
+    //         var mainController = angular.element(elem).scope();
+    //         mainController.FetchUserInfos();
+    //     }
 
-    }, function (error) {
-        console.log("error");
-        console.log(error);
-    });
+    // }, function (error) {
+    //     console.log("error");
+    //     console.log(error);
+    // });
 
 
-    setTimeout(function () { var firstOpen = false; }, 1000);
-    document.addEventListener("resume", onResume, false);
+    // setTimeout(function () { var firstOpen = false; }, 1000);
+    // document.addEventListener("resume", onResume, false);
 }
 var AddDeviceToOurDatabase = function (token, email) {
      if (window.cordova) {

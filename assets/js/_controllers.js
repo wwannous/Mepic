@@ -1052,6 +1052,9 @@ app.controller('Home_Ctrl', function ($scope, $http, $rootScope, $sce, SERVER_CO
             setTimeout(function(){
                 InitSwiperInquiry();
                 InitSwiperOpinion();
+                InitSwiperBlog();
+                InitSwiperVideo();
+                InitSwiperLeader();
                 //navigator.splashscreen.hide();
             }, 0);
     

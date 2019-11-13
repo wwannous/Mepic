@@ -11,7 +11,7 @@ app.constant('SERVER_CONFIG', {
     //#region Online
     //baseUrl: 'https://localhost:44365/',
 
-    baseUrl: 'http://localhost:15988/',
+    baseUrl: 'http://api.awalan.com/',
     resizeUrl: 'http://api.awalan.com/Images/'
     //baseUrl: 'https://leroyalapi.koeinbeta.com/',
     //baseUrl: 'https://shift2s.koein.com/leroyalapi/',

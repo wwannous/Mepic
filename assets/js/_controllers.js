@@ -1072,6 +1072,26 @@ app.controller('Home_Ctrl', function ($scope, $http, $rootScope, $sce, SERVER_CO
     });
 })
 
+app.controller('ArticleDetails_Ctrl', function ($scope, $http, $rootScope, $stateParams, $sce, SERVER_CONFIG, ARTICLE_CATEGORY_IDS) {
+
+    //$rootScope.SetStateNavOptn("MY CART", "home", "", 1);
+    this.$onInit = function () {  
+
+    }
+
+    $http.get(SERVER_CONFIG.baseUrl + "api/Data/GetArticleDetails?id="+ $stateParams.id).then(function successCallback(response) {
+
+        $scope.data = response.data;
+        setTimeout(function(){
+            
+        }, 0);
+
+    }, function errorCallback(response) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+    });
+})
+
 app.controller('AboutUs_Ctrl', function ($scope, $http, $rootScope, SERVER_CONFIG) {
 
     $rootScope.SetStateNavOptn("ABOUT US", "aboutus", "", 1);

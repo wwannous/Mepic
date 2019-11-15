@@ -63,13 +63,13 @@
                                 <div class="item-blog" ng-repeat="article in data.homeArticles">
                                     <div ng-if="$index > 1">
                                         <h2>
-                                            <a href="" class="heading" ng-bind="article[currentLang+'title']"></a>
+                                            <a ui-sref="app.articleDetails({ id : article.id })" class="heading" ng-bind="article[currentLang+'title']"></a>
                                         </h2>
                                         <p class="time" ng-bind="article.date"></p>
-                                        <a href="" class="holder-image {{article.videoUrl != null ? 'holder-video' : ''}}">
+                                        <a ui-sref="app.articleDetails({ id : article.id })" class="holder-image {{article.videoUrl != null ? 'holder-video' : ''}}">
                                             <img ng-src="{{resizeUrl+'151x104xo/'+article.image}}" class="img-blog" alt="{{article[currentLang+'title']}}" />
                                         </a>
-                                        <a href="" class="desc" ng-bind-html="article[currentLang+'smallDescription'] | htmlSafe"></a>
+                                        <a ui-sref="app.articleDetails({ id : article.id })" class="desc" ng-bind-html="article[currentLang+'smallDescription'] | htmlSafe"></a>
                                     </div>
                                 </div>
                         </div>
@@ -203,7 +203,7 @@
                                             </h3>
                                             <a href="" class="desc" ng-bind-html="report[currentLang+'smallDescription'] | htmlSafe"></a>
                                             <ul class="holder-actions list-unstyled">
-                                                <li class="action-item" ng-if="report.date != null"><span class="icon-clock"></span><a ng-bind="report[currentLang+'date']"></a></li>
+                                                <li class="action-item" ng-if="report.date != null"><span class="icon-clock"></span><a ng-bind="report.date"></a></li>
                                                 <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                                 <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                             </ul>

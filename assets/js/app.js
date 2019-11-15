@@ -163,6 +163,13 @@ app.config(function ($stateProvider, $urlRouterProvider, USER_ROLES) {
             controller: 'Home_Ctrl',
         },
         //#endregion
+        {
+            name: 'app.articleDetails',
+            url: 'articleDetails/:id',
+            authenticate: false,
+            templateUrl: 'templates/article/details.htm',
+            controller: 'ArticleDetails_Ctrl',
+        },
         //#region Contact Us 
         {
             name: 'app.contactus',

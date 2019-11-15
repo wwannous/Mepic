@@ -1,0 +1,508 @@
+<main class="details-article">
+    <!-- <button class="btn _btn btn-primary direction-toggler" type="button" name="button"
+      style="cursor: pointer; position: fixed; top: 200px; left:0; z-index: 999;">toggle</button> -->
+    <h1 class="page-title"><strong>detail article</strong></h1>
+    <div class="section-blog">
+
+        <div class="container container--custom">
+            <div class="single-blog">
+                <!--<div class="social-media-wrapper">
+                    <ul class="social-media-list">
+                        <li class="social-media-item">
+                            <a href="javascrip:void(0)" class="soc-med-link">
+                                <img class="soc-med-icon"
+                                     src="@Url.Content("~/Content/assets/images/icon-fb.png")" alt="">
+                            </a>
+                        </li>
+                        <li class="social-media-item">
+                            <a href="javascrip:void(0)" class="soc-med-link">
+                                <img class="soc-med-icon"
+                                     src="@Url.Content("~/Content/assets/images/icon-linkedin.png")" alt="">
+                            </a>
+                        </li>
+                        <li class="social-media-item">
+                            <a href="javascrip:void(0)" class="soc-med-link">
+                                <img class="soc-med-icon"
+                                     src="@Url.Content("~/Content/assets/images/icon-twitter.png")" alt="">
+                            </a>
+                        </li>
+                        <li class="social-media-item social-media-item-gmail">
+                            <a href="javascrip:void(0)"
+                               class="soc-med-link"><img class="soc-med-icon" src="@Url.Content("~/Content/assets/images/icon-gmail.png")" alt=""></a>
+                        </li>
+                    </ul>
+                </div>-->
+
+                <div class="holder-right">
+                    <div class="section-article">
+                        <div class="published-holder">
+                            <ul class="published">
+                                <li class="published-item" ng-if="data.article.date != null">
+                                    <img class="clock-icon" src="/assets/images/clock.png" alt=""><span class="published-time" ng-bind="data.article.date"></span>
+                                </li>
+                                <li class="published-item">
+                                    <a href="javascript:void(0)" class="favorite-link">
+                                        <img class="favorite-btn" src="/assets/images/star.png" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                            <a href="#" class="back-to-listing">
+                                <div class="btn-close"></div>
+                            </a>
+                        </div>
+                        <div class="article-header">
+                            <h2 class="article-title" ng-bind="data.article[currentLang+'title']"></h2>
+                            <ul class="editor-holder">
+                            @foreach (var company in Model.entry.ArticleCompanyItems.OrderByDescending(d => d.priority).Select(d => d.Company))
+                            {
+                                <li class="editor-item"><a href="@Url.Content("~/Search?term="+company.UrlTitle)">@company.title</a></li>
+                            }
+                            @foreach (var item in Model.entry.ArticleWriterItems)
+                            {
+                                <li class="editor-item"><img class="icon-pencil" src="@Url.Content("~/Content/assets/images/pencil.png")" alt="">@item.ArticleWriter.fullName</li>
+                            }
+                            </ul>
+                        </div>
+
+                        <div class="section-market">
+                            <ul class="market-list">
+                            @foreach (var indicator in Model.entry.ArticleIndicators.Where(d => d.isPublished).OrderByDescending(d => d.priority))
+                            {
+                                <li class="market-item">
+                                    <img class="icon-market" src="@(kmsurl + "Images/25x24xi/" + Model.entry.imgSrc)" alt="">@indicator.label
+                                    <span class="text-blue">@indicator.value</span>
+                                </li>
+                            }
+                            </ul>
+
+                            <div class="tags-holder">
+                            @foreach (var item in Model.entry.ArticleTagItems.Where(d => !d.ArticleTag.isDeleted && d.ArticleTag.isPublished).OrderByDescending(d => d.priority).Select(d => d.ArticleTag))
+                            {
+                                <span class="tags"><a href="@Url.Content("~/Search?term="+item.title)" class="tags-link">@item.title</a></span>
+                            }
+                            </div>
+                        </div>
+
+                        <div class="section-article-details">
+                            <h3 class="article-subheading" ng-bind="data.article[currentLang+'subtitle']"></h3>
+                            <div class="article-gallery">
+                                <div class="@(Model.entry.ArticleMedias.Where(d => d.mediaType == 2).Any() || Model.entry.ArticleMedias.Where(d => d.mediaType == 1).Any() ? "gallery-thumb-wide" : "gallery-thumb-full") @(!String.IsNullOrEmpty(Model.entry.videoUrl) ? "article-has-video" : "" )">
+                                    <a href=javascript:void(0)>
+                                        <img class="thumb-img-wide" ng-src="{{resizeUrl+'1000x300xo/'+data.article.image}}" alt="{{data.article[currentLang+'title']}}">
+                                    </a>
+                                    <div class="thumb-details">
+                                    @if (Model.entry.ArticleMedias.Where(d => d.mediaType == 2).Any())
+                                    {
+                                        <p class="thumb-info js-video-btn">
+                                            <img class="thumb-info-icon" src="@Url.Content("~/Content/assets/images/icon-video.png")"
+                                                 alt="">
+                                            <span class="count">@Model.entry.ArticleMedias.Where(d => d.mediaType == 2).Count()</span>
+                                        </p>
+                                    }
+                                    @if (Model.entry.ArticleMedias.Where(d => d.mediaType == 1).Any())
+                                    {
+                                        <p class="thumb-info js-img-btn">
+                                            <img class="thumb-info-icon" src="@Url.Content("~/Content/assets/images/icon-image.png")"
+                                                 alt="">
+                                            <span class="count">@Model.entry.ArticleMedias.Where(d => d.mediaType == 1).Count()</span>
+                                        </p>
+                                    }
+                                    </div>
+                                </div>
+                                <div class="gallery-thumb-sm">
+                                @if (Model.entry.ArticleMedias.Where(d => d.mediaType == 1).Any())
+                                {
+                                    <div class="gallery-thumb image-thumb">
+                                        <a href="javascript:void(0)" style="background-image:url(@(kmsurl + "Images/420x272xo/" + Model.entry.ArticleMedias.Where(d => d.mediaType == 1).FirstOrDefault().mediaSrc));">
+                                            @*<img class="thumb-img-sm" src="@(kmsurl + "Images/220x230xi/" + Model.entry.ArticleMedias.Where(d => d.mediaType == 1).FirstOrDefault().mediaSrc)" alt="">*@
+                                        </a>
+                                    </div>
+                                }
+                                @if (Model.entry.ArticleMedias.Where(d => d.mediaType == 2).Any())
+                                {
+                                    <div class="gallery-thumb video-thumb" style="background-image:url(@(kmsurl + "Images/420x272xo/" + Model.entry.ArticleMedias.Where(d => d.mediaType == 2).FirstOrDefault().mediaSrc))">
+                                        <a href="javascript:void(0)">
+                                            @*<img class="thumb-img-sm" src="@(kmsurl + "Images/220x230xi/" + Model.entry.ArticleMedias.Where(d => d.mediaType == 2).FirstOrDefault().mediaSrc)" alt="">*@
+                                        </a>
+                                        <div class="btn-play-wrapper">
+                                            <a href="javascript:void(0)" class="btn-play-link">
+                                                <!-- <img class="btn-play" src="assets/images/play-white.png" alt=""> -->
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                                    @if (!Model.entry.ArticleMedias.Where(d => d.mediaType == 2).Any() && Model.entry.ArticleMedias.Where(d => d.mediaType == 1).Any())
+                                    {
+                                        <div class="gallery-thumb image-thumb">
+                                            <a href="javascript:void(0)" style="background-image:url('@(kmsurl + "Images/220x230xi/" + Model.entry.ArticleMedias.Where(d => d.mediaType == 1).ToList()[1].mediaSrc)')">
+                                                @*<img class="thumb-img-sm" src="@(kmsurl + "Images/220x230xi/" + Model.entry.ArticleMedias.Where(d => d.mediaType == 2).FirstOrDefault().mediaSrc)" alt="">*@
+                                            </a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="mobile-ads-wrapper" ng-bind-html="$root.globalData.ads.GoogleAdMobileHeader | htmlSafe"></div>
+
+                            <div class="article-desc" ng-bind-html="data.article.description | htmlSafe"></div>
+                            @if (!String.IsNullOrEmpty(Model.entry.fileSrc))
+                            {
+                                <a href="@(kmsurl+"Content/uploads/Articles/"+Model.entry.fileSrc)" class="file-holder">
+                                    تحميل الملف<i class="fas fa-arrow-down"></i>
+                                </a>
+                            }
+                        </div>
+
+                        <div class="navigation-holder">
+                            <div class="prev-article">
+                            <div ng-if="data.previousArticle != null">
+                                <h2>
+                                    <a ui-sref="app.articleDetails({id : data.previousArticle.id})" class="article-nav-link">
+                                        المقال السابق
+                                    </a>
+                                </h2>
+                                <h3>
+                                    <a ui-sref="app.articleDetails({id : data.previousArticle.id})" class="article-preview-desc" ng-bind="data.previousArticle[currentLang+'title']"></a>
+                                </h3>
+                                <ul class="published">
+                                    <li class="published-item" ng-if="data.previousArticle.date != null">
+                                        <img class="clock-icon" src="/assets/images/clock.png" alt="">
+                                        <a ui-sref="app.articleDetails({id : data.previousArticle.id})">
+                                            <span class="published-time" ng-bind="data.previousArticle.date"></span>
+                                        </a>
+                                    </li>
+                                    <li class="published-item">
+                                        <a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()" class="favorite-link">
+                                            <img class="share-btn" src="/assets/images/arrow-left.png" alt="">
+                                        </a>
+                                    </li>
+                                    <li class="published-item">
+                                        <a href="javascript:void(0)" class="favorite-link">
+                                            <img class="favorite-btn" src="/assets/images/star.png" alt="">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            </div>
+                            <div class="next-article">
+                            <div ng-if="data.nextArticle != null">
+                                <h2>
+                                    <a ui-sref="app.articleDetails({id : data.previousArticle.id})" class="article-nav-link">
+                                        المقال التالي
+                                    </a>
+                                </h2>
+                                <h3>
+                                    <a ui-sref="app.articleDetails({id : data.previousArticle.id})" class="article-preview-desc" ng-bind="data.nextArticle[currentLang+'title']"></a>
+                                </h3>
+                                <ul class="published">
+                                    <li class="published-item" ng-if="data.nextArticle.date != null">
+                                        <img class="clock-icon" src="/assets/images/clock.png" alt="">
+                                        <a ui-sref="app.articleDetails({id : data.previousArticle.id})">
+                                            <span class="published-time" ng-bind="data.nextArticle.date"></span>
+                                        </a>
+                                    </li>
+                                    <li class="published-item">
+                                        <a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"  class="favorite-link">
+                                            <img class="share-btn" src="/assets/images/arrow-left.png" alt="">
+                                        </a>
+                                    </li>
+                                    <li class="published-item">
+                                        <a href="javascript:void(0)" class="favorite-link">
+                                            <img class="favorite-btn" src="/assets/images/star.png" alt="">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="holder-left">
+                    <div class="holder-ads" ng-bind-html="$root.globalData.ads.GoogleAdDetailLeft | htmlSafe">
+                    </div>
+                @if (Model.entry.ArticleReportItems.Any())
+                {
+                    <div class="section-related-report">
+                        <h2 class="related-heading">تقارير ذات صلة</h2>
+
+                        <div class="swiper-report-holder">
+                            <div class="swiper-container swiper-report">
+                                <div class="swiper-wrapper">
+                                @foreach (var report in Model.entry.ArticleReportItems.OrderByDescending(d => d.priority).Select(d => d.Report))
+                                {
+                                    <div class="swiper-slide">
+                                        <a href="@Url.Content("~/Report/"+report.id+"/"+report.UrlTitle)" class="report-icon-holder">
+                                            <img class="icon-report" src="@(kmsurl + "Images/100x63xi/" + report.imgSrc)" alt="@report.title">
+                                        </a>
+                                        <a href="@Url.Content("~/Report/"+report.id+"/"+report.UrlTitle)" class="related-report-title">@report.title</a>
+                                    </div>
+                                }
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next swiper-button-black"></div>
+                                <div class="swiper-button-prev swiper-button-black"></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @if (Model.entry.ArticleCompanyItems.Any(d => d.isMainCompany))
+                {
+                    <div class="section-partners">
+                        <h2 class="partner-heading">شركات</h2>
+
+                        <div class="swiper-partner-holder">
+                            <div class="swiper-container swiper-partners">
+                                <div class="swiper-wrapper">
+                                @{ 
+                                    var mainCompanies = Model.entry.ArticleCompanyItems.Where(d => d.isMainCompany).OrderByDescending(d => d.priority).Select(d => d.Company).ToList();
+                                }
+                                @for (int i = 0; i < Math.Ceiling((decimal)mainCompanies.Count / 2); i++)
+                                {
+                                    <div class="swiper-slide">
+                                        <div class="partner-list">
+                                            <div class="partner-holder">
+                                                    <div class="partner-img-holder">
+                                                        <img class="partner-img" src="@(kmsurl + "Images/1000x110xi/" + mainCompanies[count].imgSrc)" alt="@mainCompanies[count].title">
+                                                    </div>
+                                                <div href="" class="partner-name">@mainCompanies[count].title </div>
+                                            </div>
+                                        @{ count++; }
+                                        @if (mainCompanies.ElementAtOrDefault(count) != null)
+                                        {
+                                            <div class="partner-holder">
+                                                    <div class="partner-img-holder">
+                                                        <img class="partner-img" src="@(kmsurl + "Images/1000x110xi/" + mainCompanies[count].imgSrc)" alt="@mainCompanies[count].title">
+                                                    </div>
+                                                <div href="" class="partner-name">@mainCompanies[count].title </div>
+                                            </div>
+                                            count++;
+                                        }
+                                        </div>
+                                    </div>
+                                }
+                                </div>
+                                <div class="swiper-button-next swiper-button-black"></div>
+                                <div class="swiper-button-prev swiper-button-black"></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @if (Model.entry.ArticleCompanyItems.Any(d => !d.isMainCompany))
+                {
+                    <div class="section-partners section-partners--other">
+                        <h2 class="partner-heading">شركات أخرى</h2>
+
+                        <div class="swiper-partner-holder">
+                            <div class="swiper-container swiper-partners">
+                                <div class="swiper-wrapper">
+                                @{
+                                    count = 0;
+                                    var otherCompanies = Model.entry.ArticleCompanyItems.Where(d => !d.isMainCompany).OrderByDescending(d => d.priority).Select(d => d.Company).ToList();
+                                }
+                                @for (int i = 0; i < Math.Ceiling((decimal)otherCompanies.Count / 2); i++)
+                                {
+                                    <div class="swiper-slide">
+                                        <div class="partner-list">
+                                            <div class="partner-holder">
+                                                    <div class="partner-img-holder">
+                                                        <img class="partner-img" src="@(kmsurl + "Images/1000x110xi/" + otherCompanies[count].imgSrc)" alt="@otherCompanies[count].title">
+                                                    </div>
+                                                <div href="" class="partner-name">@otherCompanies[count].title </div>
+                                            </div>
+                                            @{ count++; }
+                                            @if (otherCompanies.ElementAtOrDefault(count) != null)
+                                            {
+                                                <div class="partner-holder">
+                                                        <div class="partner-img-holder">
+                                                            <img class="partner-img" src="@(kmsurl + "Images/1000x110xi/" + otherCompanies[count].imgSrc)" alt="@otherCompanies[count].title">
+                                                        </div>
+                                                    <div href="" class="partner-name">@otherCompanies[count].title </div>
+                                                </div>
+                                                count++;
+                                            }
+                                        </div>
+                                    </div>
+                                                }
+                                </div>
+                                <div class="swiper-button-next swiper-button-black"></div>
+                                <div class="swiper-button-prev swiper-button-black"></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @if (Model.entry.ArticleHighProfileItems.Any())
+                {
+                    <div class="section-people">
+                        <h2 class="people-heading">أشخاص</h2>
+                        <div class="people-list">
+                        @foreach (var people in Model.entry.ArticleHighProfileItems.OrderByDescending(d => d.priority).Select(d => d.HighProfile))
+                        {
+                            <div class="people-holder">
+                                <h3>
+                                    <a href="" class="people-name">@people.fullName</a>
+                                </h3>
+                            </div>
+                        }
+                        </div>
+                    </div>
+                }
+
+                    <div class="mobile-ads-wrapper" ng-bind-html="$root.globalData.ads.GoogleAdMobileHeader | htmlSafe">
+                    </div>
+
+                    <div class="section-economy">
+                        <div class="holder-most-read">
+                            <p class="heading">الأكثر قراءة</p>
+
+                            <ul class="list-item list-unstyled">
+                            @foreach (var article in Model.mostRead)
+                            {
+                                <li class="item">
+                                    <h3>
+                                        <a href="@Url.Content("~/Article/" + article.id + "/" + article.UrlTitle)" class="link-heading">@article.title</a>
+                                    </h3>
+                                    <ul class="holder-actions list-unstyled">
+                                    @if (article.date.HasValue)
+                                    {
+                                        <li class="action-item"><span class="icon-clock"></span><a href="@Url.Content("~/Article/" + article.id + "/" + article.UrlTitle)"> @(article.date.Value.ToString("yyyy-MM-dd")) | @(article.date.Value.ToString("HH:mm"))</a></li>
+                                    }
+                                        <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '@(frontUrl+"Article/"+article.id+"/"+article.UrlTitle)', '@article.title)')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
+                                        <li class="action-item"><span class="icon-star"></span></li>
+                                    </ul>
+                                </li>
+                            }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="top-ads-holder">
+        <div ng-bind-html="$root.globalData.ads.GoogleAdHomeBottom | htmlSafe"></div>
+        <div class="holder-desc">
+            <p class="desc"></p>
+        </div>
+    </div>
+
+    <div class="section-related-articles">
+        <div class="container">
+            <h2 class="related-articles-heading">مقالات ذات صلة</h2>
+            <div class="swiper-articles-holder">
+                <div class="swiper-container swiper-related-articles">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" ng-repeat="article in data.relatedArticles">
+                            <a ui-sref="app.articleDetails({id : article.id})" class="holder-articles">
+                                <div class="img-articles-holder @(!String.IsNullOrEmpty(article.videoUrl) ? "holder-video" : "")">
+                                    <img ng-src="{{resizeUrl+'1000x130xi/'+article.image}}" alt="{{article[currentLang+'title']}}" class="article-thumbs">
+                                </div>
+                                <h4 class="related-articles-title" ng-bind="article[currentLang+'title']"></h4>
+                            </a>
+                            <ul class="published">
+                                <li class="published-item" ng-if="article.date != null">
+                                    <img class="clock-icon" src="/assets/images/clock.png" alt="">
+                                    <a ui-sref="app.articleDetails({id : article.id})">
+                                        <span class="published-time" ng-bind="article.date"></span>
+                                    </a>
+                                </li>
+                                <li class="published-item">
+                                    <a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"  class="favorite-link">
+                                        <img class="share-btn" src="/assets/images/arrow-left.png" alt="">
+                                    </a>
+                                </li>
+                                <!--<li class="published-item">
+                                    <a href="javascript:void(0)" class="favorite-link">
+                                        <img class="favorite-btn" src="/assets/images/star.png" alt="">
+                                    </a>
+                                </li>-->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next swiper-button-black"></div>
+                    <div class="swiper-button-prev swiper-button-black"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="popup-wrapper popup-image-wrapper">
+    <div class="icon-close"></div>
+    <div class="holder-swiper">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+            @foreach (var item in Model.entry.ArticleMedias)
+            {
+                <div class="swiper-slide">
+                    <div class="holder-image">
+                    @if (item.mediaType == 1)
+                    {
+                        <img src="@(kmsurl + "Content/uploads/Articles/" + item.mediaSrc)" alt="" class="img-popup">
+                    }
+                    @if (item.mediaType == 2)
+                    {
+                        <iframe src="@(UtilsRepository.YoutubeToEmbedLink(item.link))" allowfullscreen></iframe>
+                    }
+                        <div class="holder-text">
+                            <p class="heading">@item.caption</p>
+                        </div>
+                    </div>
+                </div>
+                if (item.mediaType == 1 && picIndex == -1)
+                {
+                    picIndex = slideCount;
+                    <input type="hidden" id="picIndex" value="@picIndex" />
+                }
+                if (item.mediaType == 2 && videoIndex == -1)
+                {
+                    videoIndex = slideCount;
+                    <input type="hidden" id="videoIndex" value="@videoIndex" />
+                }
+                slideCount++;
+            }
+            </div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-pagination swiper-pagination-white"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="popup-wrapper popup-video-wrapper">
+    <div class="icon-close"></div>
+    <div class="holder-swiper">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                    @*<div class="swiper-slide">
+                            <div class="holder-image">
+                                <img src="@(kmsurl + "Content/uploads/Articles/" + item.mediaSrc)" alt="" class="img-popup">
+                                <div class="holder-text">
+                                    <p class="heading">@item.caption</p>
+                                </div>
+                            </div>*@
+
+                    <div class="swiper-slide">
+                        <div class="holder-image">
+                            <iframe src="@(UtilsRepository.YoutubeToEmbedLink(Model.entry.videoUrl))" allowfullscreen></iframe>
+
+                            @*<div class="holder-text">
+                                <p class="heading">@item.caption</p>
+                            </div>*@
+                        </div>
+                    </div>
+            </div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-pagination swiper-pagination-white"></div>
+        </div>
+    </div>
+</div>

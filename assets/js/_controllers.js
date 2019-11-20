@@ -1075,6 +1075,10 @@ app.controller('Home_Ctrl', function ($scope, $http, $rootScope, $sce, SERVER_CO
 app.controller('ArticleDetails_Ctrl', function ($scope, $http, $rootScope, $stateParams, $sce, SERVER_CONFIG, ARTICLE_CATEGORY_IDS) {
 
     //$rootScope.SetStateNavOptn("MY CART", "home", "", 1);
+    $rootScope.bodyClass = "ArticleDetailPage";
+    $scope.slideCount = 0;
+    $scope.videoIndex = -1;
+    $scope.picIndex = -1;
     this.$onInit = function () {  
 
     }
@@ -1082,8 +1086,19 @@ app.controller('ArticleDetails_Ctrl', function ($scope, $http, $rootScope, $stat
     $http.get(SERVER_CONFIG.baseUrl + "api/Data/GetArticleDetails?id="+ $stateParams.id).then(function successCallback(response) {
 
         $scope.data = response.data;
+        angular.forEach($scope.data.article.media, function(item){
+            if(item.mediaType == 1 && $scope.picIndex == -1){
+                $scope.picIndex = $scope.slideCount;
+            }
+            if(item.mediaType == 2 && $scope.videoIndex == -1){
+                $scope.videoIndex = $scope.slideCount;
+            }
+            $scope.slideCount++;
+        })
         setTimeout(function(){
-            
+            InitSwiperPartnerCompanies();
+            InitSwiperRelatedArticles();
+            InitSwiperPopup();
         }, 0);
 
     }, function errorCallback(response) {

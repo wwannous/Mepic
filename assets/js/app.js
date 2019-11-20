@@ -485,6 +485,18 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
     // });
     var language = storageService.GetStorage('NG_TRANSLATE_LANG_KEY');
     $rootScope.resizeUrl = SERVER_CONFIG.resizeUrl;
+    $rootScope.baseurl = SERVER_CONFIG.baseUrl;
+    $rootScope.websiteUrl = SERVER_CONFIG.websiteUrl;
+
+    $rootScope.addthis_open = function (event, param1, param2, param3, param4) {
+        addthis_open(event.currentTarget, '', $rootScope.websiteUrl+param2, param3);
+    }
+    $rootScope.addthis_send = function () {
+        addthis_sendto();
+    }
+    $rootScope.addthis_close = function () {
+        addthis_close();
+    }
 
     if(language != null){
         $rootScope.currentLang = language == 'en' ? '' : language;

@@ -3,3 +3,9 @@ app.filter('htmlSafe', [
       return $sce.trustAsHtml;
     }
 ]);  
+
+app.filter('trusted', function($sce){
+  return function(url) {
+      return $sce.trustAsResourceUrl(url);
+  }
+});

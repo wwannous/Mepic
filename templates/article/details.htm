@@ -53,104 +53,72 @@
                         <div class="article-header">
                             <h2 class="article-title" ng-bind="data.article[currentLang+'title']"></h2>
                             <ul class="editor-holder">
-                            @foreach (var company in Model.entry.ArticleCompanyItems.OrderByDescending(d => d.priority).Select(d => d.Company))
-                            {
-                                <li class="editor-item"><a href="@Url.Content("~/Search?term="+company.UrlTitle)">@company.title</a></li>
-                            }
-                            @foreach (var item in Model.entry.ArticleWriterItems)
-                            {
-                                <li class="editor-item"><img class="icon-pencil" src="@Url.Content("~/Content/assets/images/pencil.png")" alt="">@item.ArticleWriter.fullName</li>
-                            }
+                                <li class="editor-item" ng-repeat="company in data.allcompanies"><a href="" ng-bind="company[currentLang+'title']"></a></li>
+
+                                <li class="editor-item" ng-repeat="writer in data.writers"><img class="icon-pencil" src="assets/images/pencil.png" alt="">{{writer[currentLang+'fullName']}}</li>
                             </ul>
                         </div>
 
                         <div class="section-market">
                             <ul class="market-list">
-                            @foreach (var indicator in Model.entry.ArticleIndicators.Where(d => d.isPublished).OrderByDescending(d => d.priority))
-                            {
-                                <li class="market-item">
-                                    <img class="icon-market" src="@(kmsurl + "Images/25x24xi/" + Model.entry.imgSrc)" alt="">@indicator.label
-                                    <span class="text-blue">@indicator.value</span>
+                                <li class="market-item" ng-repeat="indicator in data.indicators">
+                                    <img class="icon-market" ng-src="{{resizeUrl+'25x24xi/'+indicator.image}}" alt="{{indicator[currentLang+'label']}}">{{indicator[currentLang+'label']}}
+                                    <span class="text-blue">{{indicator[currentLang+'value']}}</span>
                                 </li>
-                            }
                             </ul>
 
                             <div class="tags-holder">
-                            @foreach (var item in Model.entry.ArticleTagItems.Where(d => !d.ArticleTag.isDeleted && d.ArticleTag.isPublished).OrderByDescending(d => d.priority).Select(d => d.ArticleTag))
-                            {
-                                <span class="tags"><a href="@Url.Content("~/Search?term="+item.title)" class="tags-link">@item.title</a></span>
-                            }
+                                <span class="tags" ng-repeat="tag in data.tags"><a href="" class="tags-link" ng-bind="tag[currentLang+'title']"></a></span>
                             </div>
                         </div>
 
                         <div class="section-article-details">
                             <h3 class="article-subheading" ng-bind="data.article[currentLang+'subtitle']"></h3>
                             <div class="article-gallery">
-                                <div class="@(Model.entry.ArticleMedias.Where(d => d.mediaType == 2).Any() || Model.entry.ArticleMedias.Where(d => d.mediaType == 1).Any() ? "gallery-thumb-wide" : "gallery-thumb-full") @(!String.IsNullOrEmpty(Model.entry.videoUrl) ? "article-has-video" : "" )">
+                                <div class="{{ data.article.isMedia1 || data.article.isMedia2 ? 'gallery-thumb-wide' : 'gallery-thumb-full'}} {{data.article.videoUrl != null ? 'article-has-video' : ''}}">
                                     <a href=javascript:void(0)>
                                         <img class="thumb-img-wide" ng-src="{{resizeUrl+'1000x300xo/'+data.article.image}}" alt="{{data.article[currentLang+'title']}}">
                                     </a>
                                     <div class="thumb-details">
-                                    @if (Model.entry.ArticleMedias.Where(d => d.mediaType == 2).Any())
-                                    {
-                                        <p class="thumb-info js-video-btn">
-                                            <img class="thumb-info-icon" src="@Url.Content("~/Content/assets/images/icon-video.png")"
+                                        <p class="thumb-info js-video-btn" ng-if="data.article.isMedia2">
+                                            <img class="thumb-info-icon" src="/assets/images/icon-video.png"
                                                  alt="">
-                                            <span class="count">@Model.entry.ArticleMedias.Where(d => d.mediaType == 2).Count()</span>
+                                            <span class="count" ng-bind="data.article.mediaCount2"></span>
                                         </p>
-                                    }
-                                    @if (Model.entry.ArticleMedias.Where(d => d.mediaType == 1).Any())
-                                    {
-                                        <p class="thumb-info js-img-btn">
-                                            <img class="thumb-info-icon" src="@Url.Content("~/Content/assets/images/icon-image.png")"
+                                        <p class="thumb-info js-img-btn" ng-if="data.article.isMedia1">
+                                            <img class="thumb-info-icon" src="/assets/images/icon-image.png"
                                                  alt="">
-                                            <span class="count">@Model.entry.ArticleMedias.Where(d => d.mediaType == 1).Count()</span>
+                                            <span class="count" ng-bind="data.article.mediaCount1"></span>
                                         </p>
-                                    }
                                     </div>
                                 </div>
                                 <div class="gallery-thumb-sm">
-                                @if (Model.entry.ArticleMedias.Where(d => d.mediaType == 1).Any())
-                                {
-                                    <div class="gallery-thumb image-thumb">
-                                        <a href="javascript:void(0)" style="background-image:url(@(kmsurl + "Images/420x272xo/" + Model.entry.ArticleMedias.Where(d => d.mediaType == 1).FirstOrDefault().mediaSrc));">
-                                            @*<img class="thumb-img-sm" src="@(kmsurl + "Images/220x230xi/" + Model.entry.ArticleMedias.Where(d => d.mediaType == 1).FirstOrDefault().mediaSrc)" alt="">*@
+                                    <div class="gallery-thumb image-thumb" ng-if="data.article.isMedia1">
+                                        <a href="javascript:void(0)" style="background-image:url('{{resizeUrl+'420x272xo/'+data.article.media1[0].mediaSrc}}')">
                                         </a>
                                     </div>
-                                }
-                                @if (Model.entry.ArticleMedias.Where(d => d.mediaType == 2).Any())
-                                {
-                                    <div class="gallery-thumb video-thumb" style="background-image:url(@(kmsurl + "Images/420x272xo/" + Model.entry.ArticleMedias.Where(d => d.mediaType == 2).FirstOrDefault().mediaSrc))">
-                                        <a href="javascript:void(0)">
-                                            @*<img class="thumb-img-sm" src="@(kmsurl + "Images/220x230xi/" + Model.entry.ArticleMedias.Where(d => d.mediaType == 2).FirstOrDefault().mediaSrc)" alt="">*@
-                                        </a>
+                                    <div class="gallery-thumb video-thumb" ng-if="data.article.isMedia2" style="background-image:url('{{resizeUrl+'420x272xo/'+data.article.media2[0].mediaSrc}}')">
+                                        <a href="javascript:void(0)"></a>
                                         <div class="btn-play-wrapper">
                                             <a href="javascript:void(0)" class="btn-play-link">
                                                 <!-- <img class="btn-play" src="assets/images/play-white.png" alt=""> -->
                                             </a>
                                         </div>
                                     </div>
-                                }
-                                    @if (!Model.entry.ArticleMedias.Where(d => d.mediaType == 2).Any() && Model.entry.ArticleMedias.Where(d => d.mediaType == 1).Any())
-                                    {
-                                        <div class="gallery-thumb image-thumb">
-                                            <a href="javascript:void(0)" style="background-image:url('@(kmsurl + "Images/220x230xi/" + Model.entry.ArticleMedias.Where(d => d.mediaType == 1).ToList()[1].mediaSrc)')">
-                                                @*<img class="thumb-img-sm" src="@(kmsurl + "Images/220x230xi/" + Model.entry.ArticleMedias.Where(d => d.mediaType == 2).FirstOrDefault().mediaSrc)" alt="">*@
+                                        <div class="gallery-thumb image-thumb" ng-if="!data.article.isMedia2 && !data.article.isMedia1">
+                                            <a href="javascript:void(0)" style="background-image:url('{{resizeUrl+'220x230xi/'+data.article.media1[1].mediaSrc}}')">
+                                                
                                             </a>
                                         </div>
-                                    }
                                 </div>
                             </div>
 
                             <div class="mobile-ads-wrapper" ng-bind-html="$root.globalData.ads.GoogleAdMobileHeader | htmlSafe"></div>
 
-                            <div class="article-desc" ng-bind-html="data.article.description | htmlSafe"></div>
-                            @if (!String.IsNullOrEmpty(Model.entry.fileSrc))
-                            {
-                                <a href="@(kmsurl+"Content/uploads/Articles/"+Model.entry.fileSrc)" class="file-holder">
+                            <div class="article-desc" ng-bind-html="data.article[currentLang+'description'] | htmlSafe"></div>
+                                <a href="{{baseUrl+'Content/uploads/Articles/'+data.article.fileSrc}}" class="file-holder" ng-if="data.article.fileSrc != null">
                                     تحميل الملف<i class="fas fa-arrow-down"></i>
                                 </a>
-                            }
                         </div>
 
                         <div class="navigation-holder">
@@ -221,23 +189,18 @@
                 <div class="holder-left">
                     <div class="holder-ads" ng-bind-html="$root.globalData.ads.GoogleAdDetailLeft | htmlSafe">
                     </div>
-                @if (Model.entry.ArticleReportItems.Any())
-                {
-                    <div class="section-related-report">
+                    <div class="section-related-report" ng-if="data.reports.length > 0">
                         <h2 class="related-heading">تقارير ذات صلة</h2>
 
                         <div class="swiper-report-holder">
                             <div class="swiper-container swiper-report">
                                 <div class="swiper-wrapper">
-                                @foreach (var report in Model.entry.ArticleReportItems.OrderByDescending(d => d.priority).Select(d => d.Report))
-                                {
-                                    <div class="swiper-slide">
-                                        <a href="@Url.Content("~/Report/"+report.id+"/"+report.UrlTitle)" class="report-icon-holder">
-                                            <img class="icon-report" src="@(kmsurl + "Images/100x63xi/" + report.imgSrc)" alt="@report.title">
+                                    <div class="swiper-slide" ng-repeat="report in data.reports">
+                                        <a href="" class="report-icon-holder">
+                                            <img class="icon-report" ng-src="{{resizeUrl+'100x63xi/'+report.image}}" alt="{{report[currentLang+'title']}}">
                                         </a>
-                                        <a href="@Url.Content("~/Report/"+report.id+"/"+report.UrlTitle)" class="related-report-title">@report.title</a>
+                                        <a href="" class="related-report-title" ng-bind="report[currentLang+'title']"></a>
                                     </div>
-                                }
                                 </div>
                                 <!-- Add Arrows -->
                                 <div class="swiper-button-next swiper-button-black"></div>
@@ -245,111 +208,76 @@
                             </div>
                         </div>
                     </div>
-                }
 
-                @if (Model.entry.ArticleCompanyItems.Any(d => d.isMainCompany))
-                {
-                    <div class="section-partners">
+
+                    <div class="section-partners" ng-if="data.maincompanies.length > 0">
                         <h2 class="partner-heading">شركات</h2>
 
                         <div class="swiper-partner-holder">
                             <div class="swiper-container swiper-partners">
                                 <div class="swiper-wrapper">
-                                @{ 
-                                    var mainCompanies = Model.entry.ArticleCompanyItems.Where(d => d.isMainCompany).OrderByDescending(d => d.priority).Select(d => d.Company).ToList();
-                                }
-                                @for (int i = 0; i < Math.Ceiling((decimal)mainCompanies.Count / 2); i++)
-                                {
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide" ng-repeat="company in data.maincompanies" ng-if="$index < (data.maincompanies.length/2)">
                                         <div class="partner-list">
                                             <div class="partner-holder">
                                                     <div class="partner-img-holder">
-                                                        <img class="partner-img" src="@(kmsurl + "Images/1000x110xi/" + mainCompanies[count].imgSrc)" alt="@mainCompanies[count].title">
+                                                        <img class="partner-img" ng-src="{{resizeUrl+'1000x110xi/'+data.maincompanies[$index*2].image}}" alt="{{data.maincompanies[$index*2][currentLang+'title']}}">
                                                     </div>
-                                                <div href="" class="partner-name">@mainCompanies[count].title </div>
+                                                <div href="" class="partner-name" ng-bind="data.maincompanies[$index*2][currentLang+'title']"></div>
                                             </div>
-                                        @{ count++; }
-                                        @if (mainCompanies.ElementAtOrDefault(count) != null)
-                                        {
-                                            <div class="partner-holder">
+                                            <div class="partner-holder" ng-if="data.maincompanies[($index*2)+1]">
                                                     <div class="partner-img-holder">
-                                                        <img class="partner-img" src="@(kmsurl + "Images/1000x110xi/" + mainCompanies[count].imgSrc)" alt="@mainCompanies[count].title">
+                                                        <img class="partner-img" ng-src="{{resizeUrl+'1000x110xi/'+data.maincompanies[($index*2)+1].image}}" alt="{{data.maincompanies[($index*2)+1][currentLang+'title']}}">
                                                     </div>
-                                                <div href="" class="partner-name">@mainCompanies[count].title </div>
+                                                <div href="" class="partner-name" ng-bind="data.maincompanies[($index*2)+1][currentLang+'title']"></div>
                                             </div>
-                                            count++;
-                                        }
                                         </div>
                                     </div>
-                                }
                                 </div>
                                 <div class="swiper-button-next swiper-button-black"></div>
                                 <div class="swiper-button-prev swiper-button-black"></div>
                             </div>
                         </div>
                     </div>
-                }
 
-                @if (Model.entry.ArticleCompanyItems.Any(d => !d.isMainCompany))
-                {
-                    <div class="section-partners section-partners--other">
+                    <div class="section-partners section-partners--other" ng-if="data.companies.length > 0">
                         <h2 class="partner-heading">شركات أخرى</h2>
 
                         <div class="swiper-partner-holder">
                             <div class="swiper-container swiper-partners">
                                 <div class="swiper-wrapper">
-                                @{
-                                    count = 0;
-                                    var otherCompanies = Model.entry.ArticleCompanyItems.Where(d => !d.isMainCompany).OrderByDescending(d => d.priority).Select(d => d.Company).ToList();
-                                }
-                                @for (int i = 0; i < Math.Ceiling((decimal)otherCompanies.Count / 2); i++)
-                                {
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide" ng-repeat="company in data.companies" ng-if="$index < (data.companies.length/2)">
                                         <div class="partner-list">
                                             <div class="partner-holder">
                                                     <div class="partner-img-holder">
-                                                        <img class="partner-img" src="@(kmsurl + "Images/1000x110xi/" + otherCompanies[count].imgSrc)" alt="@otherCompanies[count].title">
+                                                        <img class="partner-img" ng-src="{{resizeUrl+'1000x110xi/'+data.companies[$index*2].image}}" alt="{{data.companies[$index*2][currentLang+'title']}}">
                                                     </div>
-                                                <div href="" class="partner-name">@otherCompanies[count].title </div>
+                                                <div href="" class="partner-name" ng-bind="data.companies[$index*2][currentLang+'title']"></div>
                                             </div>
-                                            @{ count++; }
-                                            @if (otherCompanies.ElementAtOrDefault(count) != null)
-                                            {
-                                                <div class="partner-holder">
+                                                <div class="partner-holder" ng-if="data.companies[($index*2)+1]">
                                                         <div class="partner-img-holder">
-                                                            <img class="partner-img" src="@(kmsurl + "Images/1000x110xi/" + otherCompanies[count].imgSrc)" alt="@otherCompanies[count].title">
+                                                            <img class="partner-img" ng-src="{{resizeUrl+'1000x110xi/'+data.companies[($index*2)+1].image}}" alt="{{data.companies[($index*2)+1][currentLang+'title']}}">
                                                         </div>
-                                                    <div href="" class="partner-name">@otherCompanies[count].title </div>
+                                                    <div href="" class="partner-name" ng-bind="data.companies[($index*2)+1][currentLang+'title']"></div>
                                                 </div>
-                                                count++;
-                                            }
                                         </div>
                                     </div>
-                                                }
                                 </div>
                                 <div class="swiper-button-next swiper-button-black"></div>
                                 <div class="swiper-button-prev swiper-button-black"></div>
                             </div>
                         </div>
                     </div>
-                }
 
-                @if (Model.entry.ArticleHighProfileItems.Any())
-                {
-                    <div class="section-people">
+                    <div class="section-people" ng-if="data.highprofiles.length > 0">
                         <h2 class="people-heading">أشخاص</h2>
                         <div class="people-list">
-                        @foreach (var people in Model.entry.ArticleHighProfileItems.OrderByDescending(d => d.priority).Select(d => d.HighProfile))
-                        {
-                            <div class="people-holder">
+                            <div class="people-holder" ng-repeat="highprofile in data.highprofiles">
                                 <h3>
-                                    <a href="" class="people-name">@people.fullName</a>
+                                    <a href="" class="people-name" ng-bind="highprofile[currentLang+'fullname']"></a>
                                 </h3>
                             </div>
-                        }
                         </div>
                     </div>
-                }
 
                     <div class="mobile-ads-wrapper" ng-bind-html="$root.globalData.ads.GoogleAdMobileHeader | htmlSafe">
                     </div>
@@ -359,22 +287,16 @@
                             <p class="heading">الأكثر قراءة</p>
 
                             <ul class="list-item list-unstyled">
-                            @foreach (var article in Model.mostRead)
-                            {
-                                <li class="item">
+                                <li class="item" ng-repeat="article in data.mostRead">
                                     <h3>
-                                        <a href="@Url.Content("~/Article/" + article.id + "/" + article.UrlTitle)" class="link-heading">@article.title</a>
+                                        <a ui-sref="app.articleDetails({id : article.id})" class="link-heading" ng-bind="article[currentLang+'title']"></a>
                                     </h3>
                                     <ul class="holder-actions list-unstyled">
-                                    @if (article.date.HasValue)
-                                    {
-                                        <li class="action-item"><span class="icon-clock"></span><a href="@Url.Content("~/Article/" + article.id + "/" + article.UrlTitle)"> @(article.date.Value.ToString("yyyy-MM-dd")) | @(article.date.Value.ToString("HH:mm"))</a></li>
-                                    }
-                                        <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '@(frontUrl+"Article/"+article.id+"/"+article.UrlTitle)', '@article.title)')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
+                                        <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({id : article.id})" ng-bind="article.date"></a></li>
+                                        <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
                                         <li class="action-item"><span class="icon-star"></span></li>
                                     </ul>
                                 </li>
-                            }
                             </ul>
                         </div>
                     </div>
@@ -437,35 +359,21 @@
     <div class="holder-swiper">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-            @foreach (var item in Model.entry.ArticleMedias)
-            {
-                <div class="swiper-slide">
+                <div class="swiper-slide" ng-repeat="media in data.article.media">
                     <div class="holder-image">
-                    @if (item.mediaType == 1)
-                    {
-                        <img src="@(kmsurl + "Content/uploads/Articles/" + item.mediaSrc)" alt="" class="img-popup">
-                    }
-                    @if (item.mediaType == 2)
-                    {
-                        <iframe src="@(UtilsRepository.YoutubeToEmbedLink(item.link))" allowfullscreen></iframe>
-                    }
+
+                        <img ng-if="media.mediaType == 1" ng-src="{{baseurl + 'Content/uploads/Articles/' + media.mediaSrc}}" alt="" class="img-popup">
+
+                        <iframe ng-if="media.mediaType == 2" ng-src="{{media.youtubeLink | trusted}}" allowfullscreen></iframe>
                         <div class="holder-text">
-                            <p class="heading">@item.caption</p>
+                            <p class="heading" ng-bind="media.caption"></p>
                         </div>
                     </div>
                 </div>
-                if (item.mediaType == 1 && picIndex == -1)
-                {
-                    picIndex = slideCount;
-                    <input type="hidden" id="picIndex" value="@picIndex" />
-                }
-                if (item.mediaType == 2 && videoIndex == -1)
-                {
-                    videoIndex = slideCount;
-                    <input type="hidden" id="videoIndex" value="@videoIndex" />
-                }
-                slideCount++;
-            }
+
+                    <input type="hidden" id="picIndex" value="{{picIndex}}" />
+
+                    <input type="hidden" id="videoIndex" value="{{videoIndex}}" />
             </div>
             <!-- Add Arrows -->
             <div class="swiper-button-next swiper-button-white"></div>
@@ -476,26 +384,22 @@
 </div>
 
 
-<div class="popup-wrapper popup-video-wrapper">
+<div class="popup-wrapper popup-video-wrapper" ng-if="(data.article.videoUrl != null)">
     <div class="icon-close"></div>
     <div class="holder-swiper">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                    @*<div class="swiper-slide">
+                    <!--<div class="swiper-slide">
                             <div class="holder-image">
                                 <img src="@(kmsurl + "Content/uploads/Articles/" + item.mediaSrc)" alt="" class="img-popup">
                                 <div class="holder-text">
                                     <p class="heading">@item.caption</p>
                                 </div>
-                            </div>*@
+                            </div>-->
 
                     <div class="swiper-slide">
                         <div class="holder-image">
-                            <iframe src="@(UtilsRepository.YoutubeToEmbedLink(Model.entry.videoUrl))" allowfullscreen></iframe>
-
-                            @*<div class="holder-text">
-                                <p class="heading">@item.caption</p>
-                            </div>*@
+                            <iframe ng-src="{{(data.article.youtubeLink) | trusted}}" allowfullscreen></iframe>
                         </div>
                     </div>
             </div>

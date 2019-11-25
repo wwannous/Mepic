@@ -32,8 +32,14 @@ app.constant('ARTICLE_CATEGORY_IDS', {
     three_col_aksar: 7
 });
 
+app.constant('CATEGORY_IDS', {
+    video: 10,
+    homepage_four_category_id: 479,
+    article_category_country_id: 3
+});
+
 app.constant('SESSION_CONFIG', {
-    headers_user_origin: 'leroyal',
+    headers_user_origin: 'awalan',
 });
 
 app.constant('APP_STATES', {

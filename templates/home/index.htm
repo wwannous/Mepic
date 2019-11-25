@@ -151,7 +151,7 @@
     <div ng-repeat="category in homeBottom">
             <div class="section-market" ng-if="category.templateId == templates.simple_listing">
                     <div class="container container--custom">
-                        <a href="" class="title" ng-bind="category[currentLang+'title']"></a>
+                        <a ui-sref="app.articleCategory({id: category.id})" class="title" ng-bind="category[currentLang+'title']"></a>
                         <div class="holder-content">
                             <div class="holder-box" ng-repeat="article in category.articles">
                                 <h3>

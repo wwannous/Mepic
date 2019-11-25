@@ -1107,6 +1107,41 @@ app.controller('ArticleDetails_Ctrl', function ($scope, $http, $rootScope, $stat
     });
 })
 
+app.controller('ArticleCategory_Ctrl', function ($scope, $http, $rootScope, $stateParams, $sce, SERVER_CONFIG, CATEGORY_IDS) {
+
+    //$rootScope.SetStateNavOptn("MY CART", "home", "", 1);
+    $rootScope.bodyClass = "";
+    $scope.videoCategoryId = CATEGORY_IDS.video;
+    $scope.homefourCategoryId = CATEGORY_IDS.homepage_four_category_id;
+    $scope.countryCategoryId = CATEGORY_IDS.article_category_country_id;
+    $scope.currentCategoryId = $stateParams.id;
+
+    $scope.filterCategory = angular.copy($stateParams.id)+"";
+    $scope.filterSubCategory = angular.copy($stateParams.subcategoryId)+"";
+    $scope.filterCountry = angular.copy($stateParams.countryId)+"";
+
+    $scope.applyFilters = function(categoryId, subcategoryId, countryId){
+
+        $http.get(SERVER_CONFIG.baseUrl + "api/Data/GetCategoryData?categoryId="+categoryId+"&subcategoryId="+subcategoryId+"&countryId="+countryId).then(function successCallback(response) {
+
+            $scope.data = response.data;
+            setTimeout(function(){
+                InitSwiperPartnerCompanies();
+            }, 0);
+
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
+
+    }
+    
+
+    this.$onInit = function () {  
+        $scope.applyFilters($stateParams.id, $stateParams.subcategoryId, $stateParams.countryId);
+    }
+})
+
 app.controller('AboutUs_Ctrl', function ($scope, $http, $rootScope, SERVER_CONFIG) {
 
     $rootScope.SetStateNavOptn("ABOUT US", "aboutus", "", 1);

@@ -170,6 +170,17 @@ app.config(function ($stateProvider, $urlRouterProvider, USER_ROLES) {
             templateUrl: 'templates/article/details.htm',
             controller: 'ArticleDetails_Ctrl',
         },
+        {
+            name: 'app.articleCategory',
+            url: 'articleCategory/:id',
+            authenticate: false,
+            templateUrl: 'templates/category/index.htm',
+            controller: 'ArticleCategory_Ctrl',
+            params: {
+                subcategoryId: 0,
+                countryId: 0
+            }
+        },
         //#region Contact Us 
         {
             name: 'app.contactus',

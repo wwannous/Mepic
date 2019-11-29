@@ -38,7 +38,8 @@
                 </a>
                 <ul class="navbar-nav">
                         <li class="nav-item" ng-repeat="category in $root.globalData.categories">
-                            <a class="nav-link" ng-href="{{category.subcategories.length > 0 ? '#' : '/Category/'+category.UrlTitle}}" ng-bind="category.title"></a>
+                            <a class="nav-link" ng-if="category.subcategories.length > 0" ng-bind="category.title"></a>
+                            <a class="nav-link" ng-if="category.subcategories.length == 0" ui-sref="app.articleCategory({id: category.id})" ng-bind="category.title"></a>
                             
                             <div class="menu-dropdown" ng-if="category.subcategories.length > 0">
                                 <div class="menu-wrapper">
@@ -59,7 +60,7 @@
                                                         </div>
                                                     </a>
                                             </div>
-                                                    <div class="holder-image holder-image-active" data-image="link-@subcatcount" ng-repeat="subcategory in category.subcategories">
+                                                    <div class="holder-image holder-image-active" data-image="link-{{$index}}" ng-repeat="subcategory in category.subcategories">
                                                             <a href="" class="holder-thumb" ng-repeat="article in subcategory.articles">
                                                                 <div class="holder-text">
                                                                     <p class="title" ng-bind="article.title"></p>
@@ -73,8 +74,8 @@
                                             </div>
                                         <div class="holder-link">
                                             <ul class="link-list">
-                                                <li class="link-item"><a href="" class="" id="link-{{category.id}}" ng-bind="category.title"></a></li>
-													<li class="link-item" ng-repeat="subcategory in category.subcategories"><a href="" class="" id="link-{{category.id}}" ng-bind="subcategory.title"></a>
+                                                <li class="link-item"><a ui-sref="app.articleCategory({id: category.id})" class="link" id="link-{{category.id}}" ng-bind="category.title"></a></li>
+													<li class="link-item" ng-repeat="subcategory in category.subcategories"><a ui-sref="app.articleCategory({id: category.id, subcategoryId: subcategory.id})" class="link" id="link-{{category.id}}" ng-bind="subcategory.title"></a>
 												</li>                                               
                                             </ul>
                                         </div>

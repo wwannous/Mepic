@@ -113,7 +113,7 @@
                                 </div>
                             </div>
 
-                            <div class="mobile-ads-wrapper" ng-bind-html="$root.globalData.ads.GoogleAdMobileHeader | htmlSafe"></div>
+                            <div class="mobile-ads-wrapper" ng-bind-html="globalData.ads.GoogleAdMobileHeader | htmlSafe"></div>
 
                             <div class="article-desc" ng-bind-html="data.article[currentLang+'description'] | htmlSafe"></div>
                                 <a href="{{baseUrl+'Content/uploads/Articles/'+data.article.fileSrc}}" class="file-holder" ng-if="data.article.fileSrc != null">
@@ -187,7 +187,7 @@
                 </div>
 
                 <div class="holder-left">
-                    <div class="holder-ads" ng-bind-html="$root.globalData.ads.GoogleAdDetailLeft | htmlSafe">
+                    <div class="holder-ads" ng-bind-html="globalData.ads.GoogleAdDetailLeft | htmlSafe">
                     </div>
                     <div class="section-related-report" ng-if="data.reports.length > 0">
                         <h2 class="related-heading">تقارير ذات صلة</h2>
@@ -279,7 +279,7 @@
                         </div>
                     </div>
 
-                    <div class="mobile-ads-wrapper" ng-bind-html="$root.globalData.ads.GoogleAdMobileHeader | htmlSafe">
+                    <div class="mobile-ads-wrapper" ng-bind-html="globalData.ads.GoogleAdMobileHeader | htmlSafe">
                     </div>
 
                     <div class="section-economy">
@@ -306,7 +306,7 @@
     </div>
 
     <div class="top-ads-holder">
-        <div ng-bind-html="$root.globalData.ads.GoogleAdHomeBottom | htmlSafe"></div>
+        <div ng-bind-html="globalData.ads.GoogleAdHomeBottom | htmlSafe"></div>
         <div class="holder-desc">
             <p class="desc"></p>
         </div>

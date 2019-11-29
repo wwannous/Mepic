@@ -181,6 +181,37 @@ app.config(function ($stateProvider, $urlRouterProvider, USER_ROLES) {
                 countryId: 0
             }
         },
+        {
+            name: 'app.articleCategoryReport',
+            url: 'articleCategoryReport',
+            authenticate: false,
+            templateUrl: 'templates/category/reportIndex.htm',
+            controller: 'ArticleCategoryReport_Ctrl',
+            params: {
+                id: 0,
+                subcategoryId: 0,
+                countryId: 0
+            }
+        },
+        {
+            name: 'app.articleCategoryCountry',
+            url: 'articleCategoryCountry',
+            authenticate: false,
+            templateUrl: 'templates/category/countryIndex.htm',
+            controller: 'ArticleCategoryCountry_Ctrl',
+            params: {
+                id: 0,
+                subcategoryId: 0,
+                countryId: 0
+            }
+        },
+        {
+            name: 'app.reportDetail',
+            url: 'reportDetail/:id',
+            authenticate: false,
+            templateUrl: 'templates/report/details.htm',
+            controller: 'ReportDetails_Ctrl',
+        },
         //#region Contact Us 
         {
             name: 'app.contactus',
@@ -523,6 +554,29 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
             $rootScope.globalData = response.data;
             $rootScope.social = response.data.social;
 
+            setTimeout(function(){
+                $(document).on('click', function (e) {
+                    if ($(e.target).closest(".open-menu").length === 0) {
+                      $('header .nav-item').removeClass('open-menu');
+                      $('header .nav-item .nav-link').removeClass('nav-link-active')
+                    }
+                    
+                    if (e.target.classList.value != "fas fa-search" && e.target.classList.value != "field-search") {
+                      // $('header .field-search').fadeOut();
+                      // $('.search-btn-mobile').fadeOut();
+                      $('.header-logo-menu').removeClass('open-search');
+                      $('.holder-nav-search').removeClass('holder-nav-search-active');
+                    }
+                  });
+                  _chartTab();
+                  //headerScroll();
+                  InitSwiperPopup();
+                  headerSearchBtn();
+                  headerMenuDropdown();
+                  //fixedScrolling();
+                  homeActivePopup();
+            }, 0);
+
     }, function errorCallback(response) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
@@ -643,6 +697,22 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
 
     $transitions.onStart({}, function (trans) {
 
+        if($('#navbarSupportedContent').hasClass('show')){
+            $('header .burger-menu').trigger('click');
+        }
+        // $(window).scroll(function(){
+        //     if ($(window).scrollTop() >= 100) {
+        //         $('.header-logo-menu').addClass('fixed-header');
+        //         $('.holder-menu').append().insertBefore('.navbar-brand');
+        //         $('nav').removeClass('fixed-header');
+        //     }
+        //     else {
+        //       $('.header-logo-menu').removeClass('fixed-header');
+        //     }
+        //   });
+        removeFixed();
+        $('body').removeClass('is-lock');
+        
         $('#loaderDivForced').removeClass('show');
 
         Basket.getBasket();

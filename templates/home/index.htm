@@ -1,11 +1,11 @@
 <div class="top-ads-holder">
-    <div class="top-ad-holder" ng-bind-html="$root.globalData.ads.GoogleAdHomeTop | htmlSafe">
+    <div class="top-ad-holder" ng-bind-html="globalData.ads.GoogleAdHomeTop | htmlSafe">
 
     </div>
-    <div class="top-ad-holder-mobile" ng-bind-html="$root.globalData.ads.GoogleAdMobileHeader | htmlSafe">
+    <div class="top-ad-holder-mobile" ng-bind-html="globalData.ads.GoogleAdMobileHeader | htmlSafe">
 
     </div>
-    <div id="HomeBottomAd" ng-bind-html="$root.globalData.ads.GoogleAdHomeBottom | htmlSafe" style="display:none">
+    <div id="HomeBottomAd" ng-bind-html="globalData.ads.GoogleAdHomeBottom | htmlSafe" style="display:none">
 
     </div>
     <div class="holder-desc">
@@ -23,11 +23,11 @@
                         <div class="holder-description">
                         <div ng-if="data.homeArticles[1]">
                             <h2>
-                                <a href="" class="heading" ng-bind="data.homeArticles[1][currentLang+'title']"></a>
+                                <a ui-sref="app.articleDetails({ id : data.homeArticles[1].id })" class="heading" ng-bind="data.homeArticles[1][currentLang+'title']"></a>
                             </h2>
-                            <a href="" class="short-decs" ng-bind-html="data.homeArticles[1][currentLang+'smallDescription'] | htmlSafe"></a>
+                            <a ui-sref="app.articleDetails({ id : data.homeArticles[1].id })" class="short-decs" ng-bind-html="data.homeArticles[1][currentLang+'smallDescription'] | htmlSafe"></a>
                             <ul class="holder-actions list-unstyled">
-                                <li class="action-item" ng-if="data.homeArticles[1].date != null"><span class="icon-clock"></span><a href="" ng-bind="data.homeArticles[1].date"></a></li>
+                                <li class="action-item" ng-if="data.homeArticles[1].date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : data.homeArticles[1].id })" ng-bind="data.homeArticles[1].date"></a></li>
                                 <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '@(frontUrl + "Article/" + articles[1].id + "/" + articles[1].UrlTitle)', '@articles[1].title)')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                 <!--<li class="action-item"><span class="icon-star"></span></li>-->
                             </ul>
@@ -35,7 +35,7 @@
                             <div class="holder-bullet-list">
                                 <ul>
                                     <li ng-repeat="relatedArticle in data.homeArticles[1].relatedArticles">
-                                        <a href="" ng-bind="relatedArticle[currentLang+'title']"></a>
+                                        <a ui-sref="app.articleDetails({ id : data.homeArticles[1].id })" ng-bind="relatedArticle[currentLang+'title']"></a>
                                     </li>
                                 </ul>
                             </div>
@@ -43,7 +43,7 @@
 
                         </div>
                         <div class="holder-big-thumbnails" ng-if="data.homeArticles[0]">
-                            <a class="holder-image with-overlay {{data.homeArticles[0].videoUrl != null ? 'holder-video' : ''}}">
+                            <a ui-sref="app.articleDetails({ id : data.homeArticles[0].id })" class="holder-image with-overlay {{data.homeArticles[0].videoUrl != null ? 'holder-video' : ''}}">
                                 <img ng-src="{{resizeUrl+'420x272xo/'+data.homeArticles[0].image}}" class="img-blog" alt="{{data.homeArticles[0][currentLang+'title']}}">
                                 <div class="content-ovelay">
                                     <p class="text-overlay" ng-bind="data.homeArticles[0][currentLang+'title']"></p>
@@ -54,7 +54,7 @@
                                     </ul>
                                 </div>
                             </a>
-                            <a href="" class="img-desc" ng-bind-html="data.homeArticles[0][currentLang+'smallDescription'] | htmlSafe"></a>
+                            <a ui-sref="app.articleDetails({ id : data.homeArticles[0].id })" class="img-desc" ng-bind-html="data.homeArticles[0][currentLang+'smallDescription'] | htmlSafe"></a>
                         </div>
                     </div>
                 </div>
@@ -78,15 +78,15 @@
                             <div class="swiper-container home-blog-container">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide" ng-repeat="article in data.homeFourArticles">
-                                        <a href="">
+                                        <a ui-sref="app.articleDetails({ id : article.id })">
                                             <img ng-src="{{resizeUrl+'220x147xi/'+article.image}}" class="img-blog" alt="{{article[currentLang+'title']}}" />
                                         </a>
                                         <h3>
-                                            <a href="" class="heading" ng-bind="article[currentLang+'title']"></a>
+                                            <a ui-sref="app.articleDetails({ id : article.id })" class="heading" ng-bind="article[currentLang+'title']"></a>
                                         </h3>
                                         <ul class="holder-actions list-unstyled">
                                             
-                                            <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a href="" ng-bind="article.date"></a></li>
+                                            <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
                                             <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '@(frontUrl+"Article/"+article.id+"/"+article.UrlTitle)', '@article.title)')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                             <li class="action-item"><span class="icon-star"></span></li>
                                         </ul>
@@ -100,11 +100,11 @@
                 </div>
             </div>
             <aside class="widgets-area">
-                <div class="holder-ads" ng-bind-html="$root.globalData.ads.GoogleAdDetailLeft | htmlSafe">
+                <div class="holder-ads" ng-bind-html="globalData.ads.GoogleAdDetailLeft | htmlSafe">
                 </div>
                 <div class="holder-ads holder-infographics" ng-if="data.infographics != null">
                     <h2 class="title" ng-bind="data.infographics.artitle"></h2>
-                    <a href="{{data.infographics.link}}">
+                    <a ui-sref="app.articleCategory({ id : data.infographics.id })">
                         <img ng-src="{{resizeUrl+'350x260xo/'+data.infographics.image}}" class="img-info" alt="{{data.infographics.artitle}}">
                     </a>
                 </div>
@@ -134,7 +134,7 @@
 
                     <ul class="list-item list-unstyled">
                         <li class="item" ng-repeat="article in data.microscopeArticles">
-                            <a href="" ng-bind="article.artitle"></a>
+                            <a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.artitle"></a>
                             <ul class="holder-actions list-unstyled">
                                 <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span>{{article.date}}</li>
                                 <li class="action-item"><span onmouseover="return addthis_open(this, '', '@(frontUrl+"Article/"+article.id+"/"+article.UrlTitle)', '@article.title)')" onmouseout="addthis_close()" onclick="return addthis_sendto()" class="icon-arrow-left"></span></li>
@@ -155,60 +155,60 @@
                         <div class="holder-content">
                             <div class="holder-box" ng-repeat="article in category.articles">
                                 <h3>
-                                    <a href="" class="heading" ng-bind="article[currentLang+'title']"></a>
+                                    <a ui-sref="app.articleDetails({ id : article.id })" class="heading" ng-bind="article[currentLang+'title']"></a>
                                 </h3>
                                 <div class="holder-thumbnail">
                                     <div class="holder-image">
-                                        <a href="">
+                                        <a ui-sref="app.articleDetails({ id : article.id })">
                                             <img ng-src="{{resizeUrl+'157x108xo/'+article.image}}" class="img-market" alt="{{article[currentLang+'title']}}" />
                                         </a>
                                     </div>
                                     <div class="holder-description">
-                                        <a href="" class="desc" ng-bind-html="article[currentLang+'smallDescription']"></a>
+                                        <a ui-sref="app.articleDetails({ id : article.id })" class="desc" ng-bind-html="article[currentLang+'smallDescription']"></a>
                                     </div>
                                     <div class="date-share-block">
                                         <ul class="holder-actions list-unstyled">
-                                            <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a href="" ng-bind="article.date"></a></li>
+                                            <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
                                             <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                             <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="holder-link-categ">
-                                    <a href="" class="link-categ" ng-repeat="tag in article.tags" ng-bind="tag[currentLang+'title']"></a>
+                                    <a ui-sref="app.articleDetails({ id : article.id })" class="link-categ" ng-repeat="tag in article.tags" ng-bind="tag[currentLang+'title']"></a>
                                 </div>
                 
                             </div>
                         </div>
                 
-                        <a href="" class="btn-turquoise">المزيد</a>
+                        <a ui-sref="app.articleCategory({ id : category.id })" class="btn-turquoise">المزيد</a>
                     </div>
             </div>
             <div class="section-inquiry" ng-if="category.templateId == templates.three_col_identical">
                     <div class="container container--custom">
-                        <a href="" class="title" ng-bind="category[currentLang+'title']"></a>
+                        <a ui-sref="app.articleCategory({ id : category.id })" class="title" ng-bind="category[currentLang+'title']"></a>
                         <div class="holder-inquiry">
                             <div class="swiper-container">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide" ng-repeat="report in category.reports">
                                         <div class="holder-box">
                                             <h2>
-                                                <a href="" class="heading" ng-bind="report[currentLang+'title']"></a>
+                                                <a ui-sref="app.reportDetail({ id : report.id })" class="heading" ng-bind="report[currentLang+'title']"></a>
                                             </h2>
-                                            <a href="">
+                                            <a ui-sref="app.reportDetail({ id : report.id })">
                                                 <img ng-src="{{resizeUrl+'1000x300xi/'+report.image}}" alt="{{report[currentLang+'title']}}" class="img-inquiry">
                                             </a>
                                             <h3>
-                                                <a href="" class="sub-heading" ng-bind="report[currentLang+'subtitle']"></a>
+                                                <a ui-sref="app.reportDetail({ id : report.id })" class="sub-heading" ng-bind="report[currentLang+'subtitle']"></a>
                                             </h3>
-                                            <a href="" class="desc" ng-bind-html="report[currentLang+'smallDescription'] | htmlSafe"></a>
+                                            <a ui-sref="app.reportDetail({ id : report.id })" class="desc" ng-bind-html="report[currentLang+'smallDescription'] | htmlSafe"></a>
                                             <ul class="holder-actions list-unstyled">
                                                 <li class="action-item" ng-if="report.date != null"><span class="icon-clock"></span><a ng-bind="report.date"></a></li>
                                                 <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                                 <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                             </ul>
                                             <ul class="holder-list">
-                                                    <li class="bullet-list" ng-repeat="article in report.articles"><a href="" ng-bind="article[currentLang+'title']"></a></li>
+                                                    <li class="bullet-list" ng-repeat="article in report.articles"><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article[currentLang+'title']"></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -219,21 +219,21 @@
                             </div>
                 
                         </div>
-                        <a href="" class="btn-turquoise">المزيد</a>
+                        <a ui-sref="app.articleCategory({ id : category.id })" class="btn-turquoise">المزيد</a>
                     </div>
             </div>
             <div class="section-economy" ng-if="category.templateId == templates.three_col_anwan">
                     <div class="container container--custom">
-                        <a href="" class="title" ng-bind="category[currentLang+'title']"></a>
+                        <a ui-sref="app.articleCategory({ id : category.id })" class="title" ng-bind="category[currentLang+'title']"></a>
                         <div class="holder-row">
                             <div class="holder-article-lg">
                                 <div class="big-thumbnails" ng-repeat="article in category.articles" ng-if="category.articles.length > 0 && $index < 2">
-                                    <a href="">
+                                    <a ui-sref="app.articleDetails({ id : article.id })">
                                         <img ng-src="{{resizeUrl+'418x215xo/'+article.image}}" class="img-blog" alt="{{article[currentLang+'title']}}">
                                     </a>
-                                    <a href="" class="desc" ng-bind="article[currentLang+'title']"></a>
+                                    <a ui-sref="app.articleDetails({ id : article.id })" class="desc" ng-bind="article[currentLang+'title']"></a>
                                     <ul class="holder-actions list-unstyled">
-                                        <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a href="" ng-bind="article.date"></a></li>
+                                        <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
                                         <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                         <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                     </ul>
@@ -244,13 +244,13 @@
                             <div class="holder-article-sm">
                                 <ul class="item-list list-unstyled">
                                     <li class="item" ng-repeat="article in category.articles" ng-if="category.articles.length > 0 && $index > 2 && $index < 7">
-                                        <a href="" class="{{article.videoUrl != null ? 'holder-video' : ''}}">
+                                        <a ui-sref="app.articleDetails({ id : article.id })" class="{{article.videoUrl != null ? 'holder-video' : ''}}">
                                             <img ng-src="{{resizeUrl+'100x63xi/'+article.image}}" class="img-blog" alt="{{article.title}}">
                                         </a>
                                         <h3>
-                                            <a href="" class="link-heading" ng-bind="article[currentLang+'title']"></a>
+                                            <a ui-sref="app.articleDetails({ id : article.id })" class="link-heading" ng-bind="article[currentLang+'title']"></a>
                                             <ul class="holder-actions list-unstyled">
-                                                <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a href="" ng-bind="article.date"></a></li>
+                                                <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
                                                 <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '@(frontUrl+"Article/"+article.id+"/"+article.UrlTitle)', '@article.title)')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                                 <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                             </ul>
@@ -266,10 +266,10 @@
                                 <ul class="list-item list-unstyled">
                                     <li class="item" ng-repeat="article in category.homeLeft.articles">
                                         <h3>
-                                            <a href="" class="link-heading" ng-bind="article[currentLang+'title']"></a>
+                                            <a ui-sref="app.articleDetails({ id : article.id })" class="link-heading" ng-bind="article[currentLang+'title']"></a>
                                         </h3>
                                         <ul class="holder-actions list-unstyled">
-                                            <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a href="" ng-bind="article.date"></a></li>
+                                            <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
                                             <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                             <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                         </ul>
@@ -278,13 +278,13 @@
                             </div>
                         </div>
                 
-                        <a href="" class="btn-turquoise">المزيد</a>
+                        <a ui-sref="app.articleCategory({ id : category.id })" class="btn-turquoise">المزيد</a>
                     </div>
                 
             </div>
             <div class="section-technology" ng-if="category.templateId == templates.masonry_blocks">
                     <div class="container container--custom">
-                        <a href="" class="title" ng-bind="category[currentLang+'title']"></a>
+                        <a ui-sref="app.articleCategory({ id : category.id })" class="title" ng-bind="category[currentLang+'title']"></a>
                         <div class="holder-grid">
                             <div class="col-of-two">
                                 <div class="double-block">
@@ -295,13 +295,13 @@
                                     </div>-->
                                     <div class="holder-box">
                                         <div class="holder-image with-overlay" ng-if="category.articles[3]">
-                                            <a href="">
+                                            <a ui-sref="app.articleDetails({ id : category.articles[3].id })">
                                                 <img ng-src="{{resizeUrl+'1000x216xi/'+category.articles[3].image}}" class="img-tech img-top-left" alt="{{category.articles[3][currentLang+'title']}}">
                                             </a>
                                             <div class="holder-content">
-                                                <a href="" class="desc" ng-bind="category.articles[3][currentLang+'title']"></a>
+                                                <a ui-sref="app.articleDetails({ id : category.articles[3].id })" class="desc" ng-bind="category.articles[3][currentLang+'title']"></a>
                                                 <ul class="holder-actions list-unstyled">
-                                                    <li class="action-item" ng-if="category.articles[3][currentLang+'title'] != null"><span class="icon-clock"></span><a href="" ng-bind="category.articles[3].date"></a></li>
+                                                    <li class="action-item" ng-if="category.articles[3][currentLang+'title'] != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : category.articles[3].id })" ng-bind="category.articles[3].date"></a></li>
                                                     <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                                     <li class="action-item"><span class="icon-star"></span></li>
                                                 </ul>
@@ -311,13 +311,13 @@
                                 </div>
                                 <div class="single-block">
                                     <div class="holder-image with-overlay" ng-if="category.articles[4]">
-                                        <a href="">
+                                        <a ui-sref="app.articleDetails({ id : category.articles[4].id })">
                                             <img ng-src="{{resizeUrl+'1000x432xi/'+category.articles[4].image}}" class="img-tech" alt="{{category.articles[4][currentLang+'title']}}">
                                         </a>
                                         <div class="holder-content">
-                                            <a href="" class="desc" ng-bind="category.articles[4][currentLang+'title']"></a>
+                                            <a ui-sref="app.articleDetails({ id : category.articles[4].id })" class="desc" ng-bind="category.articles[4][currentLang+'title']"></a>
                                             <ul class="holder-actions list-unstyled">
-                                                <li class="action-item" ng-if="category.articles[4].date != null"><span class="icon-clock"></span><a href="" ng-bind="category.articles[4].date"></a></li>
+                                                <li class="action-item" ng-if="category.articles[4].date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : category.articles[4].id })" ng-bind="category.articles[4].date"></a></li>
                                                 <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                                 <li class="action-item"><span class="icon-star"></span></li>
                                             </ul>
@@ -327,16 +327,16 @@
                             </div>
                             <div class="col-of-one single-img">
                                 <div class="holder-image with-overlay" ng-if="category.articles[2]">
-                                    <a href="">
+                                    <a ui-sref="app.articleDetails({ id : category.articles[2].id })">
                                         <img src="{{resizeUrl+'10000x649xi/'+category.articles[2].image}}" class="img-tech" alt="{{category.articles[2][currentLang+'title']}}">
                                     </a>
                                     <div class="holder-content">
                                         <h2>
-                                            <a href="" class="heading" ng-bind="category.articles[2][currentLang+'title']"></a>
+                                            <a ui-sref="app.articleDetails({ id : category.articles[2].id })" class="heading" ng-bind="category.articles[2][currentLang+'title']"></a>
                 
                                         </h2>
                                         <ul class="holder-actions list-unstyled">
-                                            <li class="action-item" ng-if="category.articles[2].date != null"><span class="icon-clock"></span><a href="" ng-bind="category.articles[2].date"></a></li>
+                                            <li class="action-item" ng-if="category.articles[2].date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : category.articles[2].id })" ng-bind="category.articles[2].date"></a></li>
                                             <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                             <li class="action-item"><span class="icon-star"></span></li>
                                         </ul>
@@ -345,26 +345,26 @@
                             </div>
                             <div class="col-of-one sm-thumb">
                                 <div class="holder-image with-overlay" ng-if="category.articles[0]">
-                                    <a href="">
+                                    <a ui-sref="app.articleDetails({ id : category.articles[0].id })">
                                         <img ng-src="{{resizeUrl+'1000x218xi/'+category.articles[0].image}}" class="img-tech img-top-right" alt="{{category.articles[0][currentLang+'title']}}">
                                     </a>
                                     <div class="holder-content">
-                                        <a href="" class="desc" ng-bind="category.articles[0][currentLang+'title']"></a>
+                                        <a ui-sref="app.articleDetails({ id : category.articles[0].id })" class="desc" ng-bind="category.articles[0][currentLang+'title']"></a>
                                         <ul class="holder-actions list-unstyled">
-                                            <li class="action-item" ng-if="category.articles[0].date != null"><span class="icon-clock"></span><a href="" ng-bind="category.articles[0].date"></a></li>
+                                            <li class="action-item" ng-if="category.articles[0].date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : category.articles[0].id })" ng-bind="category.articles[0].date"></a></li>
                                             <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                             <li class="action-item"><span class="icon-star"></span></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="holder-image with-overlay" ng-if="category.articles[1]">
-                                    <a href="">
+                                    <a ui-sref="app.articleDetails({ id : category.articles[1].id })">
                                         <img ng-src="{{resizeUrl+'1000x435xi/'+category.articles[1].image}}" class="img-tech" alt="{{category.articles[1][currentLang+'title']}}">
                                     </a>
                                     <div class="holder-content">
-                                        <a href="" class="desc" ng-bind="category.articles[1][currentLang+'title']"></a>
+                                        <a ui-sref="app.articleDetails({ id : category.articles[1].id })" class="desc" ng-bind="category.articles[1][currentLang+'title']"></a>
                                         <ul class="holder-actions list-unstyled">
-                                            <li class="action-item" ng-if="category.articles[1].date != null"><span class="icon-clock"></span><a href="" ng-bind="category.articles[1].date"></a></li>
+                                            <li class="action-item" ng-if="category.articles[1].date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : category.articles[1].id })" ng-bind="category.articles[1].date"></a></li>
                                             <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                             <li class="action-item"><span class="icon-star"></span></li>
                                         </ul>
@@ -372,7 +372,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="" class="btn-turquoise">المزيد</a>
+                        <a ui-sref="app.articleCategory({ id : category.id })" class="btn-turquoise">المزيد</a>
                     </div>
             </div>
             <div class="section-ads with-form" ng-if="category.templateId == templates.masonry_blocks">
@@ -397,25 +397,25 @@
             <div class="section-video" ng-if="category.templateId == templates.masonry_videos">
                     <div class="container container--custom">
                 
-                        <h2 class="title"><a href="" ng-bind="category[currentLang+'title']"></a></h2>
+                        <h2 class="title"><a ui-sref="app.articleCategory({ id : category.id })" ng-bind="category[currentLang+'title']"></a></h2>
                 
                         <div class="video-swiper">
                             <div class="swiper-container gallery-top">
                                 <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <div class="holder-video">
-                                                <a class="videoLink" href=""></a>
-                                                <a href="">
+                                                <a class="videoLink" ui-sref="app.articleDetails({ id : category.articles[0].id })"></a>
+                                                <a ui-sref="app.articleDetails({ id : category.articles[0].id })">
                                                     <img ng-src="{{resizeUrl+'715x447xi/'+category.articles[0].image}}" alt="{{category.articles[0][currentLang+'title']}}">
                                                 </a>
                                                 
                                                     <div class="holder-content">
-                                                        <a href="">
+                                                        <a ui-sref="app.articleDetails({ id : category.articles[0].id })">
                                                             <h3 class="heading" ng-bind="category.articles[0][currentLang+'title']"></h3>
                                                             <p class="desc-bg" ng-bind-html="category.articles[0][currentLang+'smallDescription'] | htmlSafe"></p>
                                                         </a>
                                                         <ul class="holder-actions list-unstyled">
-                                                            <li class="action-item" ng-if="category.articles[0].date != null"><span class="icon-clock"></span><a href="" ng-bind="category.articles[0].date"></a></li>
+                                                            <li class="action-item" ng-if="category.articles[0].date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : category.articles[0].id })" ng-bind="category.articles[0].date"></a></li>
                                                             <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                                             <li class="action-item"><span class="icon-star"></span></li>
                                                         </ul>
@@ -423,7 +423,6 @@
                 
                                             </div>
                                         </div>
-                                    }
                                 </div>
                             </div>
                             <div class="swiper-container gallery-thumbs">
@@ -431,13 +430,13 @@
                                         <div class="swiper-slide" ng-repeat="article in category.articles" ng-if="$index > 0 && $index < 4">
                 
                                             <div class="holder-video">
-                                                <a class="videoLink" href=""></a>
-                                                <a href="">
+                                                <a class="videoLink" ui-sref="app.articleDetails({ id : article.id })"></a>
+                                                <a ui-sref="app.articleDetails({ id : article.id })">
                                                     <img ng-src="{{resizeUrl+'418x215xi/'+article.image}}" alt="{{article[currentLang+'title']}}">
                                                     <p class="desc" ng-bind="article[currentLang+'title']"></p>
                                                 </a>
                                                 <ul class="holder-actions list-unstyled">
-                                                    <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a href="" ng-bind="article.date"></a></li>
+                                                    <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
                                                     <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                                     <li class="action-item"><span class="icon-star"></span></li>
                                                 </ul>
@@ -446,30 +445,30 @@
                                         </div>
                                 </div>
                             </div>
-                            <a href="" class="btn-turquoise">المزيد</a>
+                            <a ui-sref="app.articleCategory({ id : category.id })" class="btn-turquoise">المزيد</a>
                         </div>
                     </div>
             </div>
             <div class="section-opinion" ng-if="category.templateId == templates.four_col_horizontal">
                     <div class="container container--custom">
-                        <a href="" class="title" ng-bind="category[currentLang+'title']"></a>
+                        <a ui-sref="app.articleCategory({ id : category.id })" class="title" ng-bind="category[currentLang+'title']"></a>
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide" ng-repeat="article in category.articles">
                                     <div class="holder-box">
-                                        <a href="" class="holder-image">
+                                        <a ui-sref="app.articleDetails({ id : article.id })" class="holder-image">
                                             <img ng-src="{{resizeUrl+'418x215xi/'+article.image}}" alt="{{article[currentLang+'title']}}">
                                         </a>
                 
                                         <div class="holder-description">
                                             <h3>
-                                                <a href="" class="heading" ng-bind="article[currentLang+'title']"></a>
+                                                <a ui-sref="app.articleDetails({ id : article.id })" class="heading" ng-bind="article[currentLang+'title']"></a>
                                             </h3>
 
-                                            <a href="" class="edit" ng-if="article[currentLang+'writerName'] != null"><span class="icon-pencil"></span>{{article[currentLang+'writerName']}}</a>
+                                            <a ui-sref="app.articleDetails({ id : article.id })" class="edit" ng-if="article[currentLang+'writerName'] != null"><span class="icon-pencil"></span>{{article[currentLang+'writerName']}}</a>
                 
                                             <ul class="holder-actions list-unstyled">
-                                                <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a href="" ng-bind="article.date"></a></li>
+                                                <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
                                                 <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                                 <li class="action-item"><span class="icon-star"></span></li>
                                             </ul>
@@ -482,22 +481,22 @@
                             <div class="swiper-button-prev swiper-button-black d-lg-none d-md-block d-none"></div>
                             <!-- <div class="swiper-pagination "></div> -->
                         </div>
-                        <a href="@Url.Content("~/Category/"+Model.UrlTitle)" class="btn-turquoise">المزيد</a>
+                        <a ui-sref="app.articleCategory({ id : category.id })" class="btn-turquoise">المزيد</a>
                     </div>
             </div>
             <div class="section-economy" ng-if="category.templateId == templates.three_col_aksar">
                     <div class="container container--custom">
-                        <a href="" class="title" ng-bind="category[currentLang+'title']"></a>
+                        <a ui-sref="app.articleCategory({ id : category.id })" class="title" ng-bind="category[currentLang+'title']"></a>
                 
                         <div class="holder-row">
                             <div class="holder-article-lg">
                                 <div class="big-thumbnails" ng-repeat="article in category.articles" ng-if="$index < 2">
-                                    <a href="">
+                                    <a ui-sref="app.articleDetails({ id : article.id })">
                                         <img ng-src="{{resizeUrl+'418x215xo/'+article.image}}" class="img-blog" alt="{{article[currentLang+'title']}}" />
                                     </a>
-                                    <a href="" class="desc" ng-bind="article[currentLang+'title']"></a>
+                                    <a ui-sref="app.articleDetails({ id : article.id })" class="desc" ng-bind="article[currentLang+'title']"></a>
                                     <ul class="holder-actions list-unstyled">
-                                        <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a href="" ng-bind="article.date"></a></li>
+                                        <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
                                         <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                         <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                     </ul>
@@ -508,13 +507,13 @@
                             <div class="holder-article-sm">
                                 <ul class="item-list list-unstyled">
                                     <li class="item" ng-repeat="article in category.articles" ng-if="$index > 1 && $index < 7">
-                                        <a href="">
+                                        <a ui-sref="app.articleDetails({ id : article.id })">
                                             <img ng-src="{{resizeUrl+'100x63xi/'+article.image}}" class="img-blog" alt="{{article[currentLang+'title']}}" />
                                         </a>
                                         <h3>
-                                            <a href="" class="link-heading" ng-bind="article[currentLang+'title']"></a>
+                                            <a ui-sref="app.articleDetails({ id : article.id })" class="link-heading" ng-bind="article[currentLang+'title']"></a>
                                             <ul class="holder-actions list-unstyled">
-                                                <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a href="" ng-bind="article.date"></a></li>
+                                                <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
                                                 <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', 'itle)', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                                 <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                             </ul>
@@ -529,10 +528,10 @@
                                 <ul class="list-item list-unstyled">
                                     <li class="item" ng-repeat="article in category.mostRead">
                                         <h3>
-                                            <a href="" class="link-heading" ng-bind="article[currentLang+'title']"></a>
+                                            <a ui-sref="app.articleDetails({ id : article.id })" class="link-heading" ng-bind="article[currentLang+'title']"></a>
                                         </h3>
                                         <ul class="holder-actions list-unstyled">
-                                            <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a href="" ng-bind="article.date"></a></li>
+                                            <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
                                             <li class="action-item"><a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><span class="icon-arrow-left"></span></a></li>
                                             <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                         </ul>
@@ -541,7 +540,7 @@
                             </div>
                         </div>
                 
-                        <a href="" class="btn-turquoise">المزيد</a>
+                        <a ui-sref="app.articleCategory({ id : category.id })" class="btn-turquoise">المزيد</a>
                     </div>
                 
             </div>

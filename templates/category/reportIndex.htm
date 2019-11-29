@@ -1,0 +1,253 @@
+<main class="listing-articles listing-reports">
+    <!-- <button class="btn _btn btn-primary direction-toggler" type="button" name="button"
+      style="cursor: pointer; position: fixed; top: 200px; left:0; z-index: 999;">toggle</button> -->
+    <form id="HiddenParams">
+        <input type="hidden" name="category" value="@categoryTitle" />
+        <input type="hidden" name="subcategory" value="@subcategoryTitle" />
+        <input type="hidden" name="country" value="@countryTitle" />
+        <input type="hidden" name="isPartial" value="true" />
+    </form>
+    <div class="section-title-filter">
+        <div class="container container--custom">
+            <div class="holder-filter">
+                <div class="holder-category">
+                    <div class="holder-select">
+                        <select name="categoryFilter" id="categoryFilter" ng-model="filterCategory" ng-change="applyFilters(filterCategory, filterSubCategory, filterCountry)" ng-model-options="{ updateOn: 'change', debounce: { change: 0 } }" class="field-select select-category">
+                            <option value="0">الفئة</option>
+                            <option ng-if="category.id != countryCategoryId && category.id != homefourCategoryId && category.id != reportCategoryId" ng-repeat="category in data.categories" ng-selected="filterCategory == category.id" ng-value="category.id.toString()" ng-bind="category[currentLang+'title']"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="holder-subcategory" ng-if="data.subcategories.length > 0">
+                    <div class="holder-select">
+                    
+                        <select name="subcategoryFilter" id="subcategoryFilter" ng-model="filterSubCategory" ng-change="applyFilters(filterCategory, filterSubCategory, filterCountry)" ng-model-options="{ updateOn: 'change', debounce: { change: 0 } }" class="field-select select-subcategory">
+                            <option value="0">الفئة الفرعية</option>
+                            <option ng-repeat="subcategory in data.subcategories" ng-value="subcategory.id.toString()" ng-selected="filterSubCategory == subcategory.id" ng-bind="subcategory[currentLang+'title']"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="holder-country">
+                    <div class="holder-select">
+                        <select name="countryFilter" id="countryFilter" ng-model="filterCountry" ng-change="applyFilters(filterCategory, filterSubCategory, filterCountry)" ng-model-options="{ updateOn: 'change', debounce: { change: 0 } }" class="field-select select-country">
+                            <option value="0">البلد</option>
+                                <option ng-repeat="country in data.countries" ng-value="country.id.toString()" ng-selected="filterCountry == country.id" ng-bind="country[currentLang+'title']"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="holder-title">
+                <h1 class="section-title" ng-bind="data.category[currentLang+'title']"></h1>
+            </div>
+            <div class="homder-filter-bt">
+                <button class="btn-filter-mobile" onclick="openFilterMobile()">فلتر <i class="fas fa-filter"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container container--custom">
+        <div class="page-content">
+            <div class="section-three-article">
+                <div class="container container--custom">
+                    <div class="holder-right-side">
+                        <div class="holder-articles">
+                            <div class="article" ng-repeat="article in data.articles" ng-if="$index < 3">
+                                <div class="holder-image {{article.videoUrl != null ? 'holder-video' : ''}}">
+                                    <a ui-sref="app.reportDetail({ id : article.id })"><img ng-src="{{resizeUrl+'418x215xi/'+article.image}}" alt="{{article[currentLang+'title']}}" class="image article-image"></a>
+                                    <a ui-sref="app.reportDetail({ id : article.id })" class="videoLink"></a>
+                                </div>
+                                <div class="holder-article-title">
+                                    <h3>
+                                        <a ui-sref="app.reportDetail({ id : article.id })" class="article-title" ng-bind="article[currentLang+'title']"></a>
+                                    </h3>
+                                </div>
+                                <a ui-sref="app.reportDetail({ id : article.id })">
+                                    <p class="article-subtitle" ng-bind-html="article[currentLang+'smalldescription'] | htmlSafe"></p>
+                                </a>
+                                <ul class="holder-actions list-unstyled">
+                                    <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span> <a href="" ng-bind="article.date"></a></li>
+                                    <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Report/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                    <li class="action-item"><span class="icon-star"></span></li>
+                                </ul>
+                                <div class="tags-holder">
+                                        <span class="tags" ng-repeat="tag in article.tags">
+                                            <a href="@Url.Content("~/Search?term="+tag.title)" class="tags-link" ng-bind="tag[currentLang+'title']"></a>
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="holder-ads-image">
+                            <div class="ads-img">
+                                <div ng-bind-html="globalData.ads.GoogleAdHomeBottom | htmlSafe"></div>
+                                <div class="holder-desc">
+                                    <p class="desc"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-single-article">
+                <div class="container container--custom">
+                    <div class="holder-right-side">
+                        <div class="holder-single-article">
+                            <div class="single-article" ng-repeat="article in data.articles" ng-if="$index > 2 && $index < 6">
+                                <div class="holder-details">
+                                    <div class="holder-title">
+                                        <h2>
+                                            <a ui-sref="app.reportDetail({ id : article.id })">
+                                                <p class="detail-title" ng-bind="article[currentLang+'title']"></p>
+                                            </a>
+                                        </h2>
+                                    </div>
+                                    <a ui-sref="app.reportDetail({ id : article.id })">
+                                        <div class="detail-desc" ng-bind-html="article[currentLang+'smalldescription'] | htmlSafe"></div>
+                                    </a>
+                                    <ul class="holder-actions list-unstyled">
+                                        <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span> <a ui-sref="app.reportDetail({ id : article.id })" ng-bind="article.date"></a></li>
+                                        <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                        <li class="action-item"><span class="icon-star"></span></li>
+                                    </ul>
+                                    <div class="tags-holder">
+                                            <span class="tags" ng-repeat="tag in articles.tags">
+                                                <a href="@Url.Content("~/Search?term=" + tag.title)" class="tags-link" ng-bind="tag[currentLang+'title']"></a>
+                                            </span>
+                                    </div>
+                                </div>
+                                <div class="holder-single-image {{article.videoUrl != null ? 'holder-video' : ''}}">
+                                    <a ui-sref="app.reportDetail({ id : article.id })">
+                                        <img ng-src="{{resizeUrl+'418x215xi/'+article.image}}" alt="{{article[currentLang+'title']}}" class="single-image article-image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-list-article">
+                <div class="container container--custom">
+
+                    <div class="holder-right-side">
+                        <div class="holder-list-article">
+                                <div class="article-list" ng-repeat="article in data.articles" ng-if="$index > 5 && $index < 10">
+                                    <div class="holder-image">
+                                        <a ui-sref="app.reportDetail({ id : article.id })"><img ng-src="{{resizeUrl+'418x215xi/'+article.image}}" alt="{{article[currentLang+'title']}}" class="art-iamge"></a>
+                                    </div>
+                                    <a ui-sref="app.reportDetail({ id : article.id })" class="holder-art-title">
+                                        <p class="list-art-title" ng-bind="article[currentLang+'title']"></p>
+                                    </a>
+                                    <ul class="holder-actions list-unstyled">
+                                        <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span> <a ui-sref="app.reportDetail({ id : article.id })" ng-bind="article.date"></a></li>
+                                        <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Report/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                        <li class="action-item"><span class="icon-star"></span></li>
+                                    </ul>
+                                </div>
+                        </div>
+                        <div class="holder-btn-more" ng-if="data.HasNextPage">
+                            <a ng-click="LoadMoreArticles($event, (data.PageIndex+1))" ng-hide="isLoading" class="btn-more">المزيد</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside class="widgets-area">
+            <div class="section-chart">
+                <div class="chart-tab">
+                    <div class="tab-item active-link" data-link="firstTab">أسهم</div>
+                    <div class="tab-item" data-link="secondTab">سندات</div>
+                    <div class="tab-item" data-link="thirdTab">سلاع </div>
+                    <div class="tab-item" data-link="fourthTab">فوائد</div>
+                </div>
+
+                <div id="firstTab" class="tab-content">
+                    <img src="@Url.Content("~/Content/assets/images/chart.jpg")" class="img-chart" alt="chart">
+                </div>
+                <div id="secondTab" class="tab-content">
+                    <img src="@Url.Content("~/Content/assets/images/img-thumb10.jpg")" alt="chart">
+                </div>
+                <div id="thirdTab" class="tab-content">
+                    <img src="@Url.Content("~/Content/assets/images/chart.jpg")" alt="chart">
+                </div>
+                <div id="fourthTab" class="tab-content">
+                    <img src="@Url.Content("~/Content/assets/images/chart.jpg")" alt="chart">
+                </div>
+            </div>
+            <div class="holder-ads">
+                <div class="img-ads" ng-bind-html="globalData.ads.GoogleAdHomeLeft | htmlSafe"></div>
+            </div>
+            <div class="holder-desc">
+                <p class="desc"></p>
+            </div>
+            <div class="holder-ads2">
+                <div class="ads2" ng-bind-html="globalData.ads.GoogleAdMobileHeader | htmlSafe"></div>
+            </div>
+            <div class="holder-desc">
+                <p class="desc"></p>
+            </div>
+
+            <div class="section-partners" ng-if="data.maincompanies.length > 0">
+                <h2 class="partner-heading">شركات</h2>
+
+                <div class="swiper-partner-holder">
+                    <div class="swiper-container swiper-partners">
+                        <div class="swiper-wrapper">
+                                <div class="swiper-slide" ng-repeat="company in data.maincompanies" ng-if="$index < (data.maincompanies.length/2)">
+                                    <div class="partner-list">
+                                        <div class="partner-holder">
+                                            <a>
+                                                <div class="partner-img-holder">
+                                                    <img class="partner-img" src="{{resizeUrl+'100x63xi/'+data.maincompanies[$index*2]['image']}}" alt="{{data.maincompanies[$index*2][currentLang+'title']}}">
+                                                </div>
+                                            </a>
+                                            <a>
+                                                <p class="partner-name" ng-bind="data.maincompanies[$index*2][currentLang+'title']"></p>
+                                            </a>
+                                        </div>
+                                            <div class="partner-holder" ng-if="data.maincompanies[($index*2)+1]">
+                                                <a>
+                                                    <div class="partner-img-holder">
+                                                        <img class="partner-img" src="{{resizeUrl+'100x63xi/'+data.maincompanies[($index*2)+1]['image']}}" alt="{{data.maincompanies[($index*2)+1][currentLang+'title']}}">
+                                                    </div>
+                                                </a>
+                                                <a>
+                                                    <p class="partner-name" ng-bind="data.maincompanies[($index*2)+1][currentLang+'title']"></p>
+                                                </a>
+                                            </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="swiper-button-next swiper-button-black"></div>
+                        <div class="swiper-button-prev swiper-button-black"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="holder-most-read">
+                <p class="heading">الأكثر قراءة</p>
+    
+                <ul class="list-item list-unstyled">
+                        <li class="item" ng-repeat="article in data.mostRead">
+                            <h3>
+                                <a ui-sref="app.articleDetails({ id : article.id })">
+                                    <p class="link-heading" ng-bind="article[currentLang+'title']"></p>
+                                </a>
+                            </h3>
+                            <ul class="holder-actions list-unstyled">
+    
+                                <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span> <a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
+                                <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                <li class="action-item"><span class="icon-star"></span></li>
+                            </ul>
+                        </li>
+                </ul>
+            </div>
+
+            <div class="holder-newsletter">
+                <h2 class="newsletter-title">اشترك في نشرتنا الإخبارية</h2>
+                <div class="hodler-inputs">
+                    <input type="text" id="newsletterEmail" class="inpt-news" placeholder="أدخل بريدك الالكتروني">
+                    <button type="submit" class="btn-check btn-news-letter"><i class="fas fa-check"></i></button>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>

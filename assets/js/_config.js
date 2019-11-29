@@ -35,7 +35,8 @@ app.constant('ARTICLE_CATEGORY_IDS', {
 app.constant('CATEGORY_IDS', {
     video: 10,
     homepage_four_category_id: 479,
-    article_category_country_id: 3
+    article_category_country_id: 3,
+    report_category_id: 7
 });
 
 app.constant('SESSION_CONFIG', {

@@ -1,0 +1,148 @@
+<main class="details-malafat">
+    <form id="HiddenParams">
+        <input type="hidden" name="id" id="entryId" value="@id" />
+        <input type="hidden" name="isPartial" value="true" />
+    </form>
+    <!-- <button class="btn _btn btn-primary direction-toggler" type="button" name="button" style="cursor: pointer; position: fixed; top: 200px; left:0; z-index: 999;">toggle</button> -->
+    <h1 class="page-title"><strong>awalan details malafat article</strong></h1>
+    <div class="section-blog">
+        <div class="container container--custom">
+            <div class="single-blog">
+
+                <div class="holder-right">
+                        <div class="featured-article">
+                            <a onclick="javascript:history.go(-1);" class="btn-close"></a>
+
+                            <div class="img-featured-wrapper">
+                                <img class="img-featured-article" ng-src="{{resizeUrl+'1000x248xi/'+data.report.image}}" alt="{{data.report[currentLang+'title']}}">
+                            </div>
+                            <div class="featured-article-details">
+                                <ul class="published">
+                                    <li class="published-item" ng-if="data.report.date != null">
+                                        <img class="clock-icon" src="assets/images/clock.png" alt=""><span class="published-time" ng-bind="data.report.date"></span>
+                                    </li>
+                                    <li class="published-item">
+                                        <a href="javascript:void(0)" class="favorite-link">
+                                            <img class="favorite-btn" src="assets/images/star.png" alt="">
+                                        </a>
+                                    </li>
+                                </ul>
+                                <h2 class="featured-title">
+                                    <div class="featured-title-link" ng-bind="data.report[currentLang+'title']"></div>
+                                </h2>
+                                <div class="featured-desc" ng-bind-html="data.report[currentLang+'description'] | htmlSafe"></div>
+                                <a href="{{Model.report.fileSrc}}" target="_blank" ng-if="data.report.fileSrc != null" class="file-holder">
+                                    تحميل الملف<i class="fas fa-arrow-down"></i>
+                                </a>
+                                <div class="tags-holder">
+                                    <span class="tags" ng-repeat="tag in data.report.tags"><a href="" class="tags-link" ng-bind="tag[currentLang+'title']"></a></span>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="featured-articles-list">
+                        <div class="featured-articles-wrapper" ng-repeat="article in data.articles">
+                            <div class="featured-img-list-holder {{ article.videoUrl != null ? 'holder-video' : '')">
+                                <a ui-sref="app.articleDetails({ id : article.id })">
+                                    <img class="featured-list-img" src="{{resizeUrl+'1000x248xi/'+article.image}}" alt="{{article[currentLang+'tiitle']}}">
+                                </a>
+                            </div>
+                        
+                            <div class="featured-list-details">
+                                <h2 class="featured-list-title">
+                                    <a ui-sref="app.articleDetails({ id : article.id })" class="featured-list-link" ng-bind="article[currentLang+'title']"></a>
+                                </h2>
+                                <a ui-sref="app.articleDetails({ id : article.id })" class="featured-list-desc" ng-bind-html="article[currentLang+'smalldescription'] | htmlSafe"></a>
+                                <ul class="published">
+                                        <li class="published-item" ng-if="article.date != null">
+                                            <img class="clock-icon" src="assets/images/clock.png" alt="">
+                                            <a ui-sref="app.articleDetails({ id : article.id })">
+                                                <span class="published-time" ng-bind="article.date"></span>
+                                            </a>
+                                        </li>
+                                    <li class="published-item">
+                                        <a href="javascript:void(0)" class="favorite-link" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()">
+                                            <img class="share-btn" src="assets/images/arrow-left.png" alt="">
+                                        </a>
+                                    </li>
+                                    <li class="published-item">
+                                        <a href="javascript:void(0)" class="favorite-link">
+                                            <img class="favorite-btn" src="assets/images/star.png" alt="">
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tags-holder">
+                                        <span class="tags" ng-repeat="tag in article.tags"><a href="" class="tags-link" ng-bind="tag[currentLang+'title']"></a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="holder-left">
+                    <div class="holder-ads">
+                        <div class="img-ads">
+                            <div ng-bind-html="globalData.ads.GoogleAdDetailLeft | htmlSafe"></div>
+                            <div class="holder-desc">
+                                <p class="desc"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-related-report" ng-if="data.relatedReports.length > 0">
+                        <h2 class="related-heading">تقارير ذات صلة</h2>
+
+                        <div class="swiper-report-holder">
+                            <div class="swiper-container swiper-report">
+                                <div class="swiper-wrapper">
+                                        <div class="swiper-slide" ng-repeat="report in data.relatedReports">
+                                            <a ui-sref="app.reportDetail({ id : report.id })" class="report-icon-holder">
+                                                <img class="icon-report" src="{{resizeUrl+'1000x248xi/'+report.image}}" alt="{{report[currentLang+'title']}}">
+                                            </a>
+                                            <a ui-sref="app.reportDetail({ id : report.id })" class="related-report-title" ng-bind="report[currentLang+'title']"></a>
+                                        </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-ads-wrapper">
+                        <div class="img-mobile-ads" ng-bind-html="globalData.ads.GoogleAdMobileHeader | htmlSafe"></div>
+                    </div>
+
+                    <div class="section-economy">
+                        <div class="holder-most-read">
+                            <p class="heading">الأكثر قراءة</p>
+                
+                            <ul class="list-item list-unstyled">
+                                    <li class="item" ng-repeat="article in data.mostRead">
+                                        <h3>
+                                            <a ui-sref="app.articleDetails({ id : article.id })">
+                                                <p class="link-heading" ng-bind="article[currentLang+'title']"></p>
+                                            </a>
+                                        </h3>
+                                        <ul class="holder-actions list-unstyled">
+                
+                                            <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span> <a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
+                                            <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                            <li class="action-item"><span class="icon-star"></span></li>
+                                        </ul>
+                                    </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="top-ads-holder">
+        <div class="ads-img">
+            <div ng-bind-html="globalData.ads.GoogleAdHomeBottom | htmlSafe"></div>
+            <div class="holder-desc">
+                <p class="desc"></p>
+            </div>
+        </div>
+    </div>
+</main>

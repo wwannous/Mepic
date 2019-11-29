@@ -700,16 +700,7 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
         if($('#navbarSupportedContent').hasClass('show')){
             $('header .burger-menu').trigger('click');
         }
-        // $(window).scroll(function(){
-        //     if ($(window).scrollTop() >= 100) {
-        //         $('.header-logo-menu').addClass('fixed-header');
-        //         $('.holder-menu').append().insertBefore('.navbar-brand');
-        //         $('nav').removeClass('fixed-header');
-        //     }
-        //     else {
-        //       $('.header-logo-menu').removeClass('fixed-header');
-        //     }
-        //   });
+
         removeFixed();
         $('body').removeClass('is-lock');
         
@@ -809,6 +800,16 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
     });
 
     $transitions.onFinish({}, function (trans) {
+        $(window).scroll(function(){
+            if ($(window).scrollTop() >= 100) {
+                $('.header-logo-menu').addClass('fixed-header');
+                $('.holder-menu').append().insertBefore('.navbar-brand');
+                $('nav').removeClass('fixed-header');
+            }
+            else {
+              $('.header-logo-menu').removeClass('fixed-header');
+            }
+        });
         $rootScope.CloseNavMenu();
         //JSHelper.CloseMenu();
     });

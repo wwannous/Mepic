@@ -1355,6 +1355,60 @@ app.controller('ContactUs_Ctrl', function ($scope, $http, $rootScope, SERVER_CON
 
         setTimeout(function(){
             initSwipers();
+            $("#contactForm").validate({
+                ignore: "",
+                errorClass: "form-error-label",
+                errorElement: 'label',
+                errorPlacement: function (error, element) {
+                    error.insertAfter(element);
+                },
+                highlight: function (element, errorClass, validClass) {
+                    $(element).parents(".form__controls").addClass(errorClass).removeClass(validClass);
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $(element).parents(".form__controls").removeClass(errorClass).addClass(validClass);
+                },
+                rules: {
+                    firstName: "required",
+                    lastName: "required",
+                    email: {
+                        email: true,
+                        required: true
+                    },
+                    message: "required"
+                },
+                messages: {
+        
+                },
+                submitHandler: function (form, event) {
+                    event.preventDefault();
+                    $(form).parents('.form-container').addClass('loading');
+                    $.ajax({
+        
+                        url: $('#baseurl').val() + "Data/SubmitContact",
+                        type: "post",
+                        data: $(form).serialize(),
+                        dataType: "json",
+                        success: function (response) {
+                            $(form).parents('.form-container').removeClass('loading');
+                            $(form)[0].reset();
+                            $('html, body').animate({
+                                scrollTop: $(".holder-contact-form").offset().top
+                            }, 300);
+                            if (response.status == 200) {
+                                $(form).parents('.form-container').addClass('success');
+                            }
+                            else {
+                                $(form).parents('.form-container').addClass('error');
+                                setTimeout(function () {
+                                    $(form).parents('.form-container').removeClass('error');
+                                }, 2500);
+                            }
+                        }
+                    });
+        
+                }
+            });
         }, 0);
 
     }, function errorCallback(response) {

@@ -1354,7 +1354,6 @@ app.controller('ContactUs_Ctrl', function ($scope, $http, $rootScope, SERVER_CON
         $scope.data = response.data;
 
         setTimeout(function(){
-            initSwipers();
             $("#contactForm").validate({
                 ignore: "",
                 errorClass: "form-error-label",
@@ -1385,7 +1384,7 @@ app.controller('ContactUs_Ctrl', function ($scope, $http, $rootScope, SERVER_CON
                     $(form).parents('.form-container').addClass('loading');
                     $.ajax({
         
-                        url: $('#baseurl').val() + "Data/SubmitContact",
+                        url: $rootScope.baseurl + "api/Data/SubmitContact",
                         type: "post",
                         data: $(form).serialize(),
                         dataType: "json",
@@ -1395,15 +1394,19 @@ app.controller('ContactUs_Ctrl', function ($scope, $http, $rootScope, SERVER_CON
                             $('html, body').animate({
                                 scrollTop: $(".holder-contact-form").offset().top
                             }, 300);
-                            if (response.status == 200) {
-                                $(form).parents('.form-container').addClass('success');
-                            }
-                            else {
-                                $(form).parents('.form-container').addClass('error');
-                                setTimeout(function () {
-                                    $(form).parents('.form-container').removeClass('error');
-                                }, 2500);
-                            }
+
+                            $(form).parents('.form-container').addClass('success');
+                        },
+                        error: function(response){
+                            $(form).parents('.form-container').removeClass('loading');
+                            $(form)[0].reset();
+                            $('html, body').animate({
+                                scrollTop: $(".holder-contact-form").offset().top
+                            }, 300);
+                            $(form).parents('.form-container').addClass('error');
+                            setTimeout(function () {
+                                $(form).parents('.form-container').removeClass('error');
+                            }, 2500);
                         }
                     });
         

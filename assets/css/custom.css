@@ -1337,7 +1337,8 @@ header .menu-dropdown {
     font-family: "tajawal-bold";
     font-size: 23.5px;
     position: absolute;
-    display: table;
+    display: flex;
+    align-items: center;
     top: 0px;
     bottom: 0px;
     left: 0px;
@@ -1361,8 +1362,9 @@ header .menu-dropdown {
 p.success, p.error{
     display:none;
 }
-.form-container.success .success, .form-container.error .error{
+.form-container.success .success, .form-container.error .error {
     display: block;
+    width: 100%;
 }
 header .menu-dropdown .desc {
     max-height: 112px;

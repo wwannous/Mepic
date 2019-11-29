@@ -1,0 +1,20 @@
+<main class="about-us">
+    <!-- <button class="btn _btn btn-primary direction-toggler" type="button" name="button" style="cursor: pointer; position: fixed; top: 200px; left:0; z-index: 999;">toggle</button> -->
+
+    <div class="section-about-content">
+        <div class="container container--custom">
+            <div class="holder-text-border">
+                <h1 class="about-content--title text-border" ng-bind="data.entry[currentLang+'title']"></h1>
+            </div>
+            <p class="about-content--subtitle" ng-bind="data.entry[currentLang+'subtitle']"></p>
+            <div class="holder-about-content">
+                <div class="about-content--right">
+                    <p class="about-content--text" ng-bind-html="data.entry[currentLang+'smalldescription'] | htmlSafe"></p>
+                </div>
+                <div class="about-content--left">
+                    <p class="about-content--text" ng-bind-html="data.entry[currentLang+'description'] | htmlSafe"></p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

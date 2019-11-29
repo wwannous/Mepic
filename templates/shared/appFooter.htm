@@ -10,10 +10,10 @@
                         <a ui-sref="app.contactus" class="footer-link">اتصل بنا</a>
                     </li>
                     <li class="main-link-item">
-                        <a href="" class="footer-link">الخصوصية</a>
+                        <a ui-sref="app.privacy" class="footer-link">الخصوصية</a>
                     </li>
                     <li class="main-link-item">
-                        <a href="" class="footer-link">
+                        <a ui-sref="app.terms" class="footer-link">
                             حقوق التأليف
                             والنشر
                         </a>
@@ -23,10 +23,14 @@
 
             <div class="holder-link-list footer-categories">
 				<div class="holder-link-list-item" ng-repeat="category in $root.globalData.footerCategories">
-					<a href="" class="link-list-item-title footer-link" ng-bind="category.title"></a>
+                    <a ng-if="(category.id != reportCategoryId && category.id != countryCategoryId)" ui-sref="app.articleCategory({id: category.id})" class="link-list-item-title footer-link" ng-bind="category.title"></a>
+                    <a ng-if="category.id == reportCategoryId" ui-sref="app.articleCategoryReport" class="link-list-item-title footer-link" ng-bind="category.title"></a>
+                    <a ng-if="category.id == countryCategoryId" ui-sref="app.articleCategoryCountry({id:0,subcategoryId:0,countryId:0})" class="link-list-item-title footer-link" ng-bind="category.title"></a>
 						<ul class="link-list" ng-if="category.subcategories.length > 0">
 								<li class="link-list-item" ng-repeat="subcategory in category.subcategories">
-									<a href="" class="footer-link" ng-bind="subcategory.title"></a>
+                                    <a ng-if="category.id != reportCategoryId && category.id != countryCategoryId" ui-sref="app.articleCategory({id: category.id, subcategoryId: subcategory.id})" class="footer-link" ng-bind="subcategory.title"></a>
+                                    <a ng-if="category.id == reportCategoryId" ui-sref="app.articleCategoryReport({id: category.id, subcategoryId: subcategory.id})" class="footer-link" ng-bind="subcategory.title"></a>
+                                    <a ng-if="category.id == countryCategoryId" ui-sref="app.articleCategoryCountry({countryId: subcategory.id})" class="footer-link" ng-bind="subcategory.title"></a>
 								</li>
 						</ul>
 				</div>

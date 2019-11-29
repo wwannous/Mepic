@@ -1,8 +1,11 @@
 //#region App Header
 app.component('appHeader', {
     templateUrl: 'templates/shared/appHeader.htm',
-    controller: function ($scope, $state, $rootScope, $timeout, JSHelper, Session, AuthService, Basket, Basket_EVENTS, AUTH_EVENTS) {
+    controller: function ($scope, $state, $rootScope, $timeout, JSHelper, Session, AuthService, Basket, Basket_EVENTS, CATEGORY_IDS, AUTH_EVENTS) {
         $scope.data = {};
+
+        $scope.countryCategoryId = CATEGORY_IDS.article_category_country_id;
+        $scope.reportCategoryId = CATEGORY_IDS.report_category_id;
 
         $scope.goBack = function () {
             window.history.back();
@@ -202,7 +205,10 @@ app.component('appHeader', {
 //#region App Footer
 app.component('appFooter', {
     templateUrl: 'templates/shared/appFooter.htm',
-    controller: function ($scope, $state, $rootScope, JSHelper, AuthService, AUTH_EVENTS) {
+    controller: function ($scope, $state, $rootScope, CATEGORY_IDS, JSHelper, AuthService, AUTH_EVENTS) {
+
+        $scope.countryCategoryId = CATEGORY_IDS.article_category_country_id;
+        $scope.reportCategoryId = CATEGORY_IDS.report_category_id;
 
         this.$onInit = function () {
             //buyButton();

@@ -1124,12 +1124,7 @@ app.controller('ArticleCategory_Ctrl', function ($scope, $http, $rootScope, $tra
     $scope.filterCountry = angular.copy($scope.params.countryId)+"" != "undefined" ? angular.copy($scope.params.countryId)+"" : "0";
 
     $scope.applyFilters = function(categoryId, subcategoryId, countryId, isPartial = false, page = 0){
-        if(categoryId == $scope.reportCategoryId){
-            $state.go("app.articleCategoryReport");
-        }
-        if(categoryId == $scope.countryCategoryId){
-            $state.go("app.articleCategoryCountry", {"countryId": subcategoryId});
-        }
+
         $http.get(SERVER_CONFIG.baseUrl + "api/Data/GetCategoryData?categoryId="+categoryId+"&subcategoryId="+subcategoryId+"&countryId="+countryId+"&isPartial="+isPartial+"&page="+page).then(function successCallback(response) {
 
             if(!isPartial){
@@ -1738,16 +1733,27 @@ app.controller('OrderDetails_Ctrl', function ($scope, $http, $rootScope, $state,
     
 })
 
-app.controller('ProductsTerms_Ctrl', function ($scope, $http, $rootScope, $state, $stateParams, $filter, $timeout, PaymentFactory, Basket, SERVER_CONFIG, Basket_EVENTS){
+app.controller('Terms_Ctrl', function ($scope, $http, $rootScope, $state, $stateParams, $filter, $timeout, PaymentFactory, Basket, SERVER_CONFIG, Basket_EVENTS){
 
-    if($stateParams.id == 33){
-        $rootScope.SetStateNavOptn("TERMS & CONDITIONS", "terms-blue", "", 1);
-    }
-    else{
-        $rootScope.SetStateNavOptn("TERMS & CONDITIONS", "terms-brown", "", 1);
-    }
+    $http.get(SERVER_CONFIG.baseUrl + "api/Data/GetTermsAndConditionsData").then(function successCallback(response) {
+        $scope.data = response.data;
+        // var subTotal = 0;
+        // angular.forEach($scope.data.products, function(item){
+        //     subTotal += item.price;
+        //     $scope.data.subTotal = subTotal;
+        // });
+    });
 
-    $http.get(SERVER_CONFIG.baseUrl + "api/ekomproducts/GetTermsById?id="+$stateParams.id).then(function successCallback(response) {
+    this.$onInit = function () {
+
+
+    }
+    
+})
+
+app.controller('Privacy_Ctrl', function ($scope, $http, $rootScope, $state, $stateParams, $filter, $timeout, PaymentFactory, Basket, SERVER_CONFIG, Basket_EVENTS){
+
+    $http.get(SERVER_CONFIG.baseUrl + "api/Data/GetPrivacyData").then(function successCallback(response) {
         $scope.data = response.data;
         // var subTotal = 0;
         // angular.forEach($scope.data.products, function(item){

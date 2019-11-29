@@ -292,10 +292,17 @@ app.config(function ($stateProvider, $urlRouterProvider, USER_ROLES) {
         },
         {
             name: 'app.terms',
-            url: 'products/terms/:id',
+            url: 'terms',
             authenticate: false,
-            templateUrl: 'templates/products/terms.htm',
-            controller: 'ProductsTerms_Ctrl',
+            templateUrl: 'templates/terms/index.htm',
+            controller: 'Terms_Ctrl',
+        },
+        {
+            name: 'app.privacy',
+            url: 'privacy',
+            authenticate: false,
+            templateUrl: 'templates/privacy/index.htm',
+            controller: 'Privacy_Ctrl',
         },
         //#region Login
         {

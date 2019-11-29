@@ -39,7 +39,9 @@
                 <ul class="navbar-nav">
                         <li class="nav-item" ng-repeat="category in $root.globalData.categories">
                             <a class="nav-link" ng-if="category.subcategories.length > 0" ng-bind="category.title"></a>
-                            <a class="nav-link" ng-if="category.subcategories.length == 0" ui-sref="app.articleCategory({id: category.id})" ng-bind="category.title"></a>
+                            <a class="nav-link" ng-if="category.subcategories.length == 0 && (category.id != reportCategoryId && category.id != countryCategoryId)" ui-sref="app.articleCategory({id: category.id})" ng-bind="category.title"></a>
+                            <a class="nav-link" ng-if="category.subcategories.length == 0 && category.id == reportCategoryId" ui-sref="app.articleCategoryReport" ng-bind="category.title"></a>
+                            <a class="nav-link" ng-if="category.subcategories.length == 0 && category.id == countryCategoryId" ui-sref="app.articleCategoryCountry" ng-bind="category.title"></a>
                             
                             <div class="menu-dropdown" ng-if="category.subcategories.length > 0">
                                 <div class="menu-wrapper">
@@ -74,9 +76,16 @@
                                             </div>
                                         <div class="holder-link">
                                             <ul class="link-list">
-                                                <li class="link-item"><a ui-sref="app.articleCategory({id: category.id})" class="link" id="link-{{category.id}}" ng-bind="category.title"></a></li>
-													<li class="link-item" ng-repeat="subcategory in category.subcategories"><a ui-sref="app.articleCategory({id: category.id, subcategoryId: subcategory.id})" class="link" id="link-{{category.id}}" ng-bind="subcategory.title"></a>
-												</li>                                               
+                                                <li class="link-item">
+                                                    <a ng-if="category.id != reportCategoryId && category.id != countryCategoryId" ui-sref="app.articleCategory({id: category.id})" class="link" id="link-{{category.id}}" ng-bind="category.title"></a>
+                                                    <a ng-if="category.id == reportCategoryId" ui-sref="app.articleCategoryReport({id: category.id})" class="link" id="link-{{category.id}}" ng-bind="category.title"></a>
+                                                    <a ng-if="category.id == countryCategoryId" ui-sref="app.articleCategoryCountry({id:0,subcategoryId:0,countryId:0})" class="link" id="link-{{category.id}}" ng-bind="category.title"></a>
+                                                </li>
+                                                <li class="link-item" ng-repeat="subcategory in category.subcategories">
+                                                    <a ng-if="category.id != reportCategoryId && category.id != countryCategoryId" ui-sref="app.articleCategory({id: category.id, subcategoryId: subcategory.id})" class="link" id="link-{{category.id}}" ng-bind="subcategory.title"></a>
+                                                    <a ng-if="category.id == reportCategoryId" ui-sref="app.articleCategoryReport({id: category.id, subcategoryId: subcategory.id})" class="link" id="link-{{category.id}}" ng-bind="subcategory.title"></a>
+                                                    <a ng-if="category.id == countryCategoryId" ui-sref="app.articleCategoryCountry({countryId: subcategory.id})" class="link" id="link-{{category.id}}" ng-bind="subcategory.title"></a>
+                                                </li>                                               
                                             </ul>
                                         </div>
                                     </div>
@@ -88,17 +97,16 @@
                     <ul class="footer-menu">
                         <li class="footer-item"><a ui-sref="app.aboutus" class="footer-link">من نحن</a></li>
                         <li class="footer-item"><a ui-sref="app.contactus" class="footer-link">اتصل بنا</a></li>
-                        <li class="footer-item"><a href="@Url.Content("~/Privacy")" class="footer-link">الخصوصية</a></li>
+                        <li class="footer-item"><a ui-sref="app.privacy" class="footer-link">الخصوصية</a></li>
                         <li class="footer-item">
-                            <a href="@Url.Content("~/Terms")" class="footer-link">
+                            <a ui-sref="app.terms" class="footer-link">
                                 حقوق التأليف والنشر
                             </a>
                         </li>
                     </ul>
 
                     <ul class="social-media">
-                        <li class="social-item"><a href="" class="social-link"><i class="fab fa-twitter"></i></a></li>
-                        <li class="social-item"><a href="" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="social-item" ng-repeat="social in $root.globalData.social"><a href="{{social.link}}" target="_blank" class="social-link"><i class="fab {{social.icon}}"></i></a></li>
                     </ul>
                 </div>
             </div>

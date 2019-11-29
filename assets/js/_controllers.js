@@ -1333,12 +1333,12 @@ app.controller('AboutUs_Ctrl', function ($scope, $http, $rootScope, SERVER_CONFI
 
     $rootScope.SetStateNavOptn("ABOUT US", "aboutus", "", 1);
 
-    $http.get(SERVER_CONFIG.baseUrl + "api/about/GetAll").then(function successCallback(response) {
+    $http.get(SERVER_CONFIG.baseUrl + "api/Data/GetAboutUsData").then(function successCallback(response) {
 
         $scope.data = response.data;
 
         setTimeout(function(){
-            initSwipers();
+
         }, 0);
 
     }, function errorCallback(response) {
@@ -1349,7 +1349,7 @@ app.controller('AboutUs_Ctrl', function ($scope, $http, $rootScope, SERVER_CONFI
 
 app.controller('ContactUs_Ctrl', function ($scope, $http, $rootScope, SERVER_CONFIG) {
     $rootScope.SetStateNavOptn("CONTACT US", "contact", "", 1);
-    $http.get(SERVER_CONFIG.baseUrl + "api/contactus/GetAll").then(function successCallback(response) {
+    $http.get(SERVER_CONFIG.baseUrl + "api/Data/GetContactUsData").then(function successCallback(response) {
 
         $scope.data = response.data;
 

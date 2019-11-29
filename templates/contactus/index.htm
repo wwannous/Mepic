@@ -1,72 +1,110 @@
-<div class="container">
-    <section class="section section--main section--contacts">
+<main class="contact">
+    <!-- <button class="btn _btn btn-primary direction-toggler" type="button" name="button" style="cursor: pointer; position: fixed; top: 200px; left:0; z-index: 999;">toggle</button> -->
 
+    <div class="section-cta">
+        <!-- <div class="container container--custom"> -->
+        <div class="holder-cta-content">
+            <div class="holder-contact-info">
+                <div class="holder-text-border">
+                    <h1 class="contact-info-title text-border">اتصل بنا</h1>
+                </div>
 
-        <div class="section__body">
-            <div class="swiper-container swiper-container-images">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background-image: url({{kms_host + 'corporatepages/' + data.contactImage.imgSrc}});">
-                    </div><!-- /.swiper__slide -->
-                </div><!-- /.swiper-wrapper -->
+                <div class="holder-contact-info-list">
+                    <div class="holder-contact-info-item" ng-repeat="item in data.entries">
+                        <h2 class="contact-info-item-title" ng-bind="item[currentLang+'title']"></h2>
+                        <ul class="contact-info-list">
+                            <li class="contact-info-item">
+                                <a class="contact-info-link" target="_blank" ng-href="{{item.googleMapLatitude != null ? 'https://www.google.com/maps/dir/?api=1&destination='+item.googleMapLatitude+','+item.googleMapLongitude : '')">
+                                    <i class="fas fa-map-marker-alt"></i> <div ng-bind-html="item[currentLang+'address'] | trusted"></div>
+                                </a>
+                            </li>
+                            <li class="contact-info-item">
+                                <a href="tel:{{item.phone}}" class="contact-info-link--alpha">
+                                    <img class="icon-phone"
+                                         src="assets/images/icon-phone.png" alt="" style="height:18px"> <span style="direction:ltr;font-family:droidnaskh-regular" ng-bind="item.phone"></span>
+                                </a>
+                            </li>
+                            <li class="contact-info-item" ng-if="item.mobile != null">
+                                <a class="contact-info-link">
+                                    <i class="fas fa-mobile-alt"></i> <span style="direction:ltr;font-family:droidnaskh-regular" ng-bind="item.mobile"></span>
+                                </a>
+                            </li>
+                            <li class="contact-info-item" ng-if="item.fax != null">
+                                <a class="contact-info-link">
+                                    <i class="fas fa-fax"></i> <span style="direction:ltr;font-family:droidnaskh-regular" ng-bind="item.fax"></span>
+                                </a>
+                            </li>
+                                <li class="contact-info-item" ng-if="item.email != null">
+                                    <a href="mailto:{{item.email}}" class="contact-info-link--alpha">
+                                        <i class="fas fa-envelope"></i> {{item.email}}
+                                    </a>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-                <!-- <div class="swiper-pagination"></div> -->
-             </div><!-- /.swiper-container -->
+            <div class="holder-contact-form">
+                <div class="holder-text-border">
+                    <h2 class="contact-info-title text-border">ارسلنا</h2>
+                </div>
+                <div class="form-container">
+                <div class="form-holder">
+                    <form id="contactForm" class="contact-form" name="contactForm" novalidate>
+                        <div class="form-group-list">
+                            <div class="form-group">
+                                <div class="form-controls">
+                                    <select class="form-field field-select" name="contactTitleId" id="title" required>
+                                        <option value="" hidden="" selected="selected">اللقب</option>
+                                            <option ng-value="item.id" ng-repeat="item in data.contactTitles" ng-bind="item[currentLang+'title']"></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="shell">
-                <div class="section__inner">
-                    <h3>LET US HEAR FROM YOU</h3>
+                        <div class="form-group-list">
+                            <div class="form-group">
+                                <div class="form-controls">
+                                    <input type="text" class="form-field" name="firstName" id="firstName" placeholder="الاسم الاول"
+                                            ng-model="model.firstName" required />
+                                </div>
+                            </div>
 
-                    <a ui-sref="app.messageus" class="btn btn-defult btn-pink btn-rounded">Message us</a>
-                </div><!-- /.section__inner -->
+                            <div class="form-group">
+                                <div class="form-controls">
+                                    <input type="text" class="form-field" name="lastName" id="lastName" placeholder="الكنية"
+                                            ng-model="model.lastName" required />
+                                </div>
+                            </div>
+                        </div>
 
-                <ul class="contacts">
-                    <h3 ng-bind="data.contactInfo[0].mainTitle"></h3>
+                        <div class="form-group">
+                            <div class="form-controls">
+                                <input type="text" class="form-field" name="email" id="email" placeholder="البريد الإلكتروني"
+                                        ng-model="model.email" required form-email />
+                            </div>
+                        </div>
 
-                    <ul class="list-contacts" ng-repeat="contact in data.contactInfo">
-                        <li>
-                            <a>
-                                <span>
-                                    <i class="ico-circle"></i>
-                                </span>
+                        <div class="form-group">
+                            <div class="form-controls">
+                                <textarea class="form-field textarea-field" id="message" name="message" placeholder="الرسالة" rows="13"
+                                            ng-model="model.message" required></textarea>
+                            </div>
+                        </div>
 
-                                <div ng-bind-html="contact.title"></div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="tel:{{contact.phone}}">
-                                <span>
-                                    <i class="ico-phone"></i>
-                                </span>
-
-                                Tel: <span ng-bind="contact.phone"></span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a>
-                                <span>
-                                    <svg class="ico-fax">
-                                        <use xlink:href="#fax"></use>
-                                    </svg>
-                                </span>
-
-                                Fax: <span ng-bind="contact.fax"></span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="mailto:{{contact.email}}">
-                                <span>
-                                    <i class="ico-message"></i>
-                                </span>
-
-                                <span ng-bind="contact.email"></span>
-                            </a>
-                        </li>
-                    </ul>
-                </ul><!-- /.contacts-group -->
-            </div><!-- /.shell -->
-        </div><!-- /.section__body -->
-    </section><!-- /.section section-/-restaurants -->
-</div><!-- /.container -->
+                        <div class="btn-wrapper">
+                            <button class="btn-turquoise submit-btn" type="submit" name="button">إرسال</button>
+                            <div class="btn-loader"><img class="loader" src="@Url.Content("~/Content/assets/images/loader.png")" /></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="form-msg">
+                    <p class="success">شكرا لك. لقد تم ارسال رسالتك.</p>
+                    @*<p class="error">البريد الإلكتروني موجود</p>*@
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+</main>

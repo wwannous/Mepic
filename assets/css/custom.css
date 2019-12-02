@@ -1645,11 +1645,12 @@ img.half-page-img {
     margin: 10px 0px;
 }
 
-.article-desc Table {
-    Width: 75% Margin:0 auto;
-    Border-spacing: 0;
-    Border: 1px #333 solid;
-    Margin-bottom: 10px;
+.article-desc table {
+    width: 75%; 
+    margin:0 auto;
+    border-spacing: 0;
+    border: 1px #333 solid;
+    margin-bottom: 10px;
 }
 
 .article-desc img {
@@ -1663,6 +1664,74 @@ img.half-page-img {
 }
 .details-article .section-blog .holder-ads {
     text-align: center;
+}
+#loaderDiv {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1100 !important;
+    background-color: white;
+    opacity: .9;
+    display: none;
+ }
+
+ #loaderDiv.show {
+    display: block;
+ }
+ #loaderDivForced{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1100 !important;
+    background-color: white;
+    opacity: .6;
+    display: none;
+ }
+ #loaderDivForced.show {
+    display: block;
+ }
+ .ajax-loader {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 150px;
+    margin: auto;
+    display: block;
+ }
+ #noInternet {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1100;
+    background: rgba(255,255,255, 1);
+    display:none;
+ }
+
+ #noInternet.open{
+    display:block;
+ }
+ 
+.noInternetText{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: auto;
+    width: 250px;
+    text-align: center;
+    height: 75px;
+    line-height: 75px;
+    background-color: white;
+    color: #c80750;
 }
 @media screen and (max-width: 767px) {
     .section-video .gallery-top .holder-video img {

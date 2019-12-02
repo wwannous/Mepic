@@ -1726,12 +1726,15 @@ img.half-page-img {
     right: 0px;
     bottom: 0px;
     margin: auto;
-    width: 250px;
+    width: 80%;
+    max-width: 300px;
+    direction: ltr;
     text-align: center;
     height: 75px;
     line-height: 75px;
     background-color: white;
-    color: #c80750;
+    color: black;
+    font-weight: bold;
 }
 @media screen and (max-width: 767px) {
     .section-video .gallery-top .holder-video img {

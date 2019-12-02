@@ -47,12 +47,12 @@
 
 
     <!-- Android -->
-    <icon src="icons/android/ldpi.png" platform="android" qualifier="ldpi" />
-    <icon src="icons/android/mdpi.png" platform="android" qualifier="mdpi" />
-    <icon src="icons/android/hdpi.png" platform="android" qualifier="hdpi" />
-    <icon src="icons/android/xhdpi.png" platform="android" qualifier="xhdpi" />
-    <icon src="icons/android/xxhdpi.png" platform="android" qualifier="xxhdpi" />
-    <icon src="icons/android/xxxhdpi.png" platform="android" qualifier="xxxhdpi" />
+    <icon src="icons/android/ldpi.png" platform="android" density="ldpi" />
+    <icon src="icons/android/mdpi.png" platform="android" density="mdpi" />
+    <icon src="icons/android/hdpi.png" platform="android" density="hdpi" />
+    <icon src="icons/android/xhdpi.png" platform="android" density="xhdpi" />
+    <icon src="icons/android/xxhdpi.png" platform="android" density="xxhdpi" />
+    <icon src="icons/android/xxxhdpi.png" platform="android" density="xxxhdpi" />
 
     <!--PREFERENCES-->
 <!--<preference name='phonegap-version' value='cli-7.0.1' />-->

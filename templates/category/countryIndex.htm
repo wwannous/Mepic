@@ -71,7 +71,7 @@
                                 </ul>
                                 <div class="tags-holder">
                                         <span class="tags" ng-repeat="tag in article.tags">
-                                            <a href="@Url.Content("~/Search?term="+tag.title)" class="tags-link" ng-bind="tag[currentLang+'title']"></a>
+                                            <a ui-sref="app.search({term : tag[currentLang+'title']})" class="tags-link" ng-bind="tag[currentLang+'title']"></a>
                                         </span>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@
                                 </ul>
                                 <div class="tags-holder">
                                         <span class="tags" ng-repeat="tag in articles.tags">
-                                            <a href="@Url.Content("~/Search?term=" + tag.title)" class="tags-link" ng-bind="tag[currentLang+'title']"></a>
+                                            <a ui-sref="app.search({term : tag[currentLang+'title']})" class="tags-link" ng-bind="tag[currentLang+'title']"></a>
                                         </span>
                                 </div>
                             </div>

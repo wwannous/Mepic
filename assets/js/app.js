@@ -206,6 +206,13 @@ app.config(function ($stateProvider, $urlRouterProvider, USER_ROLES) {
             }
         },
         {
+            name: 'app.search',
+            url: 'search/:term',
+            authenticate: false,
+            templateUrl: 'templates/search/index.htm',
+            controller: 'Search_Ctrl',
+        },
+        {
             name: 'app.reportDetail',
             url: 'reportDetail/:id',
             authenticate: false,
@@ -562,19 +569,19 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
             $rootScope.social = response.data.social;
 
             setTimeout(function(){
-                $(document).on('click', function (e) {
-                    if ($(e.target).closest(".open-menu").length === 0) {
-                      $('header .nav-item').removeClass('open-menu');
-                      $('header .nav-item .nav-link').removeClass('nav-link-active')
-                    }
+                // $(document).on('click', function (e) {
+                //     if ($(e.target).closest(".open-menu").length === 0) {
+                //       $('header .nav-item').removeClass('open-menu');
+                //       $('header .nav-item .nav-link').removeClass('nav-link-active')
+                //     }
                     
-                    if (e.target.classList.value != "fas fa-search" && e.target.classList.value != "field-search") {
-                      // $('header .field-search').fadeOut();
-                      // $('.search-btn-mobile').fadeOut();
-                      $('.header-logo-menu').removeClass('open-search');
-                      $('.holder-nav-search').removeClass('holder-nav-search-active');
-                    }
-                  });
+                //     if (e.target.classList.value != "fas fa-search" && e.target.classList.value != "field-search") {
+                //       // $('header .field-search').fadeOut();
+                //       // $('.search-btn-mobile').fadeOut();
+                //       $('.header-logo-menu').removeClass('open-search');
+                //       $('.holder-nav-search').removeClass('holder-nav-search-active');
+                //     }
+                //   });
                   //_chartTab();
                   //headerScroll();
                   //InitSwiperPopup();

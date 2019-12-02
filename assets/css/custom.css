@@ -1785,3 +1785,16 @@ img.half-page-img {
         max-height: 45px;
     }
 }
+
+header .header-logo-menu .navbar-brand {width:85px;}
+header .header-logo-menu .navbar-brand img{width:100%!important;}
+header .navbar .scroll-logo{width:68px;}
+
+@media screen and (max-width: 991px){
+   header .header-logo-menu .navbar-brand{width:67px;}
+   header .navbar .scroll-logo{width:50px!important;}
+}
+
+@media screen and (max-width: 767px){
+   header .header-logo-menu .navbar-brand{width:48px;}
+}

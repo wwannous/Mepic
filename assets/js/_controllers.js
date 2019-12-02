@@ -1270,6 +1270,61 @@ app.controller('ArticleCategoryCountry_Ctrl', function ($scope, $http, $rootScop
     }
 })
 
+app.controller('Search_Ctrl', function ($scope, $http, $rootScope, $stateParams, $transition$, $sce, SERVER_CONFIG, ARTICLE_CATEGORY_IDS) {
+
+    //$rootScope.SetStateNavOptn("MY CART", "home", "", 1);
+    $scope.term = $stateParams.term;
+    $scope.isLoading = false
+    $rootScope.bodyClass = "";
+    $scope.params = $transition$.targetState().params();
+    $scope.slideCount = 0;
+    $scope.videoIndex = -1;
+    $scope.picIndex = -1;
+    this.$onInit = function () {  
+
+    }
+
+    $scope.applyFilters = function(id, isPartial = false, page = 0){
+        
+        $http.get(SERVER_CONFIG.baseUrl + "api/Data/GetSearchResults?term="+ $stateParams.term+"&isPartial="+isPartial+"&page="+page).then(function successCallback(response) {
+
+            if(!isPartial){
+                $scope.data = response.data;
+            }
+            else{
+                $scope.data.HasNextPage = response.data.HasNextPage;
+                $scope.data.PageIndex = response.data.PageIndex;
+                $scope.tempItems = angular.copy(response.data.articles);
+                angular.forEach($scope.tempItems, function (item, index) {
+                    $scope.data.articles.push(item);
+                });
+                $scope.isLoading = false;
+            }
+
+
+            setTimeout(function(){
+                InitSwiperPartnerCompanies();
+                InitSwiperRelatedArticles();
+                InitSwiperPopup();
+            }, 0);
+
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
+
+    }
+
+    $scope.LoadMoreArticles = function(element, page){
+        $scope.isLoading = true;
+        $scope.applyFilters($scope.params.term, true, page);
+    }
+
+    this.$onInit = function () {  
+        $scope.applyFilters($scope.params.term);
+    }
+})
+
 app.controller('ReportDetails_Ctrl', function ($scope, $http, $rootScope, $stateParams, $transition$, $sce, SERVER_CONFIG, ARTICLE_CATEGORY_IDS) {
 
     //$rootScope.SetStateNavOptn("MY CART", "home", "", 1);

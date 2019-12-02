@@ -45,8 +45,8 @@ $(window).on('load', () => {
   InitSwiperBlog();
   appendSectionBlog();
   InitSwiperRelatedReport();
-  // headerSearchBtn();
-  // headerMenuDropdown();
+  headerSearchBtn();
+  headerMenuDropdown();
   openPopupDetails();
   openPopupNewsletter();
   _forPreviewOnly();
@@ -208,11 +208,11 @@ function headerMenuDropdown() {
 
 function headerSearchBtn() {
 // var width = $(window).width(); 
-var searchBtn = $('header .icon-search');
-var searchBar = $('header .field-search');
-var logoMenu = $('.header-logo-menu');
-var searchBtnMobile = $('.search-btn-mobile');
-var holderNavSearch = $('.holder-nav-search')
+var searchBtn = $('body header .icon-search');
+var searchBar = $('body header .field-search');
+var logoMenu = $('body .header-logo-menu');
+var searchBtnMobile = $('body .search-btn-mobile');
+var holderNavSearch = $('body .holder-nav-search')
 // var isOpen = false;
 
 searchBtn.on('click', function (e) {
@@ -248,7 +248,7 @@ searchBtnMobile.on('click', function() {
 
   if (isChrome) {
     if (searchBar.val().length > 0) {
-      window.location.replace('12_search.html');
+      //window.location.replace('12_search.html');
     } else {
       holderNavSearch.toggleClass('holder-nav-search-active');
       logoMenu.toggleClass('open-search');
@@ -256,7 +256,7 @@ searchBtnMobile.on('click', function() {
   } else {
     // setTimeout(() => {
       if (searchBar.val().length > 0) {
-        window.location.replace('12_search.html');
+        //window.location.replace('12_search.html');
       } else {
         holderNavSearch.toggleClass('holder-nav-search-active');
         logoMenu.toggleClass('open-search');
@@ -889,15 +889,15 @@ $(document).keydown(function(e) {
 
 $(document).on('click', function (e) {
   if ($(e.target).closest(".open-menu").length === 0) {
-    $('header .nav-item').removeClass('open-menu');
-    $('header .nav-item .nav-link').removeClass('nav-link-active')
+    //$('header .nav-item').removeClass('open-menu');
+    //$('header .nav-item .nav-link').removeClass('nav-link-active')
   }
   
   if (e.target.classList.value != "fas fa-search" && e.target.classList.value != "field-search") {
     // $('header .field-search').fadeOut();
     // $('.search-btn-mobile').fadeOut();
-    $('.header-logo-menu').removeClass('open-search');
-    $('.holder-nav-search').removeClass('holder-nav-search-active');
+    //$('.header-logo-menu').removeClass('open-search');
+    //$('.holder-nav-search').removeClass('holder-nav-search-active');
   }
 });
 }

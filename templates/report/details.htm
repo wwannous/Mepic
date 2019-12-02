@@ -35,7 +35,7 @@
                                     تحميل الملف<i class="fas fa-arrow-down"></i>
                                 </a>
                                 <div class="tags-holder">
-                                    <span class="tags" ng-repeat="tag in data.report.tags"><a href="" class="tags-link" ng-bind="tag[currentLang+'title']"></a></span>
+                                    <span class="tags" ng-repeat="tag in data.report.tags"><a ui-sref="app.search({term : tag[currentLang+'title']})" class="tags-link" ng-bind="tag[currentLang+'title']"></a></span>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                                             </a>
                                         </li>
                                     <li class="published-item">
-                                        <a href="javascript:void(0)" class="favorite-link" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()">
+                                        <a href="javascript:void(0)" class="favorite-link" href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()">
                                             <img class="share-btn" src="assets/images/arrow-left.png" alt="">
                                         </a>
                                     </li>
@@ -72,7 +72,7 @@
                                     </li>
                                 </ul>
                                 <div class="tags-holder">
-                                        <span class="tags" ng-repeat="tag in article.tags"><a href="" class="tags-link" ng-bind="tag[currentLang+'title']"></a></span>
+                                        <span class="tags" ng-repeat="tag in article.tags"><a ui-sref="app.search({term : tag[currentLang+'title']})" class="tags-link" ng-bind="tag[currentLang+'title']"></a></span>
                                 </div>
                             </div>
                         </div>

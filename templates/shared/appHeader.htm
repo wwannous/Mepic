@@ -14,8 +14,8 @@
                 <div class="holder-search">
                     <button type="submit" class="icon-search"><i class="fas fa-search"></i></button>
                     <div class="holder-nav-search">
-                        <button class="search-btn-mobile"><i class="fas fa-search"></i></button>
-                        <input type="text" name="term" class="field-search" placeholder="ابحث...">
+                        <button class="search-btn-mobile" ng-click="goToSearch('app.search', searchTerm)"><i class="fas fa-search"></i></button>
+                        <input type="text" name="term" ng-model="searchTerm" class="field-search" placeholder="ابحث...">
                     </div>
                 </div>
             </form>

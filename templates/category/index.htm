@@ -71,7 +71,7 @@
                                 </ul>
                                 <div class="tags-holder">
                                         <span class="tags" ng-repeat="tag in article.tags">
-                                            <a href="@Url.Content("~/Search?term="+tag.title)" class="tags-link" ng-bind="tag[currentLang+'title']"></a>
+                                            <a ui-sref="app.search({term : tag[currentLang+'title']})" class="tags-link" ng-bind="tag[currentLang+'title']"></a>
                                         </span>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@
                                 </ul>
                                 <div class="tags-holder">
                                         <span class="tags" ng-repeat="tag in articles.tags">
-                                            <a href="@Url.Content("~/Search?term=" + tag.title)" class="tags-link" ng-bind="tag[currentLang+'title']"></a>
+                                            <a ui-sref="app.search({term : tag[currentLang+'title']})" class="tags-link" ng-bind="tag[currentLang+'title']"></a>
                                         </span>
                                 </div>
                             </div>
@@ -139,16 +139,16 @@
             </div>
 
             <div id="firstTab" class="tab-content">
-                <img src="@Url.Content("~/Content/assets/images/chart.jpg")" class="img-chart" alt="chart">
+                <img src="assets/images/chart.jpg" class="img-chart" alt="chart">
             </div>
             <div id="secondTab" class="tab-content">
-                <img src="@Url.Content("~/Content/assets/images/img-thumb10.jpg")" alt="chart">
+                <img src="assets/images/img-thumb10.jpg" alt="chart">
             </div>
             <div id="thirdTab" class="tab-content">
-                <img src="@Url.Content("~/Content/assets/images/chart.jpg")" alt="chart">
+                <img src="assets/images/chart.jpg" alt="chart">
             </div>
             <div id="fourthTab" class="tab-content">
-                <img src="@Url.Content("~/Content/assets/images/chart.jpg")" alt="chart">
+                <img src="assets/images/chart.jpg" alt="chart">
             </div>
         </div>
         <div class="holder-ads">

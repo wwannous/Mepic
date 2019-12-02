@@ -7,6 +7,10 @@ app.component('appHeader', {
         $scope.countryCategoryId = CATEGORY_IDS.article_category_country_id;
         $scope.reportCategoryId = CATEGORY_IDS.report_category_id;
 
+        $scope.goToSearch = function (to , params){
+            $state.go(to, {term:params});
+        }
+
         $scope.goBack = function () {
             window.history.back();
         };

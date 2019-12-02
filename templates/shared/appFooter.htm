@@ -53,3 +53,65 @@
         </div>
     </div>
 </footer>
+
+
+<div class="modal-newsletter">
+        <div class="newsletter-wrapper">
+            <span class="icon-close"></span>
+            <div class="form-container">
+                <div class="form-holder">
+    
+                    <div class="holder-heading">
+                        <h2 class="heading">اشترك في نشرتنا الإخبارية</h2>
+                    </div>
+    
+                    <form id="newsLetterForm" class="newsLetterForm" name="newsLetterForm" novalidate>
+    
+                        <div class="form-group">
+                            <!-- <label for="email" class="form-label">Email address *</label> -->
+                            <div class="form-controls">
+                                <input type="text" class="form-field" name="email" id="email" placeholder=" أدخل بريدك الالكتروني" />
+                            </div>
+    
+                        </div>
+    
+                        <div class="form-group">
+                            <div class="form-controls">
+                                <input type="text" class="form-field" name="firstName" placeholder="الاسم الاول" id="firstName" required />
+                            </div>
+    
+                        </div>
+    
+                        <div class="form-group">
+                            <!-- <label for="nickName" class="form-label">Phone number *</label> -->
+                            <div class="form-controls">
+                                <input type="text" class="form-field" name="lastName" id="lastName" placeholder="الكنية" />
+                            </div>
+    
+                        </div>
+    
+    
+                        <div class="form-group">
+                            <!-- <label for="message" class="form-label">Your message *</label> -->
+                            <div class="form-controls select-wrapper">
+                                <select class="form-select" name="countryId" id="countryId">
+                                    <option value="">البلد</option>
+                                    <option ng-value="country.id" ng-repeat="country in $root.globalData.countries" ng-bind="country[currentLang+'title']"></option>
+                                </select>
+                            </div>
+                        </div>
+    
+                        <div class="btn-wrapper">
+                            <input class="btn-turquoise submit-btn" type="submit" name="button" value="إشترك">
+                            <div class="btn-loader"><img class="loader" src="assets/images/loader.png" /></div>
+                        </div>
+    
+                    </form>
+                </div>
+                <div class="form-msg">
+                    <p class="success">شكرا لك. لقد انضممت بنجاح إلى نشرتنا الإخبارية‎</p>
+                    <p class="error">البريد الإلكتروني موجود</p>
+                </div>
+            </div>
+        </div>
+</div>

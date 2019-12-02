@@ -575,13 +575,14 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
                       $('.holder-nav-search').removeClass('holder-nav-search-active');
                     }
                   });
-                  _chartTab();
+                  //_chartTab();
                   //headerScroll();
-                  InitSwiperPopup();
-                  headerSearchBtn();
-                  headerMenuDropdown();
+                  //InitSwiperPopup();
+                  //headerSearchBtn();
+                  //headerMenuDropdown();
                   //fixedScrolling();
-                  homeActivePopup();
+                  //homeActivePopup();
+                  //InitHtmlInclude();
             }, 0);
 
     }, function errorCallback(response) {
@@ -807,16 +808,16 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
     });
 
     $transitions.onFinish({}, function (trans) {
-        $(window).scroll(function(){
-            if ($(window).scrollTop() >= 100) {
-                $('.header-logo-menu').addClass('fixed-header');
-                $('.holder-menu').append().insertBefore('.navbar-brand');
-                $('nav').removeClass('fixed-header');
-            }
-            else {
-              $('.header-logo-menu').removeClass('fixed-header');
-            }
-        });
+        // $(window).scroll(function(){
+        //     if ($(window).scrollTop() >= 100) {
+        //         $('.header-logo-menu').addClass('fixed-header');
+        //         $('.holder-menu').append().insertBefore('.navbar-brand');
+        //         $('nav').removeClass('fixed-header');
+        //     }
+        //     else {
+        //       $('.header-logo-menu').removeClass('fixed-header');
+        //     }
+        // });
         $rootScope.CloseNavMenu();
         //JSHelper.CloseMenu();
     });

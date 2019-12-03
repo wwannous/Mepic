@@ -594,6 +594,14 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
                   //fixedScrolling();
                   //homeActivePopup();
                   //InitHtmlInclude();
+                  InitSwiperBlog();
+                  appendSectionBlog();
+                  InitSwiperRelatedReport();
+                  openPopupDetails();
+                  openPopupNewsletter();
+                  _forPreviewOnly();
+                  submenuHover();
+                  InitHtmlInclude();
                   $("#newsLetterForm").validate({
                     ignore: "",
                     errorClass: "form-error-label",

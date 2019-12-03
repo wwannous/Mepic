@@ -41,16 +41,16 @@ $(window).on('resize', () => {
 });
 
 $(window).on('load', () => {
-  InitSwiperBlog();
-  appendSectionBlog();
-  InitSwiperRelatedReport();
+  //InitSwiperBlog();
+  //appendSectionBlog();
+  //InitSwiperRelatedReport();
   //headerSearchBtn();
   //headerMenuDropdown();
-  openPopupDetails();
-  openPopupNewsletter();
-  _forPreviewOnly();
-  submenuHover();
-  InitHtmlInclude();
+  //openPopupDetails();
+  //openPopupNewsletter();
+  //_forPreviewOnly();
+  //submenuHover();
+  //InitHtmlInclude();
 });
 
 });

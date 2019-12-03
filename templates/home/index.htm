@@ -60,8 +60,7 @@
                 </div>
                 <div class="multiple-blog">
                         <div class="holder-list-blog">
-                                <div class="item-blog" ng-repeat="article in data.homeArticles">
-                                    <div ng-if="$index > 1">
+                                <div class="item-blog" ng-repeat="article in data.homeArticles" ng-if="$index > 1">
                                         <h2>
                                             <a ui-sref="app.articleDetails({ id : article.id })" class="heading" ng-bind="article[currentLang+'title']"></a>
                                         </h2>
@@ -70,7 +69,6 @@
                                             <img ng-src="{{resizeUrl+'151x104xo/'+article.image}}" class="img-blog" alt="{{article[currentLang+'title']}}" />
                                         </a>
                                         <a ui-sref="app.articleDetails({ id : article.id })" class="desc" ng-bind-html="article[currentLang+'smallDescription'] | htmlSafe"></a>
-                                    </div>
                                 </div>
                         </div>
 
@@ -146,7 +144,7 @@
 
             </aside>
         </div>
-        <div class="loader page-loader"><img class="loader" src="assets/images/loader.png" /></div>
+        <div class="loader page-loader" ng-if="false"><img class="loader" src="assets/images/loader.png" /></div>
     </div>
     <div ng-repeat="category in homeBottom">
             <div class="section-market" ng-if="category.templateId == templates.simple_listing">

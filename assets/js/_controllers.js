@@ -1099,6 +1099,7 @@ app.controller('ArticleDetails_Ctrl', function ($scope, $http, $rootScope, $stat
             InitSwiperPartnerCompanies();
             InitSwiperRelatedArticles();
             InitSwiperPopup();
+            openPopupDetails();
         }, 0);
 
     }, function errorCallback(response) {

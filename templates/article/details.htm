@@ -140,7 +140,7 @@
                                         </a>
                                     </li>
                                     <li class="published-item">
-                                        <a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()" class="favorite-link">
+                                        <a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" class="favorite-link">
                                             <img class="share-btn" src="assets/images/arrow-left.png" alt="">
                                         </a>
                                     </li>
@@ -170,7 +170,7 @@
                                         </a>
                                     </li>
                                     <li class="published-item">
-                                        <a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"  class="favorite-link">
+                                        <a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" class="favorite-link">
                                             <img class="share-btn" src="assets/images/arrow-left.png" alt="">
                                         </a>
                                     </li>
@@ -293,7 +293,7 @@
                                     </h3>
                                     <ul class="holder-actions list-unstyled">
                                         <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({id : article.id})" ng-bind="article.date"></a></li>
-                                        <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                        <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)"><span class="icon-arrow-left"></span></a></li>
                                         <li class="action-item"><span class="icon-star"></span></li>
                                     </ul>
                                 </li>
@@ -333,7 +333,7 @@
                                     </a>
                                 </li>
                                 <li class="published-item">
-                                    <a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"  class="favorite-link">
+                                    <a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" class="favorite-link">
                                         <img class="share-btn" src="assets/images/arrow-left.png" alt="">
                                     </a>
                                 </li>

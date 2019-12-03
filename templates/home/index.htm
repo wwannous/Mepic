@@ -28,7 +28,7 @@
                             <a ui-sref="app.articleDetails({ id : data.homeArticles[1].id })" class="short-decs" ng-bind-html="data.homeArticles[1][currentLang+'smallDescription'] | htmlSafe"></a>
                             <ul class="holder-actions list-unstyled">
                                 <li class="action-item" ng-if="data.homeArticles[1].date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : data.homeArticles[1].id })" ng-bind="data.homeArticles[1].date"></a></li>
-                                <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+data.homeArticles[1].id, 'Awalan - '+data.homeArticles[1].artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                <li class="action-item"><a ng-click="addthis_send($event, 'Article/'+data.homeArticles[1].id, 'Awalan - '+data.homeArticles[1].artitle)"><span class="icon-arrow-left"></span></a></li>
                                 <!--<li class="action-item"><span class="icon-star"></span></li>-->
                             </ul>
 
@@ -49,7 +49,7 @@
                                     <p class="text-overlay" ng-bind="data.homeArticles[0][currentLang+'title']"></p>
                                     <ul class="holder-actions list-unstyled">
                                         <li class="action-item" ng-if="data.homeArticles[0].date != null"><span class="icon-clock"></span>{{data.homeArticles[0].date}}</li>
-                                        <li class="action-item"><span ng-mouseover="addthis_open($event, '', 'Article/'+data.homeArticles[0].id, 'Awalan - '+data.homeArticles[0].artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()" class="icon-arrow-left"></span></li>
+                                        <li class="action-item"><span ng-click="addthis_send($event, '', 'Article/'+data.homeArticles[0].id, 'Awalan - '+data.homeArticles[0].artitle)" class="icon-arrow-left"></span></li>
                                         <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                     </ul>
                                 </div>
@@ -87,7 +87,7 @@
                                         <ul class="holder-actions list-unstyled">
                                             
                                             <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
-                                            <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                            <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ><span class="icon-arrow-left"></span></a></li>
                                             <li class="action-item"><span class="icon-star"></span></li>
                                         </ul>
                                     </div>
@@ -137,7 +137,7 @@
                             <a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.artitle"></a>
                             <ul class="holder-actions list-unstyled">
                                 <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span>{{article.date}}</li>
-                                <li class="action-item"><span ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()" class="icon-arrow-left"></span></li>
+                                <li class="action-item"><span ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" class="icon-arrow-left"></span></li>
                                 <!--<li class="action-item"><span class="icon-star"></span></li>-->
                             </ul>
                         </li>
@@ -169,7 +169,7 @@
                                     <div class="date-share-block">
                                         <ul class="holder-actions list-unstyled">
                                             <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
-                                            <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                            <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)"><span class="icon-arrow-left"></span></a></li>
                                             <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                         </ul>
                                     </div>
@@ -204,7 +204,7 @@
                                             <a ui-sref="app.reportDetail({ id : report.id })" class="desc" ng-bind-html="report[currentLang+'smallDescription'] | htmlSafe"></a>
                                             <ul class="holder-actions list-unstyled">
                                                 <li class="action-item" ng-if="report.date != null"><span class="icon-clock"></span><a ng-bind="report.date"></a></li>
-                                                <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Report/'+report.id, 'Awalan - '+report.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                                <li class="action-item"><a ng-click="addthis_send($event, '', 'Report/'+report.id, 'Awalan - '+report.artitle)"><span class="icon-arrow-left"></span></a></li>
                                                 <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                             </ul>
                                             <ul class="holder-list">
@@ -234,7 +234,7 @@
                                     <a ui-sref="app.articleDetails({ id : article.id })" class="desc" ng-bind="article[currentLang+'title']"></a>
                                     <ul class="holder-actions list-unstyled">
                                         <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
-                                        <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                        <li class="action-item"><a  ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)"><span class="icon-arrow-left"></span></a></li>
                                         <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                     </ul>
                 
@@ -251,7 +251,7 @@
                                             <a ui-sref="app.articleDetails({ id : article.id })" class="link-heading" ng-bind="article[currentLang+'title']"></a>
                                             <ul class="holder-actions list-unstyled">
                                                 <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
-                                                <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                                <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)"><span class="icon-arrow-left"></span></a></li>
                                                 <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                             </ul>
                                         </h3>
@@ -270,7 +270,7 @@
                                         </h3>
                                         <ul class="holder-actions list-unstyled">
                                             <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
-                                            <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                            <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)"><span class="icon-arrow-left"></span></a></li>
                                             <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                         </ul>
                                     </li>
@@ -302,7 +302,7 @@
                                                 <a ui-sref="app.articleDetails({ id : category.articles[3].id })" class="desc" ng-bind="category.articles[3][currentLang+'title']"></a>
                                                 <ul class="holder-actions list-unstyled">
                                                     <li class="action-item" ng-if="category.articles[3][currentLang+'title'] != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : category.articles[3].id })" ng-bind="category.articles[3].date"></a></li>
-                                                    <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+category.articles[3].id, 'Awalan - '+category.articles[3].artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                                    <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+category.articles[3].id, 'Awalan - '+category.articles[3].artitle)"><span class="icon-arrow-left"></span></a></li>
                                                     <li class="action-item"><span class="icon-star"></span></li>
                                                 </ul>
                                             </div>
@@ -318,7 +318,7 @@
                                             <a ui-sref="app.articleDetails({ id : category.articles[4].id })" class="desc" ng-bind="category.articles[4][currentLang+'title']"></a>
                                             <ul class="holder-actions list-unstyled">
                                                 <li class="action-item" ng-if="category.articles[4].date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : category.articles[4].id })" ng-bind="category.articles[4].date"></a></li>
-                                                <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+category.articles[4].id, 'Awalan - '+category.articles[4].artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                                <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+category.articles[4].id, 'Awalan - '+category.articles[4].artitle)"><span class="icon-arrow-left"></span></a></li>
                                                 <li class="action-item"><span class="icon-star"></span></li>
                                             </ul>
                                         </div>
@@ -328,7 +328,7 @@
                             <div class="col-of-one single-img" ng-if="false">
                                 <div class="holder-image with-overlay" ng-if="category.articles[2]">
                                     <a ui-sref="app.articleDetails({ id : category.articles[2].id })">
-                                        <img src="{{resizeUrl+'10000x649xi/'+category.articles[2].image}}" class="img-tech" alt="{{category.articles[2][currentLang+'title']}}">
+                                        <img ng-src="{{resizeUrl+'10000x649xi/'+category.articles[2].image}}" class="img-tech" alt="{{category.articles[2][currentLang+'title']}}">
                                     </a>
                                     <div class="holder-content">
                                         <h2>
@@ -337,7 +337,7 @@
                                         </h2>
                                         <ul class="holder-actions list-unstyled">
                                             <li class="action-item" ng-if="category.articles[2].date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : category.articles[2].id })" ng-bind="category.articles[2].date"></a></li>
-                                            <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+category.articles[2].id, 'Awalan - '+category.articles[2].artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                            <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+category.articles[2].id, 'Awalan - '+category.articles[2].artitle)"><span class="icon-arrow-left"></span></a></li>
                                             <li class="action-item"><span class="icon-star"></span></li>
                                         </ul>
                                     </div>
@@ -352,7 +352,7 @@
                                         <a ui-sref="app.articleDetails({ id : category.articles[0].id })" class="desc" ng-bind="category.articles[0][currentLang+'title']"></a>
                                         <ul class="holder-actions list-unstyled">
                                             <li class="action-item" ng-if="category.articles[0].date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : category.articles[0].id })" ng-bind="category.articles[0].date"></a></li>
-                                            <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+category.articles[0].id, 'Awalan - '+category.articles[0].artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                            <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+category.articles[0].id, 'Awalan - '+category.articles[0].artitle)"><span class="icon-arrow-left"></span></a></li>
                                             <li class="action-item"><span class="icon-star"></span></li>
                                         </ul>
                                     </div>
@@ -365,7 +365,7 @@
                                         <a ui-sref="app.articleDetails({ id : category.articles[1].id })" class="desc" ng-bind="category.articles[1][currentLang+'title']"></a>
                                         <ul class="holder-actions list-unstyled">
                                             <li class="action-item" ng-if="category.articles[1].date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : category.articles[1].id })" ng-bind="category.articles[1].date"></a></li>
-                                            <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+category.articles[1].id, 'Awalan - '+category.articles[1].artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                            <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+category.articles[1].id, 'Awalan - '+category.articles[1].artitle)"><span class="icon-arrow-left"></span></a></li>
                                             <li class="action-item"><span class="icon-star"></span></li>
                                         </ul>
                                     </div>
@@ -416,7 +416,7 @@
                                                         </a>
                                                         <ul class="holder-actions list-unstyled">
                                                             <li class="action-item" ng-if="category.articles[0].date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : category.articles[0].id })" ng-bind="category.articles[0].date"></a></li>
-                                                            <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+category.articles[0].id, 'Awalan - '+category.articles[0].artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                                            <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+category.articles[0].id, 'Awalan - '+category.articles[0].artitle)"><span class="icon-arrow-left"></span></a></li>
                                                             <li class="action-item"><span class="icon-star"></span></li>
                                                         </ul>
                                             </div>
@@ -437,7 +437,7 @@
                                                 </a>
                                                 <ul class="holder-actions list-unstyled">
                                                     <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
-                                                    <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                                    <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)"></a><span class="icon-arrow-left"></span></a></li>
                                                     <li class="action-item"><span class="icon-star"></span></li>
                                                 </ul>
                                             </div>
@@ -469,7 +469,7 @@
                 
                                             <ul class="holder-actions list-unstyled">
                                                 <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
-                                                <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                                <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)"><span class="icon-arrow-left"></span></a></li>
                                                 <li class="action-item"><span class="icon-star"></span></li>
                                             </ul>
                                         </div>
@@ -497,7 +497,7 @@
                                     <a ui-sref="app.articleDetails({ id : article.id })" class="desc" ng-bind="article[currentLang+'title']"></a>
                                     <ul class="holder-actions list-unstyled">
                                         <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
-                                        <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                        <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ><span class="icon-arrow-left"></span></a></li>
                                         <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                     </ul>
                 
@@ -514,7 +514,7 @@
                                             <a ui-sref="app.articleDetails({ id : article.id })" class="link-heading" ng-bind="article[currentLang+'title']"></a>
                                             <ul class="holder-actions list-unstyled">
                                                 <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
-                                                <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                                <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)"><span class="icon-arrow-left"></span></a></li>
                                                 <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                             </ul>
                                         </h3>
@@ -532,7 +532,7 @@
                                         </h3>
                                         <ul class="holder-actions list-unstyled">
                                             <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
-                                            <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                            <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)"><span class="icon-arrow-left"></span></a></li>
                                             <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                         </ul>
                                     </li>
@@ -552,7 +552,7 @@
                                 <div class="swiper-slide" ng-repeat="article in category.articles">
                                     <div class="holder-box">
                                         <a ui-sref="app.articleDetails({ id : article.id })" class="holder-image">
-                                            <img src="{{resizeUrl+'1000x249xi/'+article.image}}" alt="{{article[currentLang+'title']}}">
+                                            <img ng-src="{{resizeUrl+'1000x249xi/'+article.image}}" alt="{{article[currentLang+'title']}}">
                                         </a>
                 
                                         <div class="holder-info">
@@ -562,7 +562,7 @@
                                             <a ui-sref="app.articleDetails({ id : article.id })" class="desc" ng-bind-html="article[currentLang+'smallDescription'] | htmlSafe"></a>
                                             <ul class="holder-actions list-unstyled">
                                                 <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
-                                                <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                                <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)"><span class="icon-arrow-left"></span></a></li>
                                                 <li class="action-item"><span class="icon-star"></span></li>
                                             </ul>
                                         </div>

@@ -66,7 +66,7 @@
                                 </a>
                                 <ul class="holder-actions list-unstyled">
                                     <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span> <a href="" ng-bind="article.date"></a></li>
-                                    <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Report/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                    <li class="action-item"><a ng-click="addthis_send($event, '', 'Report/'+article.id, 'Awalan - '+article.artitle)"><span class="icon-arrow-left"></span></a></li>
                                     <li class="action-item"><span class="icon-star"></span></li>
                                 </ul>
                                 <div class="tags-holder">
@@ -105,7 +105,7 @@
                                     </a>
                                     <ul class="holder-actions list-unstyled">
                                         <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span> <a ui-sref="app.reportDetail({ id : article.id })" ng-bind="article.date"></a></li>
-                                        <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                        <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)"><span class="icon-arrow-left"></span></a></li>
                                         <li class="action-item"><span class="icon-star"></span></li>
                                     </ul>
                                     <div class="tags-holder">
@@ -138,7 +138,7 @@
                                     </a>
                                     <ul class="holder-actions list-unstyled">
                                         <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span> <a ui-sref="app.reportDetail({ id : article.id })" ng-bind="article.date"></a></li>
-                                        <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Report/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                        <li class="action-item"><a ng-click="addthis_send($event, '', 'Report/'+article.id, 'Awalan - '+article.artitle)"><span class="icon-arrow-left"></span></a></li>
                                         <li class="action-item"><span class="icon-star"></span></li>
                                     </ul>
                                 </div>
@@ -234,7 +234,7 @@
                             <ul class="holder-actions list-unstyled">
     
                                 <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span> <a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
-                                <li class="action-item"><a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"><span class="icon-arrow-left"></span></a></li>
+                                <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)"><span class="icon-arrow-left"></span></a></li>
                                 <li class="action-item"><span class="icon-star"></span></li>
                             </ul>
                         </li>

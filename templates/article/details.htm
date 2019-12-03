@@ -38,15 +38,15 @@
                         <div class="published-holder">
                             <ul class="published">
                                 <li class="published-item" ng-if="data.article.date != null">
-                                    <img class="clock-icon" src="/assets/images/clock.png" alt=""><span class="published-time" ng-bind="data.article.date"></span>
+                                    <img class="clock-icon" src="assets/images/clock.png" alt=""><span class="published-time" ng-bind="data.article.date"></span>
                                 </li>
                                 <li class="published-item">
                                     <a href="javascript:void(0)" class="favorite-link">
-                                        <img class="favorite-btn" src="/assets/images/star.png" alt="">
+                                        <img class="favorite-btn" src="assets/images/star.png" alt="">
                                     </a>
                                 </li>
                             </ul>
-                            <a href="#" class="back-to-listing">
+                            <a ng-click="goBack()" class="back-to-listing">
                                 <div class="btn-close"></div>
                             </a>
                         </div>
@@ -81,12 +81,12 @@
                                     </a>
                                     <div class="thumb-details">
                                         <p class="thumb-info js-video-btn" ng-if="data.article.isMedia2">
-                                            <img class="thumb-info-icon" src="/assets/images/icon-video.png"
+                                            <img class="thumb-info-icon" src="assets/images/icon-video.png"
                                                  alt="">
                                             <span class="count" ng-bind="data.article.mediaCount2"></span>
                                         </p>
                                         <p class="thumb-info js-img-btn" ng-if="data.article.isMedia1">
-                                            <img class="thumb-info-icon" src="/assets/images/icon-image.png"
+                                            <img class="thumb-info-icon" src="assets/images/icon-image.png"
                                                  alt="">
                                             <span class="count" ng-bind="data.article.mediaCount1"></span>
                                         </p>
@@ -134,19 +134,19 @@
                                 </h3>
                                 <ul class="published">
                                     <li class="published-item" ng-if="data.previousArticle.date != null">
-                                        <img class="clock-icon" src="/assets/images/clock.png" alt="">
+                                        <img class="clock-icon" src="assets/images/clock.png" alt="">
                                         <a ui-sref="app.articleDetails({id : data.previousArticle.id})">
                                             <span class="published-time" ng-bind="data.previousArticle.date"></span>
                                         </a>
                                     </li>
                                     <li class="published-item">
                                         <a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()" class="favorite-link">
-                                            <img class="share-btn" src="/assets/images/arrow-left.png" alt="">
+                                            <img class="share-btn" src="assets/images/arrow-left.png" alt="">
                                         </a>
                                     </li>
                                     <li class="published-item">
                                         <a href="javascript:void(0)" class="favorite-link">
-                                            <img class="favorite-btn" src="/assets/images/star.png" alt="">
+                                            <img class="favorite-btn" src="assets/images/star.png" alt="">
                                         </a>
                                     </li>
                                 </ul>
@@ -164,19 +164,19 @@
                                 </h3>
                                 <ul class="published">
                                     <li class="published-item" ng-if="data.nextArticle.date != null">
-                                        <img class="clock-icon" src="/assets/images/clock.png" alt="">
+                                        <img class="clock-icon" src="assets/images/clock.png" alt="">
                                         <a ui-sref="app.articleDetails({id : data.previousArticle.id})">
                                             <span class="published-time" ng-bind="data.nextArticle.date"></span>
                                         </a>
                                     </li>
                                     <li class="published-item">
                                         <a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"  class="favorite-link">
-                                            <img class="share-btn" src="/assets/images/arrow-left.png" alt="">
+                                            <img class="share-btn" src="assets/images/arrow-left.png" alt="">
                                         </a>
                                     </li>
                                     <li class="published-item">
                                         <a href="javascript:void(0)" class="favorite-link">
-                                            <img class="favorite-btn" src="/assets/images/star.png" alt="">
+                                            <img class="favorite-btn" src="assets/images/star.png" alt="">
                                         </a>
                                     </li>
                                 </ul>
@@ -312,7 +312,7 @@
         </div>
     </div>
 
-    <div class="section-related-articles">
+    <div class="section-related-articles" ng-if="data.relatedArticles.length > 0">
         <div class="container">
             <h2 class="related-articles-heading">مقالات ذات صلة</h2>
             <div class="swiper-articles-holder">
@@ -320,21 +320,21 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide" ng-repeat="article in data.relatedArticles">
                             <a ui-sref="app.articleDetails({id : article.id})" class="holder-articles">
-                                <div class="img-articles-holder @(!String.IsNullOrEmpty(article.videoUrl) ? "holder-video" : "")">
+                                <div class="img-articles-holder {{article.videoUrl != null ? 'holder-video' : '')">
                                     <img ng-src="{{resizeUrl+'1000x130xi/'+article.image}}" alt="{{article[currentLang+'title']}}" class="article-thumbs">
                                 </div>
                                 <h4 class="related-articles-title" ng-bind="article[currentLang+'title']"></h4>
                             </a>
                             <ul class="published">
                                 <li class="published-item" ng-if="article.date != null">
-                                    <img class="clock-icon" src="/assets/images/clock.png" alt="">
+                                    <img class="clock-icon" src="assets/images/clock.png" alt="">
                                     <a ui-sref="app.articleDetails({id : article.id})">
                                         <span class="published-time" ng-bind="article.date"></span>
                                     </a>
                                 </li>
                                 <li class="published-item">
-                                    <a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '')" onmouseout="addthis_close()" onclick="return addthis_sendto()"  class="favorite-link">
-                                        <img class="share-btn" src="/assets/images/arrow-left.png" alt="">
+                                    <a href="https://www.addthis.com/bookmark.php" ng-mouseover="addthis_open($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" ng-mouseleave="addthis_close()" ng-click="addthis_send()"  class="favorite-link">
+                                        <img class="share-btn" src="assets/images/arrow-left.png" alt="">
                                     </a>
                                 </li>
                                 <!--<li class="published-item">

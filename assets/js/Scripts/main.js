@@ -2,7 +2,6 @@ $(function () {
 
   var baseurl = $('#baseurl').val();
 
-InitHtmlInclude();
 const swiperRelArticlesHtml = $('.swiper-articles-holder').html();
 var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
 var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
@@ -45,12 +44,13 @@ $(window).on('load', () => {
   InitSwiperBlog();
   appendSectionBlog();
   InitSwiperRelatedReport();
-  headerSearchBtn();
-  headerMenuDropdown();
+  //headerSearchBtn();
+  //headerMenuDropdown();
   openPopupDetails();
   openPopupNewsletter();
   _forPreviewOnly();
   submenuHover();
+  InitHtmlInclude();
 });
 
 });
@@ -61,7 +61,7 @@ function InitGlobalFunction(){
 }
 
 function InitHtmlInclude() {
-w3.includeHTML();
+//w3.includeHTML();
 _chartTab();
 headerScroll();
 InitSwiperPopup();

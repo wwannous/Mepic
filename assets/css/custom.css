@@ -1665,6 +1665,10 @@ img.half-page-img {
 .details-article .section-blog .holder-ads {
     text-align: center;
 }
+header {
+    z-index: 1000;
+    position: relative;
+}
 #loaderDiv {
     position: fixed;
     top: 0;
@@ -1700,7 +1704,7 @@ img.half-page-img {
     top: 0px;
     right: 0px;
     bottom: 0px;
-    width: 150px;
+    width: 80px;
     margin: auto;
     display: block;
  }

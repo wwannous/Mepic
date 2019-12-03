@@ -544,6 +544,10 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
     $rootScope.baseurl = SERVER_CONFIG.baseUrl;
     $rootScope.websiteUrl = SERVER_CONFIG.websiteUrl;
 
+    $rootScope.goBack = function() {
+        window.history.back();
+    };
+
     $rootScope.addthis_open = function (event, param1, param2, param3, param4) {
         addthis_open(event.currentTarget, '', $rootScope.websiteUrl+param2, param3);
     }

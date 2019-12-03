@@ -29,7 +29,8 @@ app.constant('ARTICLE_CATEGORY_IDS', {
     masonry_blocks: 4,
     masonry_videos: 5,
     four_col_horizontal: 6,
-    three_col_aksar: 7
+    three_col_aksar: 7,
+    horizontal_slider: 8
 });
 
 app.constant('CATEGORY_IDS', {

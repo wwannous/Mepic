@@ -548,6 +548,8 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
         window.history.back();
     };
 
+    addthis.init();
+
     $rootScope.addthis_open = function (event, param1, param2, param3, param4) {
         addthis_open(event.currentTarget, '', $rootScope.websiteUrl+param2, param3);
     }

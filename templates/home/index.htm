@@ -28,7 +28,7 @@
                             <a ui-sref="app.articleDetails({ id : data.homeArticles[1].id })" class="short-decs" ng-bind-html="data.homeArticles[1][currentLang+'smallDescription'] | htmlSafe"></a>
                             <ul class="holder-actions list-unstyled">
                                 <li class="action-item" ng-if="data.homeArticles[1].date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : data.homeArticles[1].id })" ng-bind="data.homeArticles[1].date"></a></li>
-                                <li class="action-item"><a ng-click="addthis_send($event, 'Article/'+data.homeArticles[1].id, 'Awalan - '+data.homeArticles[1].artitle)"><span class="icon-arrow-left"></span></a></li>
+                                <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+data.homeArticles[1].id, 'Awalan - '+data.homeArticles[1].artitle)"><span class="icon-arrow-left"></span></a></li>
                                 <!--<li class="action-item"><span class="icon-star"></span></li>-->
                             </ul>
 

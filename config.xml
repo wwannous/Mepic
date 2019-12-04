@@ -83,7 +83,7 @@
     <preference name="loadUrlTimeoutValue" value="70000" />
     <preference name="EnableViewportScale" value="true" />
     <preference name="android-windowSoftInputMode" value="stateUnchanged|adjustResize" />
-     <preference name="AndroidLaunchMode" value="singleTask" />
+    <preference name="AndroidLaunchMode" value="singleTask" />
     <preference name="target-device" value="universal"/>
 	<!--<preference name="OverrideUserAgent" value="koeinapp" />-->
 

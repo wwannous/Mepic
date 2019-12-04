@@ -759,6 +759,9 @@ header .menu-dropdown .img-holder-thumb {
         background-repeat: no-repeat;
         background-size: contain;
     }
+    .section-leaders {
+        padding-bottom: 30px;
+    }
 @media screen and (min-width: 768px) {
     .section-video .holder-video:hover .holder-actions{
         opacity: 1;

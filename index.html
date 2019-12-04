@@ -75,57 +75,59 @@
  </script>
  <!-- End Google Ads -->
 <div ng-bind-html="globalData.adsHead | htmlSafe"></div>
+
+<script>
+    var addthis_config = {
+        data_track_addressbar: false,
+        services_compact: "facebook,linkedin,twitter,email,more",
+        ui_click: true
+    };
+</script>
+<!-- <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cf8dd913384e7a0"></script> -->
+<script type="text/javascript" src="assets/js/Scripts/addthis.js"></script>
+<script src="assets/vendor/jquery/jquery-3.1.1.min.js"></script>
+<script src="assets/vendor/jquery-validator-1-16-0/jquery.validate.min.js"></script>
+
+<script src="assets/vendor/angular/plugins.js"></script>
+<script src="assets/vendor/angular-sanitize.min.js"></script>
+<script src="assets/js/Scripts/plugins.js"></script>
+<script src="assets/js/Scripts/main.js"></script>
+<script src="assets/js/Scripts/scripts.js"></script>
+<script src="assets/js/Scripts/script.js"></script>
+
+<script src="assets/js/_offlineData.js"></script>
+<script src="assets/js/_formValidators.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/_controllers.js"></script>
+<script src="assets/js/_config.js"></script>
+<script src="assets/js/_directives.js"></script>
+<script src="assets/js/_components.js"></script>
+<script src="assets/js/_filters.js"></script>
+<script src="assets/js/_services.js"></script>
+<script src="assets/js/_factories.js"></script>
+
+
+<script id="mapScript" type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyCfkzp_uw2-SUSIFRjhaeOkXJUzVxESXns&v=3" async></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (!window.cordova) {
+            angular.bootstrap($("html"), ["appDeck"]);
+    //                 var imported = document.createElement('script');
+    // imported.src = 'assets/js/bundle.js';
+    // document.body.appendChild(imported);
+            setTimeout(function () {
+                // $(".splash-bg").fadeOut();
+            }, 2000);
+        }
+    })
+</script>
+
 </head>
 
 <body class="direction-rtl {{$rootScope.bodyClass}}">
 
-    <ui-view class="main-wrapper"></ui-view>
-    <script>
-            var addthis_config = {
-                data_track_addressbar: false,
-                services_compact: "facebook,linkedin,twitter,email,more",
-                ui_click: true
-            };
-        </script>
-        <!-- <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cf8dd913384e7a0"></script> -->
-        <script type="text/javascript" src="assets/js/Scripts/addthis.js"></script>
-    <script src="assets/vendor/jquery/jquery-3.1.1.min.js"></script>
-    <script src="assets/vendor/jquery-validator-1-16-0/jquery.validate.min.js"></script>
-
-    <script src="assets/vendor/angular/plugins.js"></script>
-    <script src="assets/vendor/angular-sanitize.min.js"></script>
-    <script src="assets/js/Scripts/plugins.js"></script>
-    <script src="assets/js/Scripts/main.js"></script>
-    <script src="assets/js/Scripts/scripts.js"></script>
-    <script src="assets/js/Scripts/script.js"></script>
-
-    <script src="assets/js/_offlineData.js"></script>
-    <script src="assets/js/_formValidators.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/_controllers.js"></script>
-    <script src="assets/js/_config.js"></script>
-    <script src="assets/js/_directives.js"></script>
-    <script src="assets/js/_components.js"></script>
-    <script src="assets/js/_filters.js"></script>
-    <script src="assets/js/_services.js"></script>
-    <script src="assets/js/_factories.js"></script>
-
-
-    <script id="mapScript" type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyCfkzp_uw2-SUSIFRjhaeOkXJUzVxESXns&v=3" async></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            if (!window.cordova) {
-                angular.bootstrap($("html"), ["appDeck"]);
-        //                 var imported = document.createElement('script');
-        // imported.src = 'assets/js/bundle.js';
-        // document.body.appendChild(imported);
-                setTimeout(function () {
-                    // $(".splash-bg").fadeOut();
-                }, 2000);
-            }
-        })
-    </script>
+<ui-view class="main-wrapper"></ui-view>
 
 </body>
 

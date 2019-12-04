@@ -1794,6 +1794,7 @@
     }
     function r(e) {
         console.log(e);
+        return "";
         return e.split("//").pop().split("/").shift().split("#").shift().split("?").shift().split(".").slice(-2).join(".")
     }
     e.exports = {

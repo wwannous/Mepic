@@ -10,6 +10,69 @@ app.controller('Master_Ctrl', function ($scope, $rootScope, $timeout, JSHelper, 
                 AuthService.UpdateLastLogin();
             }
         },1000);
+
+        setTimeout(function(){
+            InitSwiperBlog();
+            appendSectionBlog();
+            InitSwiperRelatedReport();
+            openPopupDetails();
+            openPopupNewsletter();
+            _forPreviewOnly();
+            submenuHover();
+            InitHtmlInclude();
+            $("#newsLetterForm").validate({
+              ignore: "",
+              errorClass: "form-error-label",
+              errorElement: 'label',
+              errorPlacement: function (error, element) {
+                  error.insertAfter(element);
+              },
+              highlight: function (element, errorClass, validClass) {
+                  $(element).parents(".form__controls").addClass(errorClass).removeClass(validClass);
+              },
+              unhighlight: function (element, errorClass, validClass) {
+                  $(element).parents(".form__controls").removeClass(errorClass).addClass(validClass);
+              },
+              rules: {
+                  firstName: "required",
+                  lastName: "required",
+                  email: {
+                      email: true,
+                      required: true
+                  },
+                  countryId: "required"
+              },
+              messages: {
+          
+              },
+              submitHandler: function (form, event) {
+                  event.preventDefault();
+                  $(form).parents('.form-container').addClass('loading');
+                  $.ajax({
+          
+                      url: $rootScope.baseurl + "Data/JoinNewsletter",
+                      type: "post",
+                      data: $(form).serialize(),
+                      dataType: "json",
+                      success: function (response) {
+                          $(form).parents('.form-container').removeClass('loading');
+                          $(form)[0].reset();
+                          $(form).parents('.form-container').addClass('success');
+                      },
+                      error: function(response){
+                          $(form).parents('.form-container').removeClass('loading');
+                          $(form)[0].reset();
+
+                          $(form).parents('.form-container').addClass('error');
+                          setTimeout(function () {
+                              $(form).parents('.form-container').removeClass('error');
+                          }, 2500);
+                      }
+                  });
+          
+              }
+          });
+        },0);
     }
 })
 

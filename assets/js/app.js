@@ -784,7 +784,7 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
             $('header .burger-menu').trigger('click');
         }
 
-        if(typeof(foo) !== 'undefined'){
+        if(typeof(removeFixed) !== 'undefined'){
             removeFixed();
         }
         

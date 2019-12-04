@@ -218,12 +218,8 @@ var holderNavSearch = $('body .holder-nav-search')
 searchBtn.on('click', function (e) {
     e.preventDefault();
   console.log(1)
-  if (searchBar.val().length > 0) {
-      $('#SearchForm').submit();
-  } else {
     holderNavSearch.toggleClass('holder-nav-search-active');
     logoMenu.toggleClass('open-search');
-  }
   // if (searchBar.val().length > 0 && isOpen === true) {
   //   window.location.replace('12_search.html');
   // } else {

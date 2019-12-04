@@ -732,6 +732,8 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
         
         $('#loaderDivForced').removeClass('show');
 
+        $('body .header-logo-menu').removeClass('open-search');
+
         Basket.getBasket();
 
         $rootScope.currentUser = {};

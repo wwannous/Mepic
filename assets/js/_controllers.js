@@ -72,6 +72,11 @@ app.controller('Master_Ctrl', function ($scope, $rootScope, $timeout, JSHelper, 
           
               }
           });
+
+          $("body a").not('[href^="#!"]').on('click', function(e){
+            window.open($(e.currentTarget).attr('href'), '_system', '');
+          });
+
         },1000);
     }
 })

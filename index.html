@@ -80,8 +80,15 @@
 <body class="direction-rtl {{$rootScope.bodyClass}}">
 
     <ui-view class="main-wrapper"></ui-view>
-
-    <script src="assets/js/Scripts/addthis.js" type="text/javascript"></script>
+    <script>
+            var addthis_config = {
+                data_track_addressbar: false,
+                services_compact: "facebook,linkedin,twitter,email,more",
+                ui_click: true
+            };
+        </script>
+        <!-- <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cf8dd913384e7a0"></script> -->
+        <script type="text/javascript" src="assets/js/Scripts/addthis.js"></script>
     <script src="assets/vendor/jquery/jquery-3.1.1.min.js"></script>
     <script src="assets/vendor/jquery-validator-1-16-0/jquery.validate.min.js"></script>
 

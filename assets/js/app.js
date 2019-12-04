@@ -551,11 +551,11 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
     addthis.init();
 
     $rootScope.addthis_open = function (event, param1, param2, param3, param4) {
-        addthis_open(event.currentTarget, '', $rootScope.websiteUrl+param2, param3);
+        return addthis_open(event.currentTarget, '', $rootScope.websiteUrl+param2, param3);
     }
     $rootScope.addthis_send = function (event, param1, param2, param3, param4) {
-        event.preventDefault();
-        addthis_open(event.currentTarget, '', $rootScope.websiteUrl+param2, param3);
+        //event.preventDefault();
+        return addthis_open(event.currentTarget, '', $rootScope.websiteUrl+param2, param3);
         //addthis_open($rootScope.websiteUrl+link, $rootScope.websiteUrl+link, $rootScope.websiteUrl+link,);
     }
     $rootScope.addthis_close = function () {

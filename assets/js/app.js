@@ -784,7 +784,10 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
             $('header .burger-menu').trigger('click');
         }
 
-        removeFixed();
+        if(typeof(foo) !== 'undefined'){
+            removeFixed();
+        }
+        
         $('body').removeClass('is-lock');
         
         $('#loaderDivForced').removeClass('show');

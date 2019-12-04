@@ -1124,8 +1124,9 @@ app.controller('ArticleCategory_Ctrl', function ($scope, $http, $rootScope, $tra
     $scope.filterSubCategory = angular.copy($scope.params.subcategoryId)+"" != "undefined" ? angular.copy($scope.params.subcategoryId)+"" : "0";
     $scope.filterCountry = angular.copy($scope.params.countryId)+"" != "undefined" ? angular.copy($scope.params.countryId)+"" : "0";
 
-    $scope.applyFilters = function(categoryId, subcategoryId, countryId, isPartial = false, page = 0){
-
+    $scope.applyFilters = function(categoryId, subcategoryId, countryId, isPartial, page){
+        isPartial = isPartial == "undefined" ? false : isPartial;
+        page = page == "undefined" ? 0 : page;
         $http.get(SERVER_CONFIG.baseUrl + "api/Data/GetCategoryData?categoryId="+categoryId+"&subcategoryId="+subcategoryId+"&countryId="+countryId+"&isPartial="+isPartial+"&page="+page).then(function successCallback(response) {
 
             if(!isPartial){
@@ -1178,10 +1179,12 @@ app.controller('ArticleCategoryReport_Ctrl', function ($scope, $http, $rootScope
     $scope.filterSubCategory = angular.copy($scope.params.subcategoryId)+"" != "undefined" ? angular.copy($scope.params.subcategoryId)+"" : "0";
     $scope.filterCountry = angular.copy($scope.params.countryId)+"" != "undefined" ? angular.copy($scope.params.countryId)+"" : "0";
 
-    $scope.applyFilters = function(categoryId, subcategoryId, countryId, isPartial = false, page = 0){
-
+    $scope.applyFilters = function(categoryId, subcategoryId, countryId, isPartial, page){
+        isPartial = isPartial == "undefined" ? false : isPartial;
+        page = page == "undefined" ? 0 : page;
         $http.get(SERVER_CONFIG.baseUrl + "api/Data/GetReportData?categoryId="+categoryId+"&subcategoryId="+subcategoryId+"&countryId="+countryId+"&isPartial="+isPartial+"&page="+page).then(function successCallback(response) {
-
+            isPartial = isPartial == "undefined" ? false : isPartial;
+            page = page == "undefined" ? 0 : page;
             if(!isPartial){
                 $scope.data = response.data;
             }
@@ -1233,10 +1236,12 @@ app.controller('ArticleCategoryCountry_Ctrl', function ($scope, $http, $rootScop
     $scope.filterSubCategory = angular.copy($scope.params.subcategoryId)+"" != "undefined" ? angular.copy($scope.params.subcategoryId)+"" : "0";
     $scope.filterCountry = angular.copy($scope.params.countryId)+"" != "undefined" ? angular.copy($scope.params.countryId)+"" : "0";
 
-    $scope.applyFilters = function(categoryId, subcategoryId, countryId, isPartial = false, page = 0){
-
+    $scope.applyFilters = function(categoryId, subcategoryId, countryId, isPartial, page){
+        isPartial = isPartial == "undefined" ? false : isPartial;
+        page = page == "undefined" ? 0 : page;
         $http.get(SERVER_CONFIG.baseUrl + "api/Data/GetCategoryCountryData?categoryId="+categoryId+"&subcategoryId="+subcategoryId+"&countryId="+countryId+"&isPartial="+isPartial+"&page="+page).then(function successCallback(response) {
-
+            isPartial = isPartial == "undefined" ? false : isPartial;
+            page = page == "undefined" ? 0 : page;
             if(!isPartial){
                 $scope.data = response.data;
             }
@@ -1285,8 +1290,9 @@ app.controller('Search_Ctrl', function ($scope, $http, $rootScope, $stateParams,
 
     }
 
-    $scope.applyFilters = function(id, isPartial = false, page = 0){
-        
+    $scope.applyFilters = function(id, isPartial, page){
+        isPartial = isPartial == "undefined" ? false : isPartial;
+        page = page == "undefined" ? 0 : page;
         $http.get(SERVER_CONFIG.baseUrl + "api/Data/GetSearchResults?term="+ $stateParams.term+"&isPartial="+isPartial+"&page="+page).then(function successCallback(response) {
 
             if(!isPartial){
@@ -1339,8 +1345,9 @@ app.controller('ReportDetails_Ctrl', function ($scope, $http, $rootScope, $state
 
     }
 
-    $scope.applyFilters = function(id, isPartial = false, page = 0){
-        
+    $scope.applyFilters = function(id, isPartial, page){
+        isPartial = isPartial == "undefined" ? false : isPartial;
+        page = page == "undefined" ? 0 : page;
         $http.get(SERVER_CONFIG.baseUrl + "api/Data/GetReportDetailsData?id="+ $stateParams.id+"&isPartial="+isPartial+"&page="+page).then(function successCallback(response) {
 
             if(!isPartial){
@@ -1767,19 +1774,19 @@ app.controller('OrderDetails_Ctrl', function ($scope, $http, $rootScope, $state,
     });
 
     $scope.generatePDF = function(){
-        $('#loaderDiv').show();
-        let options = {
-            documentSize: 'A4',
-            type: 'share',
-            fileName: 'leroyalReceipt.pdf'
-          }
-        pdf.fromData( $('html').html(), options)
-        .then(function(){
-            $('#loaderDiv').hide();
-        })   // ok..., ok if it was able to handle the file to the OS.  
-        .catch(function(){
-            $('#loaderDiv').hide();
-        })
+        // $('#loaderDiv').show();
+        // let options = {
+        //     documentSize: 'A4',
+        //     type: 'share',
+        //     fileName: 'leroyalReceipt.pdf'
+        //   }
+        // pdf.fromData( $('html').html(), options)
+        // .then(function(){
+        //     $('#loaderDiv').hide();
+        // })   // ok..., ok if it was able to handle the file to the OS.  
+        // .catch(function(){
+        //     $('#loaderDiv').hide();
+        // })
     }
 
     this.$onInit = function () {

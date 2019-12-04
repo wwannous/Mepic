@@ -13,7 +13,7 @@ function onDeviceReady() {
                 // $(".splash-bg").fadeOut();
             }, 4000);
         }   
-    },5000);
+    },1000);
 
     StatusBar.overlaysWebView(false);
     StatusBar.backgroundColorByHexString("#000000");

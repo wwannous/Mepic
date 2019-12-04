@@ -72,7 +72,7 @@ app.controller('Master_Ctrl', function ($scope, $rootScope, $timeout, JSHelper, 
           
               }
           });
-        },0);
+        },1000);
     }
 })
 

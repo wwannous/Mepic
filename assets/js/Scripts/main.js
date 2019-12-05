@@ -809,6 +809,7 @@ function openPopupDetails() {
   });
 
 $('body .article-has-video').click(function () {
+    alert('clicked');
     $('body .popup-video-wrapper').addClass('open-popup');
     $('body').addClass('no-scroll');
 });

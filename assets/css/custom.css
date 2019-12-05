@@ -1537,6 +1537,7 @@ aside.widgets-area .holder-ads > div{
     max-width: 320px;
     width: 100%;
     display: none;
+    height: 50px;
 }
 .top-ad-holder, .top-ad-holder-mobile {
     margin: auto;
@@ -1794,6 +1795,10 @@ header {
     img.half-page-img {
         width: 100% !important;
     }
+    .home aside.widgets-area .holder-ads {
+        display: none;
+    }
+    
 }
 @media screen and (max-width: 767px) {
     header .header-logo-menu {

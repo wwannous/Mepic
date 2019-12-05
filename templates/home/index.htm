@@ -1,13 +1,8 @@
 <div class="top-ads-holder">
-    <div class="top-ad-holder" ng-bind-html="globalData.ads.GoogleAdHomeTop | htmlSafe">
-
-    </div>
     <div class="top-ad-holder-mobile" ng-bind-html="globalData.ads.GoogleAdMobileHeader | htmlSafe">
 
     </div>
-    <div id="HomeBottomAd" ng-bind-html="globalData.ads.GoogleAdHomeBottom | htmlSafe" style="display:none">
 
-    </div>
     <div class="holder-desc">
         <p class="desc"></p>
     </div>
@@ -145,6 +140,9 @@
             </aside>
         </div>
         <div class="loader page-loader" ng-if="false"><img class="loader" src="assets/images/loader.png" /></div>
+    </div>
+    <div class="top-ad-holder-mobile img-ads">
+            <div ng-bind-html="globalData.ads.GoogleAdMobileMiddle | htmlSafe"></div>
     </div>
     <div ng-repeat="category in homeBottom">
             <div class="section-market" ng-if="category.templateId == templates.simple_listing">
@@ -389,7 +387,9 @@
                             <p class="desc">اشترك في نشرتنا الإخبارية</p>
                         </div>
                     </div>
-                    <div class="home-bottom-ad-holder img-ads"></div>
+                    <div class="top-ad-holder-mobile img-ads">
+                            <div id="HomeBottomAd" ng-bind-html="globalData.ads.GoogleAdMobileBottom | htmlSafe"></div>
+                    </div>
                 </div>
             </div>
             <div class="section-video" ng-if="category.templateId == templates.masonry_videos">

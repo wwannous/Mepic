@@ -15,7 +15,7 @@ app.controller('Master_Ctrl', function ($scope, $rootScope, $timeout, JSHelper, 
             InitSwiperBlog();
             appendSectionBlog();
             InitSwiperRelatedReport();
-            openPopupDetails();
+            //openPopupDetails();
             openPopupNewsletter();
             _forPreviewOnly();
             submenuHover();

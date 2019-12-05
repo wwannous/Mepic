@@ -1168,7 +1168,7 @@ app.controller('ArticleDetails_Ctrl', function ($scope, $http, $rootScope, $stat
             InitSwiperRelatedArticles();
             InitSwiperPopup();
             openPopupDetails();
-        }, 1000);
+        }, 0);
 
     }, function errorCallback(response) {
         // called asynchronously if an error occurs

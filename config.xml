@@ -8,6 +8,7 @@
     <access origin="*" subdomains="true" />
     <allow-intent href="*" />
     <allow-navigation href="http://localhost:*/*" />
+    <allow-navigation href="https://*youtube.com/*"/>
     <!--<content src="http://localhost:12344" />-->
 
 

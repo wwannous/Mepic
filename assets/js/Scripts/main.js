@@ -366,26 +366,26 @@ if($(window).width() < 768) {
 }
 
 function InitSwiperPopup() {
-  $('.js-video-btn').on('click', function (event) {
+  $('body .js-video-btn').on('click', function (event) {
       event.stopPropagation();
       swiper.slideToLoop(parseInt($('#videoIndex').val()), 200, false);
-      $('.popup-image-wrapper').addClass('open-popup');
+      $('body .popup-image-wrapper').addClass('open-popup');
       $('body').addClass('no-scroll');
   });
 
-  $('.js-img-btn, .gallery-thumb-wide:not(.article-has-video)').on('click', function (e) {
+  $('body .js-img-btn,body .gallery-thumb-wide:not(.article-has-video)').on('click', function (e) {
       e.stopPropagation();
       swiper.slideToLoop(parseInt($('#picIndex').val()), 200, false);
-      $('.popup-image-wrapper').addClass('open-popup');
+      $('body .popup-image-wrapper').addClass('open-popup');
       $('body').addClass('no-scroll');
 });
 
 
-$('.video-thumb').click(function () {
+$('body .video-thumb').click(function () {
     swiper.slideToLoop(parseInt($('#videoIndex').val()), 200, false);
 });
 
-$('.image-thumb').click(function () {
+$('body .image-thumb').click(function () {
     swiper.slideToLoop(parseInt($('#picIndex').val()), 200, false);
 });
 
@@ -797,19 +797,19 @@ country.removeClass('holder-category-active');
 }
 
 function openPopupDetails() {
-  $('.video-thumb').click(function () {
+  $('body .video-thumb').click(function () {
       //mySwiper.slideToLoop(index, speed, runCallbacks);
       $('.popup-image-wrapper').addClass('open-popup');
       $('body').addClass('no-scroll');
   });
 
-  $('.image-thumb').click(function () {
-      $('.popup-image-wrapper').addClass('open-popup');
+  $('body .image-thumb').click(function () {
+      $('body .popup-image-wrapper').addClass('open-popup');
       $('body').addClass('no-scroll');
   });
 
-$('.article-has-video').click(function () {
-    $('.popup-video-wrapper').addClass('open-popup');
+$('body .article-has-video').click(function () {
+    $('body .popup-video-wrapper').addClass('open-popup');
     $('body').addClass('no-scroll');
 });
 

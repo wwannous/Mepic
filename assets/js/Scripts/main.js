@@ -216,7 +216,7 @@ var holderNavSearch = $('body .holder-nav-search')
 // var isOpen = false;
 
 searchBtn.on('click', function (e) {
-    e.preventDefault();
+    //e.preventDefault();
   console.log(1)
     holderNavSearch.toggleClass('holder-nav-search-active');
     logoMenu.toggleClass('open-search');

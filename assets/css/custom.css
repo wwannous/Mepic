@@ -1754,6 +1754,15 @@ header {
 .section-blog .single-blog .holder-big-thumbnails .holder-image.with-overlay .content-ovelay, .section-blog .single-blog .holder-big-thumbnails .holder-image.with-overlay .content-ovelay, .section-blog .single-blog .holder-big-thumbnails .holder-image.with-overlay .content-ovelay{
     bottom: 18px;
 }
+.section-economy .holder-actions {
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+}
+.section-economy .holder-actions .action-item:after{
+    left: -14px;
+    top: 3px;
+}
 .holder-actions .action-item:after {
     left: -9px;
     top: 4px;

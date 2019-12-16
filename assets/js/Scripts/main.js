@@ -479,7 +479,7 @@ var swiper = new Swiper('.home-blog-container', {
     1199: {
       slidesPerView: 3,
       spaceBetween: 5,
-      loop: true,
+      loop: false,
       noSwiping: true,
       allowSlidePrev: true,
       allowSlideNext: true,
@@ -487,7 +487,7 @@ var swiper = new Swiper('.home-blog-container', {
     991: {
       slidesPerView: 2,
       spaceBetween: 5,
-      loop: true,
+      loop: false,
       noSwiping: true,
       allowSlidePrev: true,
       allowSlideNext: true,
@@ -495,7 +495,7 @@ var swiper = new Swiper('.home-blog-container', {
     767: {
       slidesPerView: 1,
       spaceBetween: 0,
-      loop: true,
+      loop: false,
       noSwiping: true,
       allowSlidePrev: true,
       allowSlideNext: true,
@@ -547,7 +547,7 @@ function InitSwiperLeader() {
 var swiper = new Swiper('.section-leaders .swiper-container', {
   slidesPerView: 3,
   spaceBetween: 0,
-  loop: true,
+  loop: false,
   navigation: {
     nextEl: '.section-leaders  .swiper-button-next',
     prevEl: '.section-leaders  .swiper-button-prev',
@@ -555,7 +555,7 @@ var swiper = new Swiper('.section-leaders .swiper-container', {
   breakpoints: {
     1199: {
       slidesPerView: 2,
-      loop: true,
+      loop: false,
       noSwiping: true,
       allowSlidePrev: true,
       allowSlideNext: true,
@@ -563,7 +563,7 @@ var swiper = new Swiper('.section-leaders .swiper-container', {
     991: {
       slidesPerView: 3,
       spaceBetween: 30,
-      loop: true,
+      loop: false,
       noSwiping: true,
       allowSlidePrev: true,
       allowSlideNext: true,
@@ -571,7 +571,7 @@ var swiper = new Swiper('.section-leaders .swiper-container', {
     767: {
       slidesPerView: 1.2,
       spaceBetween: 10,
-      loop: true,
+      loop: false,
       noSwiping: true,
       allowSlidePrev: true,
       allowSlideNext: true,
@@ -633,6 +633,16 @@ $('.direction-toggler').click(function(){
       $('.swiper-container').removeAttr('dir','rtl');
     }
 });
+}
+
+function languageClasses(){
+  if($('body').hasClass('direction-rtl')) {
+    $('.swiper-container').addClass('swiper-container-rtl');
+    $('.swiper-container').attr('dir','rtl');
+  } else {
+    $('.swiper-container').removeClass('swiper-container-rtl');
+    $('.swiper-container').removeAttr('dir','rtl');
+  }
 }
 
 function _chartTab() {

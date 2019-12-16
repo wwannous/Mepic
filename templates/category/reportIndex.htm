@@ -109,7 +109,7 @@
                                         <li class="action-item"><span class="icon-star"></span></li>
                                     </ul>
                                     <div class="tags-holder">
-                                            <span class="tags" ng-repeat="tag in articles.tags">
+                                            <span class="tags" ng-repeat="tag in article.tags">
                                                 <a ui-sref="app.search({term : tag[currentLang+'title']})" class="tags-link" ng-bind="tag[currentLang+'title']"></a>
                                             </span>
                                     </div>

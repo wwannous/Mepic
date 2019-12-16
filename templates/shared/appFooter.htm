@@ -1,5 +1,5 @@
 <footer>
-    <div class="container container--custom">
+    <!-- <div class="container container--custom">
         <div class="holder-link">
             <div class="holder-main-link">
                 <ul class="main-link-list">
@@ -51,7 +51,7 @@
         <div class="holder-copyright">
             <a href="https://koein.com" class="copyright-text" target="__blank">Copyright &copy; 2019. By koein</a>
         </div>
-    </div>
+    </div> -->
 </footer>
 
 
@@ -96,7 +96,7 @@
                             <div class="form-controls select-wrapper">
                                 <select class="form-select" name="countryId" id="countryId">
                                     <option value="">البلد</option>
-                                    <option ng-value="country.id" ng-repeat="country in $root.globalData.countries" ng-bind="country[currentLang+'title']"></option>
+                                    <option ng-value="country.id" ng-repeat="country in $root.globalData.countries" ng-bind="country[$root.currentLang+'title']"></option>
                                 </select>
                             </div>
                         </div>

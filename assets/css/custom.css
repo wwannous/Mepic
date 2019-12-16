@@ -938,6 +938,7 @@ header .menu-dropdown {
 
     .direction-rtl .section-market .holder-description {
         padding-right: 0px;
+        float: right;
     }
 
     .listing-articles .page-content, .search .page-content {
@@ -1108,9 +1109,6 @@ header .menu-dropdown {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
@@ -1750,6 +1748,34 @@ header {
     color: black;
     font-weight: bold;
 }
+.section-blog .single-blog .holder-big-thumbnails .holder-image.with-overlay .content-ovelay .holder-actions, .section-blog .single-blog .holder-big-thumbnails .holder-image.with-overlay .content-ovelay .holder-actions, .section-blog .single-blog .holder-big-thumbnails .holder-image.with-overlay .content-ovelay .holder-actions {
+    opacity: 1;
+}
+.section-blog .single-blog .holder-big-thumbnails .holder-image.with-overlay .content-ovelay, .section-blog .single-blog .holder-big-thumbnails .holder-image.with-overlay .content-ovelay, .section-blog .single-blog .holder-big-thumbnails .holder-image.with-overlay .content-ovelay{
+    bottom: 18px;
+}
+.holder-actions .action-item:after {
+    left: -9px;
+    top: 4px;
+}
+.direction-rtl .section-blog .holder-inline-blog .holder-actions {
+    float: unset;
+    padding-right: 0px;
+}
+.section-blog .holder-inline-blog .holder-actions {
+    float: unset;
+    justify-content: center;
+    padding-right: 0px;
+    width: 100%;
+}
+.section-blog .multiple-blog .item-blog{
+    border-bottom: 1px solid #cecece;
+}
+.section-blog .multiple-blog .item-blog:nth-child(5){
+    border-bottom: 1px solid #cecece;
+    margin: 0 0 15px 16px;
+    padding-bottom: 10px;
+}
 @media screen and (max-width: 767px) {
     .section-video .gallery-top .holder-video img {
         height: auto;
@@ -1887,4 +1913,10 @@ header .navbar .scroll-logo{width:68px;}
 
 @media screen and (max-width: 767px){
    header .header-logo-menu .navbar-brand{width:48px;}
+   .direction-rtl .section-blog .multiple-blog .heading {
+        height: initial;
+    }
+   .section-blog .multiple-blog .heading {
+        height: initial;
+    }
 }

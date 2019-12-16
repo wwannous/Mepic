@@ -1,3 +1,4 @@
+<div id="HomeBottomAd" style="display:none;" ng-bind-html="globalData.ads.GoogleAdMobileBottom | htmlSafe"></div>
 <div class="top-ads-holder">
     <div class="top-ad-holder-mobile" ng-bind-html="globalData.ads.GoogleAdMobileHeader | htmlSafe">
 
@@ -97,7 +98,8 @@
                 </div>
                 <div class="holder-ads holder-infographics" ng-if="data.infographics != null">
                     <h2 class="title" ng-bind="data.infographics.artitle"></h2>
-                    <a ui-sref="app.articleCategory({ id : data.infographics.id })">
+                    <a>
+                    <!-- <a ui-sref="app.articleCategory({ id : data.infographics.id })"> -->
                         <img ng-src="{{resizeUrl+'350x260xo/'+data.infographics.image}}" class="img-info" alt="{{data.infographics.artitle}}">
                     </a>
                 </div>
@@ -170,9 +172,9 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="holder-link-categ">
+                                <!-- <div class="holder-link-categ">
                                     <a ui-sref="app.articleDetails({ id : article.id })" class="link-categ" ng-repeat="tag in article.tags" ng-bind="tag[currentLang+'title']"></a>
-                                </div>
+                                </div> -->
                 
                             </div>
                         </div>
@@ -387,8 +389,8 @@
                             <p class="desc">اشترك في نشرتنا الإخبارية</p>
                         </div>
                     </div>
-                    <div class="top-ad-holder-mobile img-ads">
-                            <div id="HomeBottomAd" ng-bind-html="globalData.ads.GoogleAdMobileBottom | htmlSafe"></div>
+                    <div id="NewsletterAd" class="top-ad-holder-mobile img-ads">
+                            
                     </div>
                 </div>
             </div>

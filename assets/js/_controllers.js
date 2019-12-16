@@ -1123,6 +1123,11 @@ app.controller('Home_Ctrl', function ($scope, $http, $rootScope, $sce, SERVER_CO
                 InitSwiperBlog();
                 InitSwiperVideo();
                 InitSwiperLeader();
+                languageClasses();
+                var divHtml = $('#HomeBottomAd').find("iframe").eq(0).contents().find("html").html();
+                $('#HomeBottomAd').appendTo('#NewsletterAd');
+                $('#HomeBottomAd').find("iframe").eq(0).contents().find("html").html(divHtml);
+                $('#HomeBottomAd').show();
                 navigator.splashscreen.hide();
             }, 0);
     

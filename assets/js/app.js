@@ -554,10 +554,35 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
         return addthis_open(event.currentTarget, '', $rootScope.websiteUrl+param2, param3);
     }
     $rootScope.addthis_send = function (event, param1, param2, param3, param4) {
-        window.open("https://www.addthis.com/bookmark.php?url="+$rootScope.websiteUrl+param2, '_system', '');
+        //window.open("https://www.addthis.com/bookmark.php?url="+$rootScope.websiteUrl+param2, '_system', '');
         //event.preventDefault();
         //return addthis_open(event.currentTarget, '', $rootScope.websiteUrl+param2, param3);
         //addthis_open($rootScope.websiteUrl+link, $rootScope.websiteUrl+link, $rootScope.websiteUrl+link,);
+        var message_title = param3;
+        if (param3.substr(param3.length - 1) != ('.' || '!' || '?')) {
+            message_title = message_title + ". ";
+        } else if (param3.substr(param3.length - 1) != ' ') {
+            message_title = message_title + " ";
+        }
+        console.log(message_title + "Follow this link : ");
+        var options = {
+            message: message_title + "Follow this link : ", // not supported on some apps (Facebook, Instagram)
+            subject: param3, // fi. for email
+            files: ['', ''], // an array of filenames either locally or remotely
+            url: param2,
+            chooserTitle: 'Pick an app', // Android only, you can override the default share sheet title
+            // appPackageName: 'com.apple.social.facebook' // Android only, you can provide id of the App you want to share with
+        };
+
+        var onSuccess = function (result) {
+            console.log("Share completed? " + result.completed); // On Android apps mostly return false even while it's true
+            console.log("Shared to app: " + result.app); // On Android result.app since plugin version 5.4.0 this is no longer empty. On iOS it's empty when sharing is cancelled (result.completed=false)
+        };
+
+        var onError = function (msg) {
+            console.log("Sharing failed with message: " + msg);
+        };
+        window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
     }
     $rootScope.addthis_close = function () {
         addthis_close();

@@ -732,6 +732,10 @@ var swiper = new Swiper('.swiper-related-articles', {
 });
 }
 
+function toggleFilterMobile(){
+    $('.holder-filter').slideToggle(500);
+}
+
 function openFilterMobile() {
 var holderFilter = $('.holder-filter');
 var html = $('html');

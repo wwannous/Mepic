@@ -19,7 +19,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="holder-subcategory">
+                <div class="holder-subcategory" ng-if="data.subcategories.length > 0">
                     <div class="holder-select">
                     
                         <select name="subcategoryFilter" id="subcategoryFilter" ng-model="filterSubCategory" ng-change="applyFilters(filterCategory, filterSubCategory, filterCountry)" ng-model-options="{ updateOn: 'change', debounce: { change: 0 } }" class="field-select select-subcategory">

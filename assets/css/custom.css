@@ -1066,6 +1066,7 @@ header .menu-dropdown {
     .listing-articles .section-title-filter .holder-filter {
         background: white;
         order: 2;
+        display: none;
     }
 
     .listing-articles .section-title-filter .holder-select {
@@ -1494,7 +1495,7 @@ button{
     object-fit: cover;
 }
 .listing-articles .section-title-filter .homder-filter-bt {
-    display: none;
+    order: 1;
 }
 .listing-articles .detail-title{
     margin-bottom: 10px;
@@ -1560,7 +1561,8 @@ aside.widgets-area .holder-ads > div{
 div[id^="div-gpt"] {
     background-color: #eee;
     max-width: 100%;
-    margin-bottom: 30px
+    margin-bottom: 30px;
+    margin: auto;
 }
 div[id^="google_ads_iframe"]{
     max-width: 100%;
@@ -1761,7 +1763,7 @@ header {
 }
 .section-economy .holder-actions .action-item:after{
     left: -14px;
-    top: 3px;
+    top: 2px;
 }
 .holder-actions .action-item:after {
     left: -9px;
@@ -1832,6 +1834,13 @@ header {
     }
     .home aside.widgets-area .holder-ads {
         display: none;
+    }
+    aside.widgets-area .holder-ads{
+        display: none;
+    }
+    .listing-articles .section-title-filter .holder-filter {
+        -webkit-transition: none;
+        transition: none;
     }
     
 }

@@ -539,6 +539,7 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
     //   console.log('hey');
     //   $rootScope.userMenu = res;
     // });
+    $rootScope.initLaunch = true;
     var language = storageService.GetStorage('NG_TRANSLATE_LANG_KEY');
     $rootScope.resizeUrl = SERVER_CONFIG.resizeUrl;
     $rootScope.baseurl = SERVER_CONFIG.baseUrl;
@@ -600,6 +601,7 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
     $http.get(SERVER_CONFIG.baseUrl + "api/data/GetGlobalData").then(function successCallback(response) {
 
             $rootScope.globalData = response.data;
+            $rootScope.originalAdHeader = angular.copy($rootScope.globalData.adsHead);
             $rootScope.social = response.data.social;
 
             setTimeout(function(){
@@ -746,6 +748,7 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
 
     $transitions.onStart({}, function (trans) {
 
+        
         if($('#navbarSupportedContent').hasClass('show')){
             $('header .burger-menu').trigger('click');
         }
@@ -855,6 +858,19 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
     });
 
     $transitions.onFinish({}, function (trans) {
+
+        if($rootScope.initLaunch == false){
+            if(typeof(window.googletag)!= 'undefined'){
+                window.googletag.destroySlots(gptAdSlots);
+            }
+            $rootScope.globalData.adsHead = "tst";
+            setTimeout(function(){
+                $rootScope.globalData.adsHead = angular.copy($rootScope.originalAdHeader);
+                $rootScope.$apply();
+            }, 0);
+            
+        }
+        $rootScope.initLaunch = false;
         // $(window).scroll(function(){
         //     if ($(window).scrollTop() >= 100) {
         //         $('.header-logo-menu').addClass('fixed-header');

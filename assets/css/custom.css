@@ -1791,8 +1791,39 @@ header {
     padding-left: 8px;
     margin-left: 16px;
 }
+.direction-rtl .published {
+    justify-content: center;
+}
 .details-article .published-item {
     padding-top: 0px;
+}
+.direction-rtl .published-item{
+    -webkit-box-align: start;
+    align-items: start;
+}
+.published-item:after{
+    top:6px;
+}
+.section-blog .holder-actions .action-item {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: start;
+}
+.section-blog .holder-actions {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: start;
+}
+.section-blog .holder-actions .action-item:after {
+    top: 2px;
+}
+.section-opinion .holder-actions {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: start;
+}
+.section-opinion .holder-actions .action-item:after {
+    top: 2px;
 }
 @media screen and (max-width: 767px) {
     .section-video .gallery-top .holder-video img {

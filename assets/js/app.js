@@ -567,7 +567,7 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
         console.log(message_title + "Follow this link : ");
         var options = {
             //message: message_title + "Follow this link : ", // not supported on some apps (Facebook, Instagram)
-            subject: param3, // fi. for email
+            //subject: param3, // fi. for email
             //files: ['', ''], // an array of filenames either locally or remotely
             url: param2,
             chooserTitle: 'Pick an app', // Android only, you can override the default share sheet title

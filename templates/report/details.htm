@@ -1,5 +1,5 @@
 <main class="details-malafat">
-    <div class="top-ad-holder-mobile" ng-bind-html="data.ads.mobileAds.top.script | htmlSafe"></div>
+    <div class="top-ad-holder-mobile" ng-bind-html="data.googleAds.mobileAds.top.script | htmlSafe"></div>
     <form id="HiddenParams">
         <input type="hidden" name="id" id="entryId" value="@id" />
         <input type="hidden" name="isPartial" value="true" />
@@ -111,7 +111,7 @@
                     <div class="mobile-ads-wrapper">
                         <div class="img-mobile-ads" ng-bind-html="globalData.ads.GoogleAdMobileHeader | htmlSafe"></div>
                     </div>
-                    <div class="top-ad-holder-mobile" ng-bind-html="data.ads.mobileAds.bottom.script | htmlSafe"></div>
+                    <div class="top-ad-holder-mobile" ng-bind-html="data.googleAds.mobileAds.bottom.script | htmlSafe"></div>
                     <div class="section-economy">
                         <div class="holder-most-read">
                             <p class="heading">الأكثر قراءة</p>

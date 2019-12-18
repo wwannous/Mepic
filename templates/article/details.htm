@@ -41,6 +41,11 @@
                                     <img class="clock-icon" src="assets/images/clock.png" alt=""><span class="published-time" ng-bind="data.article.date"></span>
                                 </li>
                                 <li class="published-item">
+                                    <a ng-click="addthis_send($event, '', 'Article/'+data.article.id, 'Awalan - '+data.article.artitle)" class="favorite-link">
+                                        <img class="share-btn" src="assets/images/arrow-left.png" alt="">
+                                    </a>
+                                </li>
+                                <li class="published-item">
                                     <a href="javascript:void(0)" class="favorite-link">
                                         <img class="favorite-btn" src="assets/images/star.png" alt="">
                                     </a>

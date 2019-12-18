@@ -113,7 +113,7 @@
                                 </div>
                             </div>
 
-                            <div class="mobile-ads-wrapper" ng-bind-html="globalData.ads.GoogleAdMobileHeader | htmlSafe"></div>
+                            <div class="mobile-ads-wrapper" ng-bind-html="data.googleAds.mobileAds.top.script | htmlSafe"></div>
 
                             <div class="article-desc" ng-bind-html="data.article[currentLang+'description'] | htmlSafe"></div>
                                 <a href="{{baseUrl+'Content/uploads/Articles/'+data.article.fileSrc}}" class="file-holder" ng-if="data.article.fileSrc != null">
@@ -279,7 +279,7 @@
                         </div>
                     </div>
 
-                    <div class="mobile-ads-wrapper" ng-bind-html="globalData.ads.GoogleAdMobileHeader | htmlSafe">
+                    <div class="mobile-ads-wrapper" ng-bind-html="data.googleAds.mobileAds.bottom.script | htmlSafe">
                     </div>
 
                     <div class="section-economy">

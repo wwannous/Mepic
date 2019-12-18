@@ -1,6 +1,6 @@
 <div id="HomeBottomAd" style="display:none;" ng-bind-html="globalData.ads.GoogleAdMobileBottom | htmlSafe"></div>
 <div class="top-ads-holder">
-    <div class="top-ad-holder-mobile" ng-bind-html="globalData.ads.GoogleAdMobileHeader | htmlSafe">
+    <div class="top-ad-holder-mobile" ng-bind-html="data.googleAds.mobileAds.top.script | htmlSafe">
 
     </div>
 
@@ -144,7 +144,7 @@
         <div class="loader page-loader" ng-if="false"><img class="loader" src="assets/images/loader.png" /></div>
     </div>
     <div class="top-ad-holder-mobile img-ads">
-            <div ng-bind-html="globalData.ads.GoogleAdMobileMiddle | htmlSafe"></div>
+            <div ng-bind-html="data.googleAds.mobileAds.middle.script | htmlSafe"></div>
     </div>
     <div ng-repeat="category in homeBottom">
             <div class="section-market" ng-if="category.templateId == templates.simple_listing">

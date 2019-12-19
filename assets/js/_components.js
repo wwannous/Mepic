@@ -9,7 +9,6 @@ app.component('appHeader', {
 
         $scope.goToSearch = function (to , params){
             $state.go(to, {term:params});
-            $scope.searchTerm = "";
             $('#SearchTerm').blur();
         }
 
@@ -44,6 +43,10 @@ app.component('appHeader', {
 
 
         }, true);
+
+        $rootScope.$on('clear-search', function (event, parameters) {
+            $scope.searchTerm = "";
+        });
 
         $rootScope.$on([Basket_EVENTS.itemAdded], function (event, parameters) {
             $scope.BasketCount = Basket.basketCount();

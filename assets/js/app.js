@@ -871,6 +871,7 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
             
         }
         $rootScope.initLaunch = false;
+        $rootScope.$broadcast('clear-search');
         // $(window).scroll(function(){
         //     if ($(window).scrollTop() >= 100) {
         //         $('.header-logo-menu').addClass('fixed-header');

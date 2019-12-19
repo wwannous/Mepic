@@ -9,6 +9,7 @@ app.component('appHeader', {
 
         $scope.goToSearch = function (to , params){
             $state.go(to, {term:params});
+            $('#SearchTerm').focusout();
         }
 
         $scope.goBack = function () {

@@ -9,6 +9,7 @@ app.component('appHeader', {
 
         $scope.goToSearch = function (to , params){
             $state.go(to, {term:params});
+            $scope.searchTerm = "";
             $('#SearchTerm').blur();
         }
 

@@ -1873,6 +1873,9 @@ header {
     .home aside.widgets-area .holder-ads {
         display: none;
     }
+    .home aside.widgets-area .holder-ads.holder-infographics {
+        display: block;
+    }
     aside.widgets-area .holder-ads{
         display: none;
     }

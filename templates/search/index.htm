@@ -117,12 +117,12 @@
                     <p class="desc"></p>
                 </div>
                 <div class="holder-ads2">
-                    <div class="top-ad-holder-mobile" ng-bind-html="data.googleAds.mobileAds.top.script | htmlSafe"></div>
+                    <div class="top-ad-holder-mobile" ng-bind-html="data.googleAds.mobileAds.bottom.script | htmlSafe"></div>
                 </div>
                 <div class="holder-desc">
                     <p class="desc"></p>
                 </div>
-                <div class="holder-small-article" ng-if="data.editorsPick.length > 0">
+                <div class="holder-small-article" ng-if="data.editorsPick.length > 0 && false">
                     <h2 class="title">اخترنا لك</h2>
                     <div class="holder-articles">
                             <div class="article" ng-repeat="article in data.editorsPick">

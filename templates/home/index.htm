@@ -59,7 +59,7 @@
                                         <h2>
                                             <a ui-sref="app.articleDetails({ id : article.id })" class="heading" ng-bind="article[currentLang+'title']"></a>
                                         </h2>
-                                        <p class="time" ng-bind="article.date"></p>
+                                        <div class="time">{{article.date}} | <img src="assets/images/arrow-left.png" /></div>
                                         <a ui-sref="app.articleDetails({ id : article.id })" class="holder-image {{article.videoUrl != null ? 'holder-video' : ''}}">
                                             <img ng-src="{{resizeUrl+'151x104xo/'+article.image}}" class="img-blog" alt="{{article[currentLang+'title']}}" />
                                         </a>

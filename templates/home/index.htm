@@ -2,7 +2,7 @@
     <div class="top-ad-holder-mobile" ng-bind-html="data.googleAds.mobileAds.top.script | htmlSafe">
 
     </div>
-
+    <div id="HomeBottomMobileAd" class="top-ad-holder" style="display:none" ng-bind-html="data.googleAds.mobileAds.bottom.script | htmlSafe"></div>
     <div class="holder-desc">
         <p class="desc"></p>
     </div>
@@ -519,6 +519,10 @@
                                         </h3>
                                     </li>
                                 </ul>
+                            </div>
+
+                            <div id="HomeBottomMobile" class="top-ad-holder-mobile">
+
                             </div>
                 
                             <div class="holder-most-read" ng-if="false">

@@ -1127,7 +1127,14 @@ app.controller('Home_Ctrl', function ($scope, $http, $rootScope, $sce, SERVER_CO
                 var divHtml = $('#HomeBottomAd').find("iframe").eq(0).contents().find("html").html();
                 //$('#HomeBottomAd').appendTo('#NewsletterAd');
                 //$('#HomeBottomAd').find("iframe").eq(0).contents().find("html").html(divHtml);
-                $('#HomeBottomAd').show();
+                var bottomMobAd = $('#HomeBottomMobileAd').html();
+                var bottomMobAdHtml = $('#HomeBottomMobileAd').find("iframe").eq(0).contents().find("html").html();
+                $(bottomMobAd).appendTo('#HomeBottomMobile');
+                setTimeout(function(){
+                    $('#HomeBottomMobile').find("iframe").eq(0).contents().find("html").html(bottomMobAdHtml); $('#HomeBottomMobile div').css('margin-right', '0'); $('#HomeBottomMobile div').css('margin-left', '0');
+                }, 3000);
+                
+                //$('#HomeBottomAd').show();
                 navigator.splashscreen.hide();
             }, 0);
     

@@ -50,7 +50,7 @@ app.controller('Master_Ctrl', function ($scope, $rootScope, $timeout, JSHelper, 
                   $(form).parents('.form-container').addClass('loading');
                   $.ajax({
           
-                      url: $rootScope.baseurl + "Data/JoinNewsletter",
+                      url: $rootScope.baseurl + "api/Data/JoinNewsletter",
                       type: "post",
                       data: $(form).serialize(),
                       dataType: "json",

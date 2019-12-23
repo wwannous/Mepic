@@ -1831,6 +1831,9 @@ header {
 .section-blog .single-blog .holder-big-thumbnails {
     position: relative;
 }
+.home .section-blog .single-blog .holder-right {
+    padding-bottom: 15px;
+}
 @media screen and (max-width: 767px) {
     .section-video .gallery-top .holder-video img {
         height: auto;

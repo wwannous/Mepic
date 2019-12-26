@@ -38,9 +38,10 @@
 
                         </div>
                         <div class="holder-big-thumbnails" ng-if="data.homeArticles[0]">
-                            <a ui-sref="app.articleDetails({ id : data.homeArticles[0].id })" class="holder-image with-overlay {{data.homeArticles[0].videoUrl != null ? 'holder-video' : ''}}">
-                                <img ng-src="{{resizeUrl+'420x272xo/'+data.homeArticles[0].image}}" class="img-blog" alt="{{data.homeArticles[0][currentLang+'title']}}">
-                            </a>
+                            <div class="image-holder">
+                                <a ui-sref="app.articleDetails({ id : data.homeArticles[0].id })" class="holder-image with-overlay {{data.homeArticles[0].videoUrl != null ? 'holder-video' : ''}}">
+                                    <img ng-src="{{resizeUrl+'420x272xo/'+data.homeArticles[0].image}}" class="img-blog" alt="{{data.homeArticles[0][currentLang+'title']}}">
+                                </a>
                                 <div class="content-ovelay">
                                     <a ui-sref="app.articleDetails({ id : data.homeArticles[0].id })">
                                         <p class="text-overlay" ng-bind="data.homeArticles[0][currentLang+'title']"></p>
@@ -51,6 +52,7 @@
                                         <!--<li class="action-item"><span class="icon-star"></span></li>-->
                                     </ul>
                                 </div>
+                            </div>
                             <a ui-sref="app.articleDetails({ id : data.homeArticles[0].id })" class="img-desc" ng-bind-html="data.homeArticles[0][currentLang+'smallDescription'] | htmlSafe"></a>
                         </div>
                     </div>

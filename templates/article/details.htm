@@ -292,7 +292,7 @@
                             <p class="heading">الأكثر قراءة</p>
 
                             <ul class="list-item list-unstyled">
-                                <li class="item" ng-repeat="article in data.mostRead">
+                                <li class="item" ng-repeat="article in data.mostRead" ng-if="$index < 4">
                                     <h3>
                                         <a ui-sref="app.articleDetails({id : article.id})" class="link-heading" ng-bind="article[currentLang+'title']"></a>
                                     </h3>

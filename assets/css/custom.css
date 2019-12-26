@@ -1183,8 +1183,8 @@ header .menu-dropdown {
     left: 0;
     display: inline-block;
     margin: 0 auto;
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 50px;
     background-image: url(../images/play-white.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -1834,6 +1834,15 @@ header {
 .home .section-blog .single-blog .holder-right {
     padding-bottom: 15px;
 }
+.modal-newsletter .icon-close {
+    z-index: 1;
+}
+.details-article .article-desc{
+    word-wrap: break-word;
+}
+.section-blog .single-blog .holder-big-thumbnails .image-holder{
+    position: relative;
+}
 @media screen and (max-width: 767px) {
     .section-video .gallery-top .holder-video img {
         height: auto;
@@ -1896,7 +1905,7 @@ header {
         display: none;
     }
     .section-blog .single-blog .content-ovelay {
-        bottom: 50px;
+        bottom: 10px;
     }
     .details-article .prev-article {
         max-width: 155px;
@@ -1946,7 +1955,7 @@ header {
     }
 
     .direction-rtl .section-economy .link-heading {
-        max-height: 38px;
+        max-height: 47px;
     }
 
     .section-inquiry .desc {

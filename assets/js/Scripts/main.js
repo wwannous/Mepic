@@ -602,7 +602,7 @@ var swiper = new Swiper('.section-opinion .swiper-container', {
     991: {
       slidesPerView: 2,
       spaceBetween: 0,
-      loop: true,
+      loop: false,
       noSwiping: true,
       allowSlidePrev: true,
       allowSlideNext: true,
@@ -610,7 +610,7 @@ var swiper = new Swiper('.section-opinion .swiper-container', {
     767: {
       slidesPerView: 1.2,
       spaceBetween: 10,
-      loop: true,
+      loop: false,
       noSwiping: true,
       allowSlidePrev: true,
       allowSlideNext: true,

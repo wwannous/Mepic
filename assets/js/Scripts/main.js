@@ -865,6 +865,7 @@ $('.btn-news-letter').on('click', function() {
   $('body').addClass('no-scroll');
   $('main').addClass('is-lock');
 })
+}
 
 function switchZoomModal() {
   $('.modal-zoom').toggleClass('open-zoom');

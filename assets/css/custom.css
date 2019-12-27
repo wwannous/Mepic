@@ -1843,6 +1843,75 @@ header {
 .section-blog .single-blog .holder-big-thumbnails .image-holder{
     position: relative;
 }
+.infographics-image-holder{
+    position: relative;
+}
+.zoom-icon{
+    width: 15px;
+    margin: auto;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+.zoom-icon-holder{
+    position: absolute;
+    top: 9px;
+    right: 25px;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    padding: 3px;
+    border-radius: 12px;
+}
+.section-video .holder-video .holder-content{
+    bottom: 26px;
+}
+.section-video .holder-video .holder-actions{
+    bottom: -23px;
+}
+.modal-zoom.open-zoom {
+    opacity: 1;
+    pointer-events: all;
+}
+.modal-zoom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1050;
+    background-color: white;
+    opacity: 0;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+    pointer-events: none;
+}
+.modal-zoom .zoom-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 170px auto 0;
+    padding-top: 67px;
+    padding-bottom: 26px;
+    background-color: #fff;
+}
+.modal-zoom .icon-close {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    cursor: pointer;
+    z-index: 1;
+}
+.zoomPic img{
+    width: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
 @media screen and (max-width: 767px) {
     .section-video .gallery-top .holder-video img {
         height: auto;
@@ -1916,6 +1985,14 @@ header {
         flex: 0 0 49%;
         max-width: 155px;
     }
+    .modal-zoom .newsletter-zoom {
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto 0;
+        padding-left: 30px;
+        padding-right: 30px;
+        overflow-y: auto;
+    }
 }
 @media screen and (max-width: 767px) {
     header .header-logo-menu {
@@ -1967,6 +2044,10 @@ header {
 @media screen and (max-width:575px) {
     .listing-articles .section-list-article .holder-right-side .article-list .holder-image {
         height: auto;
+    }
+    .modal-zoom .newsletter-zoom {
+        padding-left: 11px;
+        padding-right: 11px;
     }
 }
 

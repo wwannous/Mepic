@@ -1943,6 +1943,21 @@ header {
 .multiple-blog .editor-holder li .icon-pencil{
     margin-left: 5px;
 }
+.section-about-content .holder-about-content h3{
+    font: 20px "tajawal-bold";
+    color: #32BCC7;
+    margin: 10px 0px;
+}
+.section-about-content .holder-about-content h4 {
+    font: 18px "tajawal-bold";
+    color: #005A80;
+    margin: 10px 0px;
+}
+.section-about-content .holder-about-content h5 {
+    font: 16px "tajawal-bold";
+    color: #9BD2AD;
+    margin: 10px 0px;
+}
 @media screen and (max-width: 767px) {
     .section-video .gallery-top .holder-video img {
         height: auto;

@@ -559,6 +559,14 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
         //event.preventDefault();
         //return addthis_open(event.currentTarget, '', $rootScope.websiteUrl+param2, param3);
         //addthis_open($rootScope.websiteUrl+link, $rootScope.websiteUrl+link, $rootScope.websiteUrl+link,);
+        var url = "";
+        if(param2.indexOf('http') !== -1){
+            url = param2;
+        }
+        else{
+            url = $rootScope.websiteUrl+param2;
+        }
+
         var message_title = param3;
         if (param3.substr(param3.length - 1) != ('.' || '!' || '?')) {
             message_title = message_title + ". ";
@@ -570,7 +578,7 @@ app.run(function ($uiRouter, $rootScope, Basket, $transitions, $state, $statePar
             //message: message_title + "Follow this link : ", // not supported on some apps (Facebook, Instagram)
             //subject: param3, // fi. for email
             //files: ['', ''], // an array of filenames either locally or remotely
-            url: $rootScope.websiteUrl+param2,
+            url: url,
             chooserTitle: 'Pick an app', // Android only, you can override the default share sheet title
             // appPackageName: 'com.apple.social.facebook' // Android only, you can provide id of the App you want to share with
         };

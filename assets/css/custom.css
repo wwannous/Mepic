@@ -505,6 +505,7 @@ div.at4-arrow {
 
 .section-blog .holder-actions .icon-arrow-left {
     cursor: pointer;
+    margin-right: 5px;
 }
 
 .section-economy .holder-article-sm .item > a {
@@ -1926,6 +1927,21 @@ header {
 .modal-zoom .btn-close{
     margin: auto;
     margin-bottom: 45px;
+}
+.direction-rtl .section-blog .time .share-icon, .direction-rtl .section-leaders .holder-actions .icon-arrow-left{
+    margin-right: 5px;
+}
+.editor-item {
+    position: relative;
+    font: 17px "tajawal-bold";
+}
+.multiple-blog .editor-holder{
+    padding-right: 0px;
+    text-align: right;
+    margin-bottom: 5px;
+}
+.multiple-blog .editor-holder li .icon-pencil{
+    margin-left: 5px;
 }
 @media screen and (max-width: 767px) {
     .section-video .gallery-top .holder-video img {

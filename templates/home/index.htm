@@ -63,7 +63,10 @@
                                         <h2>
                                             <a ui-sref="app.articleDetails({ id : article.id })" class="heading" ng-bind="article[currentLang+'title']"></a>
                                         </h2>
-                                        <div class="time">{{article.date}} | <img ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" src="assets/images/arrow-left.png" /></div>
+                                        <ul class="editor-holder">
+                                            <li class="editor-item" ng-repeat="writer in article.writers"><img class="icon-pencil" src="assets/images/pencil.png" alt="">{{writer[currentLang+'fullName']}}</li>
+                                        </ul>
+                                        <div class="time">{{article.date}} | <img class="share-icon" ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)" src="assets/images/arrow-left.png" /></div>
                                         <a ui-sref="app.articleDetails({ id : article.id })" class="holder-image {{article.videoUrl != null ? 'holder-video' : ''}}">
                                             <img ng-src="{{resizeUrl+'151x104xo/'+article.image}}" class="img-blog" alt="{{article[currentLang+'title']}}" />
                                         </a>
@@ -101,6 +104,7 @@
                 </div>
                 <div class="holder-ads holder-infographics" ng-if="data.infographics != null">
                     <h2 class="title" ng-bind="data.infographics.artitle"></h2>
+                    <div class="infographics-share" ng-click="addthis_send($event, '', data.infographics.imgSrc, 'Awalan - '+article.artitle)"><img src="assets/images/arrow-left.png" width="20px" class="img-info" alt="share"></div>
                     <div class="infographics-image-holder">
                     <!-- <a ui-sref="app.articleCategory({ id : data.infographics.id })"> -->
                         <img ng-src="{{resizeUrl+'350x260xo/'+data.infographics.image}}" class="img-info" alt="{{data.infographics.artitle}}">

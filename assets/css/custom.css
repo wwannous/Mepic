@@ -1645,13 +1645,13 @@ img.half-page-img {
     margin-bottom: 10px;
 }
 
-.article-desc H4 {
+.article-desc h4 {
     font: 18px "tajawal-bold";
     color: #005A80;
     margin: 10px 0px;
 }
 
-.article-desc H5 {
+.article-desc h5 {
     font: 16px "tajawal-bold";
     color: #9BD2AD;
     margin: 10px 0px;

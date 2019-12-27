@@ -1527,6 +1527,7 @@ button{
 }
 aside.widgets-area .holder-ads > div{
     margin: auto;
+    width: fit-content;
 }
 .top-ad-holder {
     max-width: 970px;
@@ -1891,7 +1892,7 @@ header {
 .modal-zoom .zoom-wrapper {
     position: relative;
     width: 100%;
-    margin: 170px auto 0;
+    margin: 0px auto 0;
     padding-top: 67px;
     padding-bottom: 26px;
     background-color: #fff;
@@ -1909,8 +1910,13 @@ header {
 }
 .zoomPic img{
     width: 100%;
-    margin-left: 15px;
-    margin-right: 15px;
+}
+.modal-zoom .form-holder{
+    margin: 0 15px;
+}
+.modal-zoom .btn-close{
+    margin: auto;
+    margin-bottom: 45px;
 }
 @media screen and (max-width: 767px) {
     .section-video .gallery-top .holder-video img {
@@ -1992,6 +1998,9 @@ header {
         padding-left: 30px;
         padding-right: 30px;
         overflow-y: auto;
+    }
+    header .menu-dropdown .holder-top .arrow-back:before {
+        transform: rotate(-45deg);
     }
 }
 @media screen and (max-width: 767px) {

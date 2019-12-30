@@ -852,6 +852,10 @@ function openPopupNewsletter() {
       $('.modal-newsletter').removeClass('open-newsletter');
       $('body').removeClass('no-scroll');
       $('main').removeClass('is-lock');
+      $(window).scrollTop(0);
+      setTimeout(function(){
+        $(window).scrollTop(1);
+      }, 300);
   });
 
 $(document).on('click', function (e) {

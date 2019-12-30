@@ -426,7 +426,7 @@
                                                         </a>
                                                         <ul class="holder-actions list-unstyled">
                                                             <li class="action-item" ng-if="category.articles[0].date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : category.articles[0].id })" ng-bind="category.articles[0].date"></a></li>
-                                                            <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+category.articles[0].id, 'Awalan - '+category.articles[0].artitle)"><span class="icon-arrow-left"></span></a></li>
+                                                            <li class="action-item share-item"><span class="icon-arrow-left" ng-click="addthis_send($event, '', 'Article/'+category.articles[0].id, 'Awalan - '+category.articles[0].artitle)"></span></li>
                                                             <li class="action-item"><span class="icon-star"></span></li>
                                                         </ul>
                                             </div>

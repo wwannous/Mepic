@@ -742,8 +742,8 @@ header .menu-dropdown .img-holder-thumb {
     .section-video .holder-actions .action-item:after {
         content: "";
         position: absolute;
-        left: -14px;
-        top: 5px;
+        left: -7px;
+        top: 1px;
         height: 13px;
         border-left: 1px solid #cecece;
     }
@@ -1254,7 +1254,7 @@ header .menu-dropdown {
     }
 }
 .section-video .holder-actions .icon-clock{
-    margin-top:3px;
+    margin-top:0px;
 }
 .section-technology .holder-actions .icon-clock{
     margin-top: 3px;
@@ -1298,6 +1298,20 @@ header .menu-dropdown {
 .section-video .desc{
     height:50px;
     overflow:hidden;
+}
+.section-video .gallery-thumbs .desc {
+    position: absolute;
+    opacity: 1;
+    top: 27px;
+    bottom: 50px;
+    max-height: 45px;
+    width: calc(100% - 10px);
+}
+.section-video .gallery-thumbs .holder-actions {
+    bottom: 0px;
+}
+.section-video .gallery-thumbs .holder-actions .action-item.share-item{
+    margin-top: -5px;
 }
 .details-article .gallery-thumb-full {
     position: relative;
@@ -1869,10 +1883,10 @@ header {
     border-radius: 12px;
 }
 .section-video .holder-video .holder-content{
-    bottom: 26px;
+    bottom: 35px;
 }
 .section-video .holder-video .holder-actions{
-    bottom: -23px;
+    bottom: -32x;
 }
 .modal-zoom.open-zoom {
     opacity: 1;

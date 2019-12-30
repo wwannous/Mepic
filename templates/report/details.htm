@@ -12,7 +12,7 @@
 
                 <div class="holder-right">
                         <div class="featured-article">
-                            <a onclick="javascript:history.go(-1);" class="btn-close"></a>
+                            <a ng-click="goBack()" class="btn-back"><i class="fas fa-arrow-left"></i></a>
 
                             <div class="img-featured-wrapper">
                                 <img class="img-featured-article" ng-src="{{resizeUrl+'1000x248xi/'+data.report.image}}" alt="{{data.report[currentLang+'title']}}">

@@ -830,7 +830,10 @@ $('body .article-has-video').click(function () {
 $('body .popup-wrapper .icon-close').click(function (){
   $(this).parents('.popup-wrapper').removeClass('open-popup');
   $('body').removeClass('no-scroll');
-  $(window).scrollTop(1);
+  $(window).scrollTop(0);
+  setTimeout(function(){
+    $(window).scrollTop(1);
+  }, 300);
 });
 
 }
@@ -871,6 +874,10 @@ function switchZoomModal() {
   $('.modal-zoom').toggleClass('open-zoom');
   $('body').toggleClass('no-scroll');
   $('main').toggleClass('is-lock');
+  $(window).scrollTop(0);
+  setTimeout(function(){
+    $(window).scrollTop(1);
+  }, 300);
 }
 
 

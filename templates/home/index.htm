@@ -105,10 +105,10 @@
                 <div class="holder-ads holder-infographics" ng-if="data.infographics != null">
                     <h2 class="title" ng-bind="data.infographics.artitle"></h2>
                     <div class="infographics-share" ng-click="addthis_send($event, '', data.infographics.imgSrc, 'Awalan - '+article.artitle)"><img src="assets/images/arrow-left.png" width="20px" class="img-info" alt="share"></div>
-                    <div class="infographics-image-holder">
+                    <div class="infographics-image-holder" onclick="switchZoomModal()">
                     <!-- <a ui-sref="app.articleCategory({ id : data.infographics.id })"> -->
                         <img ng-src="{{resizeUrl+'350x260xo/'+data.infographics.image}}" class="img-info" alt="{{data.infographics.artitle}}">
-                        <div class="zoom-icon-holder" onclick="switchZoomModal()">
+                        <div class="zoom-icon-holder">
                             <img ng-src="assets/images/zoom.png" class="zoom-icon" alt="zoom in">
                         </div>
                     </div>

@@ -365,7 +365,7 @@ footer .holder-link-list.footer-categories {
     margin: auto;
     width: 35px;
     height: 35px;
-    background-image: url(../assets/images/play-white.png);
+    background-image: url(../images/play-white.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -383,25 +383,25 @@ footer .holder-link-list.footer-categories {
     margin: auto;
     width: 35px;
     height: 35px;
-    background-image: url(../assets/images/play-white.png);
+    background-image: url(../images/play-white.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    z-index: 1;
+    z-index: 0;
 }
 
 .video-category .holder-image:active:after, .video-category .holder-image:focus:after, .video-category .holder-image:hover:after,
 .video-category .holder-single-image a:active:after, .video-category .holder-single-image a:focus:after, .video-category .holder-single-image a:hover:after, .holder-video:after:hover, .holder-video:hover a:after {
-    background-image: url(../assets/images/play-torq.png) !important;
+    background-image: url(../images/play-torq.png) !important;
 }
 .section-blog .single-blog .holder-big-thumbnails .holder-image.holder-video:hover:before {
-    background-image: url(../assets/images/play-torq.png) !important;
+    background-image: url(../images/play-torq.png) !important;
     background-repeat: no-repeat;
     background-size: initial;
     background-position: center;
 }
 .section-blog .single-blog .holder-big-thumbnails .holder-image.holder-video:hover:after {
-    background-image: url(../assets/images/play-torq.png) !important;
+    background-image: url(../images/play-torq.png) !important;
     background-repeat: no-repeat;
     background-position: center;
 }

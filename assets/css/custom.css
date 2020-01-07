@@ -701,9 +701,9 @@ header .menu-dropdown .img-holder-thumb {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
     margin: 10px 0 0;
     padding-right: 5px;
     -webkit-transition: all .3s ease-in-out;
@@ -716,7 +716,7 @@ header .menu-dropdown .img-holder-thumb {
         display: flex;
         position: relative;
         margin-left: 18px;
-        font-size: 14px;
+        font-size: 2.9vw;
         font-family: "tajawal-medium";
         color: #fff;
     }
@@ -1257,10 +1257,18 @@ header .menu-dropdown {
     margin-top:0px;
 }
 .section-technology .holder-actions .icon-clock{
-    margin-top: 3px;
+    margin-top: 0px;
 }
 .section-technology .holder-image a{
     height: 100%;
+}
+.section-technology .holder-actions .action-item {
+    margin-left: 28px;
+}
+.section-technology .holder-actions {
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
 }
 @media screen and (max-width: 991px) {
     .section-video .gallery-thumbs .holder-video img {
@@ -1980,6 +1988,33 @@ header {
     position: absolute;
     top: 9px;
     left: 18px;
+}
+.section-market .holder-actions .action-item:after {
+    top: 1px;
+}
+.section-market .holder-actions {
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+}
+.section-inquiry .holder-actions .action-item:after {
+    top: 2px;
+}
+.section-inquiry .holder-actions {
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+}
+.section-technology .holder-actions .action-item:after {
+    top: 2px;
+}
+.section-leaders .holder-actions {
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+}
+.section-leaders .holder-actions .action-item:after {
+    top: 2px;
 }
 @media screen and (max-width: 767px) {
     .section-video .gallery-top .holder-video img {

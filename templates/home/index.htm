@@ -20,6 +20,9 @@
                             <h2>
                                 <a ui-sref="app.articleDetails({ id : data.homeArticles[1].id })" class="heading" ng-bind="data.homeArticles[1][currentLang+'title']"></a>
                             </h2>
+                            <ul class="editor-holder">
+                                <li class="editor-item" ng-repeat="writer in data.homeArticles[1].writers"><img class="icon-pencil" src="assets/images/pencil.png" alt="">{{writer[currentLang+'fullName']}}</li>
+                            </ul>
                             <a ui-sref="app.articleDetails({ id : data.homeArticles[1].id })" class="short-decs" ng-bind-html="data.homeArticles[1][currentLang+'smallDescription'] | htmlSafe"></a>
                             <ul class="holder-actions list-unstyled">
                                 <li class="action-item" ng-if="data.homeArticles[1].date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : data.homeArticles[1].id })" ng-bind="data.homeArticles[1].date"></a></li>
@@ -53,6 +56,9 @@
                                     </ul>
                                 </div>
                             </div>
+                            <ul class="editor-holder">
+                                <li class="editor-item" ng-repeat="writer in data.homeArticles[0].writers"><img class="icon-pencil" src="assets/images/pencil.png" alt="">{{writer[currentLang+'fullName']}}</li>
+                            </ul>
                             <a ui-sref="app.articleDetails({ id : data.homeArticles[0].id })" class="img-desc" ng-bind-html="data.homeArticles[0][currentLang+'smallDescription'] | htmlSafe"></a>
                         </div>
                     </div>

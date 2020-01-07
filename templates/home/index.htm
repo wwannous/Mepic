@@ -440,11 +440,9 @@
                                         <div class="swiper-slide" ng-repeat="article in category.articles" ng-if="$index > 0 && $index < 4">
                 
                                             <div class="holder-video">
-                                                <a class="videoLink" ui-sref="app.articleDetails({ id : article.id })"></a>
-                                                <a ui-sref="app.articleDetails({ id : article.id })">
+                                                    <a class="videoLink" ui-sref="app.articleDetails({ id : article.id })"></a>
                                                     <img ng-src="{{resizeUrl+'418x215xi/'+article.image}}" alt="{{article[currentLang+'title']}}">
                                                     <p class="desc" ng-bind="article[currentLang+'title']"></p>
-                                                </a>
                                                 <ul class="holder-actions list-unstyled">
                                                     <li class="action-item" ng-if="article.date != null"><span class="icon-clock"></span><a ui-sref="app.articleDetails({ id : article.id })" ng-bind="article.date"></a></li>
                                                     <li class="action-item"><a ng-click="addthis_send($event, '', 'Article/'+article.id, 'Awalan - '+article.artitle)"><span class="icon-arrow-left"></span></a></li>

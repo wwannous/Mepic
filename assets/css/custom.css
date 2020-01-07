@@ -1302,13 +1302,13 @@ header .menu-dropdown {
 .section-video .gallery-thumbs .desc {
     position: absolute;
     opacity: 1;
-    top: 27px;
-    bottom: 50px;
+    top: initial;
+    bottom: 27px;
     max-height: 45px;
     width: calc(100% - 10px);
 }
-.section-video .gallery-thumbs .holder-actions {
-    bottom: 0px;
+.section-video .gallery-thumbs .holder-video .holder-actions {
+    bottom: 5px;
 }
 .section-video .gallery-thumbs .holder-actions .action-item.share-item{
     margin-top: -5px;
@@ -1886,7 +1886,7 @@ header {
     bottom: 35px;
 }
 .section-video .holder-video .holder-actions{
-    bottom: -32x;
+    bottom: -32px;
 }
 .modal-zoom.open-zoom {
     opacity: 1;

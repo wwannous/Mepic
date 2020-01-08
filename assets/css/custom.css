@@ -2046,6 +2046,9 @@ header {
 .direction-rtl .details-article .article-has-video:after {
     transform: rotate(-180deg);
 }
+.direction-rtl .video-category .holder-single-image a:after,.direction-rtl .video-category .holder-image:after,.direction-rtl .listing-articles .section-three-article .holder-right-side .holder-image.holder-video:after,.direction-rtl .listing-articles .holder-single-image.holder-video a:after,.direction-rtl .details-malafat .featured-img-list-holder.holder-video a:after,.direction-rtl .section-blog .single-blog .holder-big-thumbnails .holder-image.holder-video:before,.direction-rtl .section-blog .multiple-blog .holder-image.holder-video:after,.direction-rtl .home-blog-container .swiper-slide a.holder-video:after{
+    transform: rotate(-180deg);
+}
 @media screen and (max-width: 767px) {
     .section-video .gallery-top .holder-video img {
         height: auto;

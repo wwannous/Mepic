@@ -716,7 +716,7 @@ header .menu-dropdown .img-holder-thumb {
         display: flex;
         position: relative;
         margin-left: 18px;
-        font-size: 2.9vw;
+        font-size: 13px;
         font-family: "tajawal-medium";
         color: #fff;
     }
@@ -2039,6 +2039,12 @@ header {
 }
 .details-article .navigation-holder .published .share-link{
     margin-top: 0px;
+}
+.direction-rtl .holder-video:after {
+    transform: rotate(-180deg) !important;
+}
+.direction-rtl .details-article .article-has-video:after {
+    transform: rotate(-180deg);
 }
 @media screen and (max-width: 767px) {
     .section-video .gallery-top .holder-video img {

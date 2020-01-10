@@ -471,7 +471,7 @@
                                 <div class="swiper-slide" ng-repeat="article in category.articles">
                                     <div class="holder-box">
                                         <a ui-sref="app.articleDetails({ id : article.id })" class="holder-image">
-                                            <img ng-src="{{resizeUrl+'418x215xi/'+article.image}}" alt="{{article[currentLang+'title']}}">
+                                            <img ng-src="{{resizeUrl+'418x215xi/'+article.homeImgSrc}}" alt="{{article[currentLang+'title']}}">
                                         </a>
                 
                                         <div class="holder-description">
@@ -570,7 +570,7 @@
                                 <div class="swiper-slide" ng-repeat="article in category.articles">
                                     <div class="holder-box">
                                         <a ui-sref="app.articleDetails({ id : article.id })" class="holder-image">
-                                            <img ng-src="{{resizeUrl+'1000x249xi/'+article.image}}" alt="{{article[currentLang+'title']}}">
+                                            <img ng-src="{{resizeUrl+'1000x249xi/'+article.homeImgSrc}}" alt="{{article[currentLang+'title']}}">
                                         </a>
                 
                                         <div class="holder-info">
